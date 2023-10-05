@@ -1,23 +1,40 @@
-import logo from '../logo.svg';
-import '../App.css';
+import { Outlet, Route, Routes } from "react-router-dom"
+import { Fragment } from "react";
+import Accueil from "./Accueil"
+import Footer from "../components/Footer";
 
-function App() {
+
+const Layout = () => {
+  return(
+    <Fragment>
+      <Footer />
+    </Fragment>
+  )
+}
+
+const LayoutIndex = () => {
+  return(
+    <Fragment>
+      <Accueil />
+      <Footer />
+    </Fragment>
+  )
+}
+
+const Content = () => {
+  return(
+    <Routes>
+      <Route index element={<LayoutIndex />} />
+      <Route path="/" element={<Layout />}>
+      </Route>
+    </Routes>
+  )
+}
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App lg:text-xl text-lg lg:font-medium font-normal relative overflow-x-hidden">
+      <Content />
     </div>
   );
 }
