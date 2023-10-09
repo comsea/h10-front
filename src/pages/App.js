@@ -2,6 +2,7 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { Fragment } from "react";
 import Accueil from "./Accueil"
 import Footer from "../components/Footer";
+import HeaderAccueil from "../components/HeaderAccueil";
 
 
 const Layout = () => {
@@ -15,6 +16,7 @@ const Layout = () => {
 const LayoutIndex = () => {
   return(
     <Fragment>
+      <HeaderAccueil />
       <Accueil />
       <Footer />
     </Fragment>
