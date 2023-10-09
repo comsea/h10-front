@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import HeaderAccueil from "../components/HeaderAccueil";
 import Navbar from "../components/Navbar";
 import Presentation from "./Presentation";
+import Banderole from "../components/Banderole ";
 
 
 const Layout = () => {
@@ -22,6 +23,7 @@ const LayoutIndex = () => {
     <Fragment>
       <Navbar />
       <HeaderAccueil />
+      <Banderole />
       <Accueil />
       <Footer />
     </Fragment>

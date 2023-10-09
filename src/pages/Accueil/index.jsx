@@ -1,7 +1,7 @@
 const Accueil = () => {
     return(
         <div>
-            Test
+            
         </div>
     )   
 }
