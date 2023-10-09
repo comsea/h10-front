@@ -3,11 +3,15 @@ import { Fragment } from "react";
 import Accueil from "./Accueil"
 import Footer from "../components/Footer";
 import HeaderAccueil from "../components/HeaderAccueil";
+import Navbar from "../components/Navbar";
+import Presentation from "./Presentation";
 
 
 const Layout = () => {
   return(
     <Fragment>
+      <Navbar />
+      <Outlet />
       <Footer />
     </Fragment>
   )
@@ -16,6 +20,7 @@ const Layout = () => {
 const LayoutIndex = () => {
   return(
     <Fragment>
+      <Navbar />
       <HeaderAccueil />
       <Accueil />
       <Footer />
@@ -28,6 +33,7 @@ const Content = () => {
     <Routes>
       <Route index element={<LayoutIndex />} />
       <Route path="/" element={<Layout />}>
+        <Route path="presentation" element={<Presentation />}/>
       </Route>
     </Routes>
   )
@@ -35,7 +41,7 @@ const Content = () => {
 
 const App = () => {
   return (
-    <div className="App lg:text-xl text-lg lg:font-medium font-normal relative overflow-x-hidden">
+    <div className="App lg:text-lg text-base lg:font-medium font-normal relative overflow-x-hidden">
       <Content />
     </div>
   );
