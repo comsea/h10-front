@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import bg from "../../asset/bg-hda.png"
 
 const Header = (headerProps) => {
