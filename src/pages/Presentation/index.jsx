@@ -79,16 +79,16 @@ const Presentation = () => {
                 <div class="w-11/12 lg:w-10/12 mx-auto text-center lg:text-start">
                     <p class="text-darkblue font-normal text-2xl lg:text-4xl mb-2">Nos valeurs et raisons d'être</p>
                     <h3 class="text-3xl lg:text-5xl font-semibold mb-12">Quelles sont les <span class="text-darkblue"> valeurs </span> et <span class="text-darkblue"> raisons d'être</span>de Réseau H10 ?</h3>
-                    <div class="w-9/12 mx-auto flex flex-col lg:flex-row text-xl lg:text-2xl uppercase tracking-widest text-darkblue">
-                        <div class="bg-white w-1/3 rounded-t-full h-auto flex flex-col items-center justify-end pb-6">
+                    <div class="w-9/12 mx-auto items-center flex flex-col lg:flex-row text-xl lg:text-2xl uppercase tracking-widest text-darkblue">
+                        <div class="bg-white lg:w-1/3 rounded-t-full h-auto flex flex-col items-center justify-end pb-6">
                             <img src={proximite} class="w-1/2 mt-20 mb-6" alt="Illustration représentant la proximité" />
                             Proximité
                         </div>
-                        <div class="bg-white mx-16 w-1/3 rounded-t-full h-auto flex flex-col items-center justify-end pb-6">
+                        <div class="bg-white lg:mx-16 lg:w-1/3 rounded-t-full h-auto flex flex-col items-center justify-end my-12 pb-6">
                             <img src={security} class="w-1/2 mt-20 mb-6" alt="Illustration représentant la sécurité" />
                             Sécurité
                         </div>
-                        <div class="bg-white w-1/3 rounded-t-full h-auto flex flex-col items-center justify-end pb-6">
+                        <div class="bg-white lg:w-1/3 rounded-t-full h-auto flex flex-col items-center justify-end pb-6">
                             <img src={independance} class="w-1/2 mt-20 mb-6" alt="Illustration représentant la proximité" />
                             Indépendance
                         </div>
