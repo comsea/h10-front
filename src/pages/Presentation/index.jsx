@@ -1,15 +1,15 @@
-import Header from "../../components/Header"
-import presentation from "../../asset/Header/presentation.png"
-import logo from "../../asset/logo_h10.png"
-import bg from "../../asset/bg-hda.png"
-import carte from "../../asset/carte.png"
-import particulier from "../../asset/particluier.png"
-import professionnel from "../../asset/professionnel.png"
-import down from "../../asset/Svg/down.svg"
-import mockup from "../../asset/mockup.png"
-import proximite from "../../asset/proximité.png"
-import independance from "../../asset/indépendance.png"
-import security from "../../asset/security.png"
+import Header from "../../components/Header";
+import presentation from "../../asset/Header/presentation.png";
+import logo from "../../asset/logo_h10.png";
+import bg from "../../asset/bg-hda.png";
+import carte from "../../asset/carte.png";
+import particulier from "../../asset/particluier.png";
+import professionnel from "../../asset/professionnel.png";
+import down from "../../asset/Svg/down.svg";
+import mockup from "../../asset/mockup.png";
+import proximite from "../../asset/proximité.png";
+import independance from "../../asset/indépendance.png";
+import security from "../../asset/security.png";
 
 const Presentation = () => {
     

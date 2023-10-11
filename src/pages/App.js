@@ -6,7 +6,8 @@ import HeaderAccueil from "../components/HeaderAccueil";
 import Navbar from "../components/Navbar";
 import Presentation from "./Presentation";
 import Banderole from "../components/Banderole ";
-
+import Partenaires from "./Partenaires";
+import Contact from "./Contact";
 
 const Layout = () => {
   return(
@@ -36,6 +37,8 @@ const Content = () => {
       <Route index element={<LayoutIndex />} />
       <Route path="/" element={<Layout />}>
         <Route path="presentation" element={<Presentation />}/>
+        <Route path='partenaires' element={<Partenaires/>}/>
+        <Route path='contact' element={<Contact/>}/>
       </Route>
     </Routes>
   )
