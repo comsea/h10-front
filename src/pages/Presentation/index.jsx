@@ -1,7 +1,6 @@
 import Header from "../../components/Header";
 import presentation from "../../asset/Header/presentation.png";
 import logo from "../../asset/logo_h10.png";
-import bg from "../../asset/bg-hda.png";
 import carte from "../../asset/carte.png";
 import particulier from "../../asset/particluier.png";
 import professionnel from "../../asset/professionnel.png";
@@ -10,6 +9,9 @@ import mockup from "../../asset/mockup.png";
 import proximite from "../../asset/proximité.png";
 import independance from "../../asset/indépendance.png";
 import security from "../../asset/security.png";
+import past from "../../asset/Svg/past.svg"
+import before from "../../asset/Svg/before.svg"
+import test from "../../asset/test.png"
 
 const Presentation = () => {
     
@@ -35,8 +37,9 @@ const Presentation = () => {
                     <img src={logo} class="lg:w-2/3 h-auto" alt="Logo du Réseau H10" />
                 </div>
             </div>
+
             {/* SECTEUR D'ACTIVITÉ */}
-           <div class="bg-darkblue py-10 text-white w-full h-auto font-semibold text-center lg:text-start">
+            <div class="bg-darkblue py-10 text-white w-full h-auto font-semibold text-center lg:text-start">
                 <div class="w-11/12 lg:w-10/12 mx-auto flex items-center flex-col lg:flex-row-reverse">
                     <div class="lg:w-3/5 lg:pl-8 xl:pl-32">
                         <p class="text-blue font-normal text-2xl lg:text-4xl mb-2">Notre secteur d'activités</p>
@@ -52,6 +55,7 @@ const Presentation = () => {
                     </div>
                 </div>
             </div>
+
             {/* CLIENTÈLE */}
             <div class="w-11/12 lg:w-10/12 text-black text-center mx-auto py-10">
                 <p class="text-darkblue font-normal text-2xl lg:text-4xl mb-2">Notre clientèle</p>
@@ -70,10 +74,12 @@ const Presentation = () => {
                         <p class="font-normal text-xl xl:text-4xl mt-2 leading-relaxed mb-4">
                         Pour les professionnels dans leurs<br></br>obligations comptables, fiscales,<br></br>  juridiques et sociales. Il prodigue...
                         </p>
+                        {/* faire drop down */}
                         <img src={down} class="w-4" alt="icon pour voir plus de texte" />
                     </div>
                 </div>
             </div>
+
             {/* VALEURS ET RAISON D'ÊTRE */}
             <div class="bg-gray py-10">
                 <div class="w-11/12 lg:w-10/12 mx-auto text-center lg:text-start">
@@ -112,10 +118,39 @@ const Presentation = () => {
                         et des profils de juristes <i>qualifiés</i> en droits des sociétés.
                     </p>
                     {/* employé */}
+                    <div class="flex justify-end mt-16 mb-10">
+                        {/* pagination bouton past/before */}
+                        <div class="bg-gray rounded-lg mr-1">
+                            <img src={before} alt="icon pour voir la page précédente" class="px-7 py-4"/>
+                        </div>
+                        <div class="bg-white shadow-2xl rounded-lg">
+                            <img src={past} alt="icon pour voir la page suivante" class="px-7 py-4"/>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 grid-rows-3 gap-3 text-start text-darkblue text-2xl font-normal">
+                        {/* faire boucle employé */}
+                        <div class="rounded-2xl bg-white">
+                            <img src={test} alt="photo de l'employé TEST" class="w-full h-auto rounded-t-2xl" />
+                            <div class="ml-5 my-5">
+                                <p class="uppercase leading-normal font-semibold">PRENOM NOM</p>
+                                <p>Entreprise</p>
+                                <p>rôle dans l'entreprise</p>
+                                <p>prénom@nom.fr</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {/* pagination */}
+                    <div class="flex justify-end space-x-1">
+                        <div class="w-4 h-4 rounded-full bg-blue"></div>
+                        <div class="w-4 h-4 rounded-full bg-white"></div>
+                        <div class="w-4 h-4 rounded-full bg-white"></div>
+                        <div class="w-4 h-4 rounded-full bg-white"></div>
+                    </div>
                 </div>
             </div>
 
-            {/* UNIO SECTION */}
+            {/* UNION SECTION */}
             <div class="w-11/12 lg:w-7/12 mx-auto flex-col lg:flex-row flex text-center lg:text-start py-10">
                 <div class="lg:w-2/5">
                     <p class="text-darkblue font-normal text-2xl lg:text-4xl mb-2">Notre visibilité</p>
