@@ -9,6 +9,8 @@ import { Link } from "react-router-dom"
 import Cabinet from "../../components/Cabinet"
 
 const Partenaires = () => {
+    
+
     return(
         <div>
             <Header title="Un réseau en partenariat" text="Découvrez le réseau H10 ! Plus de 100 employés, dans cinq entreprises différentes." image={partenaires}/>
@@ -45,8 +47,10 @@ const Partenaires = () => {
                 <p class="text-lg text-darkblue mb-20">Envie de rejoindre notre réseau de partenaires ? <a class="underline" href="/contact">Contacter nous dès maintenant</a></p>
 
             </div>
+            
         </div>
-    )
+    );
+    
 }
 
 export default Partenaires

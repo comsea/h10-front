@@ -1,13 +1,14 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { Fragment } from "react";
-import Accueil from "./Accueil"
+import Accueil from "./Accueil";
+import Partenaires from "./Partenaires";
+import Contact from "./Contact";
+import Presentation from "./Presentation";
+import Engagement from "./Engagement";
 import Footer from "../components/Footer";
 import HeaderAccueil from "../components/HeaderAccueil";
 import Navbar from "../components/Navbar";
-import Presentation from "./Presentation";
 import Banderole from "../components/Banderole ";
-import Partenaires from "./Partenaires";
-import Contact from "./Contact";
 
 const Layout = () => {
   return(
@@ -39,6 +40,7 @@ const Content = () => {
         <Route path="presentation" element={<Presentation />}/>
         <Route path='partenaires' element={<Partenaires/>}/>
         <Route path='contact' element={<Contact/>}/>
+        <Route path='engagement'element={<Engagement/>}/>
       </Route>
     </Routes>
   )

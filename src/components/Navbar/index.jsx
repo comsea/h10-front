@@ -18,7 +18,7 @@ const Navbar = () => {
                     <Link to="/">Valeur ajoutée</Link>
                     <Link to="/">Expertises</Link>
                     <Link to="/">Actualités</Link>
-                    <Link to="/">Engagement RSE</Link>
+                    <Link to="engagement">Engagement RSE</Link>
                     <Link to="/">Postuler</Link>
                 </div>
                 <div className="w-[200px] flex justify-end items-end">

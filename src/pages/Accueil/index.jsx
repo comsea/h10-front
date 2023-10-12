@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 import img from "../../asset/homepageh10.png"
 import cross from "../../asset/Svg/cross.svg"
 
@@ -6,6 +8,20 @@ import cross from "../../asset/Svg/cross.svg"
 // let handleOpen = 0;
 
 const Accueil = () => {
+    const [apiData, setApiData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:1337/api/expertises')
+      .then(response => response.json())
+      .then(data => {
+        const dataArray = Array.isArray(data) ? data : [data];
+        setApiData(dataArray);
+      })
+    
+      .catch(error => {
+        // Gérez les erreurs ici
+      });
+  }, []);
     return(
         <div class="lg:w-10/12 mx-auto">
             {/* NOS EXPERTISES */}
@@ -22,6 +38,14 @@ const Accueil = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+            {apiData && apiData.map(item => (
+                <div key={item.id}>
+                <h2>{item.attributes.title}</h2>
+                <p>{item.attributes.description}</p>
+                </div>
+            ))}
             </div>
         </div>
     )   
