@@ -5,11 +5,8 @@ import actualys from "../../asset/Cabinets/couleur/actualys.svg"
 import fizalys from "../../asset/Cabinets/couleur/fizalys.svg"
 import cwa from "../../asset/Cabinets/couleur/cwa.svg"
 import hmc from "../../asset/Cabinets/couleur/hmc.svg"
-import phone from "../../asset/Svg/phone.svg"
-import web from "../../asset/Svg/website.svg"
-import map from "../../asset/Svg/maps.svg"
 import { Link } from "react-router-dom"
-
+import Cabinet from "../../components/Cabinet"
 
 const Partenaires = () => {
     return(
@@ -41,25 +38,7 @@ const Partenaires = () => {
 
                 {/* TABLE CONTENT*/}
                 <div class="bg-gray rounded-2xl text-start">
-                    <div class="w-11/12 mx-auto py-20 my-20">
-                        <h3 class="text-darkblue font-semibold text-5xl mb-8">Cabinet</h3>
-                        <p class="text-xl font-normal mb-6">Description</p>
-                        <h4 class="text-darkblue font-semibold text-5xl mb-8">Cabinet Lieu</h4>
-                        <div class="underline underline-offset-8 text-2xl font-normal text-darkblue">
-                            <div class="flex items-center">
-                                <img src={map} alt="icone pour indiquer le lieu" class="mr-4 w-6" />
-                                <a href="#">Adresse</a>
-                            </div>
-                            <div class="flex items-center my-6">
-                                <img src={phone} alt="icone pour indiquer le numéro de téléphone" class="mr-4 w-6" />
-                                <a href="#">XX XX XX XX XX</a>
-                            </div>
-                            <div class="flex items-center">
-                                <img src={web} alt="icone pour indiquer le lien du site web" class="mr-4 w-6" />
-                                <a href="#">http;;;;;</a>
-                            </div>
-                        </div>
-                    </div>
+                <Cabinet title="" description="" location="" address="" website="" phone="" />
                 </div>
 
                 {/* REDIRECTION PAGE CONTACT */}
