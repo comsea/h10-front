@@ -14,15 +14,15 @@ const Navbar = () => {
                 <div className="flex justify-center items-center space-x-8">
                     <Link to="/">Accueil</Link>
                     <Link to="presentation">Présentation</Link>
-                    <Link to="/">Cabinets partenaires</Link>
-                    <Link to="/">Valeur ajoutée</Link>
-                    <Link to="/">Expertises</Link>
-                    <Link to="/">Actualités</Link>
-                    <Link to="/">Engagement RSE</Link>
-                    <Link to="/">Postuler</Link>
+                    <Link to="partenaires">Cabinets partenaires</Link>
+                    <Link to="valeurs">Valeur ajoutée</Link>
+                    <Link to="expertises">Expertises</Link>
+                    <Link to="actualites">Actualités</Link>
+                    <Link to="engagement">Engagement RSE</Link>
+                    <Link to="postuler">Postuler</Link>
                 </div>
                 <div className="w-[200px] flex justify-end items-end">
-                    <Link to="/" className="flex items-center space-x-2">
+                    <Link to="contact" className="flex items-center space-x-2">
                         <img src={avion} alt="Avion en papier" className="w-[20px] h-[20px]" />
                         <p>Contact</p>
                     </Link>
