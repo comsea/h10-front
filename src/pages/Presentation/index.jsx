@@ -17,7 +17,7 @@ const Presentation = () => {
     
     return(
         <div>
-            <Header title="Qui sommes-nous ?" text="Découvrez notre formidable équipe !" image={presentation} />
+            <Header title="Qui sommes-nous ?" text="Découvrez l'équipe à votre service." image={presentation} />
             <div class="w-11/12 mx-auto text-center items-center lg:text-start lg:w-10/12 flex flex-col lg:flex-row">
                 <div class="font-thin lg:w-3/5 lg:mb-12">
                     <p class="text-darkblue font-normal text-2xl lg:text-4xl mb-2 lg:mb-4">Notre histoire</p>
@@ -121,13 +121,13 @@ const Presentation = () => {
                     <div class="flex justify-end mt-16 mb-10">
                         {/* pagination bouton past/before */}
                         <div class="bg-gray rounded-lg mr-1">
-                            <img src={before} alt="icon pour voir la page précédente" class="px-7 py-4"/>
+                            <img src={before} alt="icon pour voir la page précédente" class="lg:px-7 lg:py-4 px-4 py-2"/>
                         </div>
                         <div class="bg-white shadow-2xl rounded-lg">
-                            <img src={past} alt="icon pour voir la page suivante" class="px-7 py-4"/>
+                            <img src={past} alt="icon pour voir la page suivante" class="lg:px-7 lg:py-4 px-4 py-2" />
                         </div>
                     </div>
-                    <div class="grid grid-cols-4 grid-rows-3 gap-3 text-start text-darkblue text-2xl font-normal">
+                    <div class="grid grid-cols-1 lg:grid-cols-4 grid-rows-3 gap-3 text-start text-darkblue text-2xl font-normal">
                         {/* faire boucle employé */}
                         <div class="rounded-3xl bg-white">
                             <img src={test} alt="photo de l'employé TEST" class="w-full h-auto rounded-t-3xl" />

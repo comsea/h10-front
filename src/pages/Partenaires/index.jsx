@@ -13,15 +13,15 @@ const Partenaires = () => {
 
     return(
         <div>
-            <Header title="Un réseau en partenariat" text="Découvrez le réseau H10 ! Plus de 100 employés, dans cinq entreprises différentes." image={partenaires}/>
+            <Header title="Un réseau en partenariat" text="H10 regroupe 6 cabinets d'expertise-comptables et plus de 100 collaborateurs." image={partenaires}/>
             <div class="w-11/12 lg:w-10/12 text-center mx-auto">
                 {/* TABLE NAV */}
                 <div class="bg-gray px-4 py-2 rounded-3xl">
                     <div class="w-4/5 mx-auto flex items-center">
                         <div class="hover:bg-blue w-1/3 duration-200 items-center rounded-t-full">
-                            <img src={ficom} class="mx-auto w-80  hover:grayscale" alt="logo du cabinet ficom" />
+                            <img src={ficom} class="mx-auto w-80 py-10 hover:grayscale" alt="logo du cabinet ficom" />
                         </div>
-                        <div class="hover:bg-blue w-1/3 duration-200 rounded-t-full mx-12">
+                        <div class="hover:bg-blue w-1/3 duration-200 rounded-t-full lg:mx-12">
                             <img src={actualys} class="mx-auto w-80 py-10 hover:grayscale" alt="logo du cabinet actualys" />
                         </div>
                         <div class="hover:bg-blue w-1/3 duration-200 rounded-t-full">
@@ -40,7 +40,7 @@ const Partenaires = () => {
 
                 {/* TABLE CONTENT*/}
                 <div class="bg-gray rounded-2xl text-start">
-                <Cabinet title="" description="" location="" address="" website="" phone="" />
+                <Cabinet title="titre" description="description" location="cabinet sedan" address="adresse" website="www" phone="06 06 06 06 06" />
                 </div>
 
                 {/* REDIRECTION PAGE CONTACT */}

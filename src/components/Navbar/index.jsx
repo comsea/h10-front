@@ -15,9 +15,9 @@ const Navbar = () => {
                     <Link to="/">Accueil</Link>
                     <Link to="presentation">Présentation</Link>
                     <Link to="partenaires">Cabinets partenaires</Link>
-                    <Link to="/">Valeur ajoutée</Link>
-                    <Link to="/">Expertises</Link>
-                    <Link to="/">Actualités</Link>
+                    <Link to="valeurs">Valeur ajoutée</Link>
+                    <Link to="expertises">Expertises</Link>
+                    <Link to="actualites">Actualités</Link>
                     <Link to="engagement">Engagement RSE</Link>
                     <Link to="postuler">Postuler</Link>
                 </div>

@@ -10,7 +10,7 @@ import territorial from "../../asset/Engagement/territorial.png";
 const Engagement = () =>{
     return (
         <div>
-            <Header title="Différents engagements RSE" text="Le réseau H10 participe activement à ce qui l’entoure. Découvrez dè maintenant ces engagements !" image={engagement}/>
+            <Header title="Différents engagements RSE" text="Le réseau H10 est acteur de son territoire, dans une démarche sociétale." image={engagement}/>
             <div class="w-11/12 lg:w-10/12 mx-auto font-normal text-center lg:text-start text-2xl">
                 <h1 class="text-3xl text-darkblue lg:text-5xl mb-6 font-semibold">Sponsoring <span class="text-black">et partenariats</span></h1>
                 <p>Défendant les valeurs véhiculées par le sport - esprit d’équipe, entraide, équité, inclusion, dépassement de soi, respect, le réseau H10 soutient plusieurs petits clubs sportifs locaux et des associations sportives régionales. Parmi les plus connus :</p>

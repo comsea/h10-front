@@ -9,7 +9,7 @@ import cv from "../../asset/Svg/cv.svg"
 const Postuler = () => {
     return (
         <div>
-            <Header title="Nos offres d’emploi" text="Envie de rejoindre l’aventure H10 ? Découvrez dès maintenant les offres d’emplois dans tout nos cabinets !" image={postuler} />
+            <Header title="Nos offres d’emploi" text="Envie de rejoindre l'aventure H10 ? Consultez nos offres d'emploi ! Si aucune ne correspond à vos attentes, n'hésitez pas à nous soumettre une candidature spontanée ! Toutes sont étudiées." image={postuler} />
             <div class="w-11/12 lg:w-10/12 mx-auto">
                 <div class="flex flex-col lg:flex-row justify-between mb-12">
                     <div class="text-white flex mx-auto lg:mx-0 text-xl">
@@ -48,7 +48,7 @@ const Postuler = () => {
                     </div>
                  
                 </div>
-                {/* pagination */}
+                {/* faire pagination */}
                 <div class="flex justify-end space-x-1 mb-12">
                     <div class="w-4 h-4 rounded-full bg-darkblue"></div>
                     <div class="w-4 h-4 rounded-full bg-blue"></div>
@@ -64,7 +64,7 @@ const Postuler = () => {
                     <br/>n’hésitez pas à postuler si vous voulez rejoindre l’aventure !</p>
                     
                     {/* faire traitement from */}
-                    <form action="" method="POST" class="space-y-4 font-normal lg:w-3/5 mb-20 mx-auto text-xl">
+                    <form action="" method="POST" class="lg:space-y-4 font-normal lg:w-3/5 mb-20 mx-auto text-xl">
                         <div class="space-y-1">
                             <label for="nom" ></label>
                             <input type="text" id="nom" name="nom" placeholder="Prénom Nom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
@@ -79,7 +79,7 @@ const Postuler = () => {
                             <label for="message" ></label>
                             <textarea id="message" name="message" rows="4" placeholder="Votre message...*" class="w-full  bg-gray2 rounded-lg px-8 py-4"></textarea>
                         </div>
-                        <div class="space-y-1">
+                        <div class="space-y-1 mb-10 lg:mb-0">
                             <label for="post" class="mr-4">Je souhaite postuler pour (factultatif) :</label>
                             <select name="post" id="post" placeholder="Sélectionnez le post à pourvoir*" class=" border border-gray2 text-bluegray bg-white rounded-lg px-4 py-4">
                                 <option value="" disabled selected>Sélectionnez le post à pourvoir</option>
@@ -87,8 +87,8 @@ const Postuler = () => {
                             </select>
                         </div>
                         <div class="space-y-1">
-                            <label for="cv" class=" border border-gray2 text-bluegray bg-white rounded-l-lg px-4 py-4">Veuillez insérer votre CV*</label>
-                            <input type="file" name="cv" id="cv" class=" border border-gray2 text-bluegray bg-gray2 rounded-r-lg px-4 py-3" placeholder="{cv}Sélectionner un fichier"/>
+                            <label for="cv" class=" border border-gray2  text-bluegray bg-white rounded-lg lg:rounded-none lg:rounded-l-lg px-4 py-4">Veuillez insérer votre CV*</label>
+                            <input type="file" name="cv" id="cv" class=" border border-gray2 text-bluegray bg-gray2 text-sm lg:text-xl rounded-lg lg:rounded-none lg:rounded-r-lg px-4 py-3" placeholder="{cv}Sélectionner un fichier"/>
                         </div>
                         <p class="text-sm font-normal my-12 text-bluegray">*Curriculum Vitae, si vous n’en possédez pas votre candidature ne sera pas envoyée</p>
                         <div class="w-full flex justify-center">
