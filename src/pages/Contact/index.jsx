@@ -31,7 +31,8 @@ const Contact = () => {
                         </div>
                     </div>
                         
-                        <form action="" method="POST" class="space-y-4 font-normal text-xl">
+                    {/* faire traitement from */}
+                    <form action="" method="POST" class="space-y-4 font-normal text-xl">
                         <div class="space-y-1">
                             <label for="nom" ></label>
                             <input type="text" id="nom" name="nom" placeholder="Prénom Nom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
@@ -49,9 +50,9 @@ const Contact = () => {
                         <div class="w-full flex justify-end">
                             <button type="submit" class="bg-darkblue flex items-center text-white font-normal py-4 px-8 rounded-lg hover:bg-blue transition duration-300">
                             <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />Envoyer</button>
-                        </div>
-                        
+                        </div>    
                     </form>
+                    
                 </div>
             </div>
         </div>

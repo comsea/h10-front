@@ -19,7 +19,7 @@ const Navbar = () => {
                     <Link to="/">Expertises</Link>
                     <Link to="/">Actualités</Link>
                     <Link to="engagement">Engagement RSE</Link>
-                    <Link to="/">Postuler</Link>
+                    <Link to="postuler">Postuler</Link>
                 </div>
                 <div className="w-[200px] flex justify-end items-end">
                     <Link to="contact" className="flex items-center space-x-2">

@@ -129,8 +129,8 @@ const Presentation = () => {
                     </div>
                     <div class="grid grid-cols-4 grid-rows-3 gap-3 text-start text-darkblue text-2xl font-normal">
                         {/* faire boucle employé */}
-                        <div class="rounded-2xl bg-white">
-                            <img src={test} alt="photo de l'employé TEST" class="w-full h-auto rounded-t-2xl" />
+                        <div class="rounded-3xl bg-white">
+                            <img src={test} alt="photo de l'employé TEST" class="w-full h-auto rounded-t-3xl" />
                             <div class="ml-5 my-5">
                                 <p class="uppercase leading-normal font-semibold">PRENOM NOM</p>
                                 <p>Entreprise</p>

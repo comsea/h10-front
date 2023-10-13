@@ -5,6 +5,7 @@ import Partenaires from "./Partenaires";
 import Contact from "./Contact";
 import Presentation from "./Presentation";
 import Engagement from "./Engagement";
+import Postuler from "./Postuler";
 import Footer from "../components/Footer";
 import HeaderAccueil from "../components/HeaderAccueil";
 import Navbar from "../components/Navbar";
@@ -41,6 +42,7 @@ const Content = () => {
         <Route path='partenaires' element={<Partenaires/>}/>
         <Route path='contact' element={<Contact/>}/>
         <Route path='engagement'element={<Engagement/>}/>
+        <Route path='postuler' element={<Postuler/>}/>
       </Route>
     </Routes>
   )
