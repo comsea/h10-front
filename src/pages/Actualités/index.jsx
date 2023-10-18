@@ -4,10 +4,13 @@ import past from "../../asset/Svg/past.svg";
 import before from "../../asset/Svg/before.svg";
 import test from "../../asset/test-actu.png";
 import down from "../../asset/Svg/down.svg"
+import Banderole from "../../components/Banderole ";
+
 const Actualités = () =>{
     return (
         <div>
             <Header title="Quoi de neuf chez H10 ?" text="Retrouvez ici les actualités de notre réseau et de précieuses informations sur les lois et réglementations en vigueur." image={actualités} />
+            <Banderole />
             <div class="w-11/12 mx-auto lg:w-10/12">
                 <div class="flex flex-col lg:flex-row justify-between mb-12">
                     <div class="text-darkblue flex mx-auto lg:mx-0 text-xl border border-darkblue rounded-lg ">

@@ -2,7 +2,7 @@ import bg from "../../asset/bg-hda.png"
 
 const Header = (headerProps) => {
     return(
-        <div className="w-full relative text-white flex justify-center mb-44">
+        <div className="w-full relative text-white flex justify-center 2xl:mb-44 lg:mb-16">
             <img src={bg} alt="Background Header Accueil" className="absolute object-cover -z-50 h-full w-full object-top" />
             <div className="pt-40 w-10/12 pb-28 flex justify-between">
                 <div className="w-[35%] flex flex-col items-start space-y-8">
