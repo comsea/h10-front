@@ -6,13 +6,16 @@ import hmc from "../../asset/Cabinets/hmc.svg"
 
 const Banderole = () => {
     return(
-        <div class="flex space-x-16 w-fit mx-auto">
-            <img src={fizalys} alt="Logo du cabinet d'experts comptables fizalys"/>
-            <img src={hmc} alt="Logo du cabinet d'experts comptables hmc"/>
-            <img src={ficom} alt="Logo du cabinet d'experts comptables ficom"/>
-            <img src={actualys} alt="Logo du cabinet d'experts comptables actualys"/>
-            <img src={cwa} alt="Logo du cabinet d'experts comptables cwa"/>
-        </div>
+        <marquee direction="left">
+            <div class="flex flex-row justify-between items-center w-[90%] my-8 mx-auto">
+                <img src={fizalys} alt="Logo du cabinet d'experts comptables fizalys" className="w-[15%]" />
+                <img src={hmc} alt="Logo du cabinet d'experts comptables hmc" className="w-[15%]" />
+                <img src={ficom} alt="Logo du cabinet d'experts comptables ficom" className="w-[15%]" />
+                <img src={actualys} alt="Logo du cabinet d'experts comptables actualys" className="w-[15%]" />
+                <img src={cwa} alt="Logo du cabinet d'experts comptables cwa" className="w-[15%]" />
+            </div>
+        </marquee>
+
     )
 }
 export default Banderole

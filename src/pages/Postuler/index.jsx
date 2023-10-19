@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Header from "../../components/Header"
 import postuler from "../../asset/Header/postuler.png"
 import past from "../../asset/Svg/past.svg";
@@ -5,57 +6,133 @@ import before from "../../asset/Svg/before.svg";
 import test from "../../asset/test-actu.png";
 import avion from "../../asset/avion.png"
 import cv from "../../asset/Svg/cv.svg"
+import Banderole from "../../components/Banderole ";
+import { Pagination, Stack, ThemeProvider, createTheme, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+
+const itemsPerPage = 8
+
+const theme = createTheme({
+    palette: {
+        primary:{
+            main: '#184E65',
+            secondary: '#FFFFFF',
+            contrastText: '#FFFFFF'
+        }
+    }
+})
 
 const Postuler = () => {
+    const [isLoading, setIsLoading] = useState(true)
+    const [emplois, setEmplois] = useState(null)
+    const [cabinets, setCabinets] = useState(null)
+    const [page, setPage] = useState(1)
+    const [filter, setFilter] = useState('')
+
+    useEffect(() => {
+        fetch("http://localhost:1337/api/emplois?populate=*",
+        {
+            method: "GET",
+            headers: {
+                'Accept': 'Application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            setEmplois(res.data)
+            setIsLoading(false)
+            console.log(res.data)
+        })
+    }, [])
+
+    useEffect(() => {
+        fetch("http://localhost:1337/api/cabinets?populate=*",
+        {
+            method: "GET",
+            headers: {
+                'Accept': 'Application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            setCabinets(res.data)
+            setIsLoading(false)
+            console.log(res.data)
+        })
+    }, [])
+
+    const handleChangePage = (event, value) => {
+        setPage(value)
+    }
+
+    const startIndex = (page - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+
     return (
         <div>
             <Header title="Nos offres d’emploi" text="Envie de rejoindre l'aventure H10 ? Consultez nos offres d'emploi ! Si aucune ne correspond à vos attentes, n'hésitez pas à nous soumettre une candidature spontanée ! Toutes sont étudiées." image={postuler} />
+            <Banderole />
             <div class="w-11/12 lg:w-10/12 mx-auto">
-                <div class="flex flex-col lg:flex-row justify-between mb-12">
-                    <div class="text-white flex mx-auto lg:mx-0 text-xl">
-                        <p class="font-semibold lg:px-7 lg:py-4 px-4 py-2 rounded-l-lg bg-darkblue border-r-2 h-full mr-[0,5px] border-white">Cabinet</p>
-                        <div class="font-normal flex lg:px-7 lg:py-4 px-4 py-2 rounded-r-lg bg-darkblue h-full ">
-                            <p>Tous les cabinets</p>
-                            <svg class='w-4 ml-4' viewBox="0 0 44 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.44919 1.42196C5.74509 -0.473987 2.98219 -0.473987 1.27808 1.42196C-0.426026 3.31791 -0.426027 6.39185 1.27808 8.2878L18.7326 27.7073C19.551 28.6178 20.6609 29.1293 21.8182 29.1293C22.9755 29.1293 24.0854 28.6178 24.9037 27.7073L42.3583 8.2878C44.0624 6.39185 44.0624 3.31791 42.3583 1.42196C40.6542 -0.473985 37.8913 -0.473986 36.1872 1.42196L21.8182 17.4086L7.44919 1.42196Z" fill="white"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="flex justify-end lg:justify-normal mt-6 lg:mt-0">
-                        {/*faire pagination bouton past/before */}
-                        <div class="bg-gray rounded-lg mr-1">
-                            <img src={before} alt="icon pour voir la page précédente" class="lg:px-7 lg:py-4 px-4 py-2"/>
-                        </div>
-                        <div class="bg-white shadow-2xl rounded-lg">
-                            <img src={past} alt="icon pour voir la page suivante" class="lg:px-7 lg:py-4 px-4 py-2" />
-                        </div>
-                    </div>
-                </div>
                 {/* OFFRE D'EMPLOI */}
-                <div class="grid grid-cols-1 text-2xl lg:text-3xl grid-rows-4 gap-y-7  lg:grid-cols-2 lg:grid-rows-2 lg:gap-4">
+                <div className='w-[15%]'>
+                <ThemeProvider theme={theme} className="w-full">
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" variant='outlined'>Filtrer par cabinets</InputLabel>
+                        <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={filter}
+                        label="Filtrer par cabinets"
+                        onChange={(e) => setFilter(e.target.value)}
+                        >
+                            <MenuItem value="">Tous les cabinets</MenuItem>
+                            <MenuItem value="cwa">CWA</MenuItem>
+                            <MenuItem value="hmc">HMC</MenuItem>
+                            <MenuItem value="actualys">Actualys</MenuItem>
+                            <MenuItem value="fizalys">Fizalys</MenuItem>
+                            <MenuItem value="ficom">Ficom</MenuItem>
+                        </Select>
+                    </FormControl>
+                </ThemeProvider>
+                </div>
+                <div class="grid grid-cols-1 text-2xl lg:text-3xl lg:grid-cols-4 lg:gap-8 my-12">
                     {/* faire boucle emploie */}
-                    <div class="rounded-3xl shadow-2xl">
-                        <img src={test} alt="test" class=" w-full rounded-t-3xl" />
-                        <div class="mx-6 py-2">
-                            <p class="text-darkblue font-normal">Cabinet FIZALYS</p>
-                            <p class="text-3xl lg:text-4xl tracking-widest font-bold capitalize mt-2 mb-4">intitulé du post</p>
-                            <p class="font-normal  mb-7">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat</p>
-                            <div class="justify-between flex-col lg:flex-row font-normal flex">
-                                <p class="text-darkblue font-thin">XX/XX/XXXX</p>
-                                <p>Voir l’offre d’emploi →</p>
+                    {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.filter((item) => item.attributes.cabinet.data.attributes.name.toLowerCase().includes(filter.toLowerCase())).slice(startIndex, endIndex).map(emploi =>
+                    <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
+                        <img src={test} alt="test" class="w-full rounded-t-3xl" />
+                        <div className="mx-6 py-4 flex flex-col justify-between items-start h-full">
+                            <div>
+                                <p class="text-darkblue font-normal">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>
+                                <p class="text-3xl lg:text-4xl font-bold capitalize mt-2 mb-4">{emploi.attributes.title}</p>
+                            </div>
+                            <div>
+                                <p className="line-clamp-3 font-normal mb-5 text-xl" dangerouslySetInnerHTML={{ __html: emploi.attributes.description }} />
+                                <div class="w-full justify-between flex-col lg:flex-row font-normal flex text-lg">
+                                    <p class="text-darkblue font-thin">{emploi.attributes.date}</p>
+                                    <p>Voir l’offre d’emploi →</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                 
+                    )}
                 </div>
-                {/* faire pagination */}
-                <div class="flex justify-end space-x-1 mb-12">
-                    <div class="w-4 h-4 rounded-full bg-darkblue"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue"></div>
+                <div className='flex justify-center items-center my-8'>
+                    <ThemeProvider theme={theme}>
+                        <Stack spacing={2} justifyContent="center" py={1} px={4} className='bg-[#FFFFFF] shadow-2xl rounded-full'>
+                            {isLoading ? 
+                                <div>
+                                    Chargement en cours
+                                </div> 
+                                : 
+                            <Pagination 
+                                count={Math.ceil(emplois.length / itemsPerPage)}
+                                page={page}
+                                onChange={handleChangePage}
+                                color='primary'                             
+                            />
+                            }
+                        </Stack>
+                    </ThemeProvider>
                 </div>
-
                 {/* POSTULER FROM */}
                 <div class="text-center">
                     <h3 class="text-3xl text-darkblue lg:text-4xl mb-6 ">Envie de postuler à une offre d’emploi ? 
@@ -83,7 +160,10 @@ const Postuler = () => {
                             <label for="post" class="mr-4">Je souhaite postuler pour (factultatif) :</label>
                             <select name="post" id="post" placeholder="Sélectionnez le post à pourvoir*" class=" border border-gray2 text-bluegray bg-white rounded-lg px-4 py-4">
                                 <option value="" disabled selected>Sélectionnez le post à pourvoir</option>
-                                <option value="option1">Option 1</option>
+                                <option value="Candidature spontanée">Candidature spontanée</option>
+                                {isLoading ? "Pas encore d\'offres d\'emplois" : emplois.map(emploi =>
+                                    <option value={emploi.attributes.title}>{emploi.attributes.title} ({emploi.attributes.cabinet.data.attributes.name})</option>
+                                )}
                             </select>
                         </div>
                         <div class="space-y-1">

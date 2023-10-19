@@ -28,6 +28,7 @@ const Cabinet = (cabinetChoice) => {
         <div class="w-11/12 mx-auto py-10 lg:py-20 my-20">
             <h3 class="text-darkblue font-semibold text-3xl lg:text-5xl mb-4 lg:mb-8">{cabinetChoice.title}</h3>
             <p class="text-xl font-normal mb-6">{cabinetChoice.description}</p>
+            
             <h4 class="text-darkblue font-semibold text-3xl lg:text-5xl mb-4 lg:mb-8">{cabinetChoice.location}</h4>
             <div class="underline underline-offset-8 text-2xl font-normal text-darkblue">
                 <div class="flex items-center">

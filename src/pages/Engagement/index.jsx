@@ -6,11 +6,13 @@ import fleche from "../../asset/Svg/fleche.svg";
 import bienêtre from "../../asset/Engagement/bien-etre.png";
 import environnement from "../../asset/Engagement/environnemental.png";
 import territorial from "../../asset/Engagement/territorial.png";
+import Banderole from "../../components/Banderole ";
 
 const Engagement = () =>{
     return (
         <div>
             <Header title="Différents engagements RSE" text="Le réseau H10 est acteur de son territoire, dans une démarche sociétale." image={engagement}/>
+            <Banderole />
             <div class="w-11/12 lg:w-10/12 mx-auto font-normal text-center lg:text-start text-2xl">
                 <h1 class="text-3xl text-darkblue lg:text-5xl mb-6 font-semibold">Sponsoring <span class="text-black">et partenariats</span></h1>
                 <p>Défendant les valeurs véhiculées par le sport - esprit d’équipe, entraide, équité, inclusion, dépassement de soi, respect, le réseau H10 soutient plusieurs petits clubs sportifs locaux et des associations sportives régionales. Parmi les plus connus :</p>
@@ -28,9 +30,9 @@ const Engagement = () =>{
                         <p>Le club de Basket de Charleville-Mézières <span class="font-semibold">L’Étoile</span>  qui, rappelons-le, possède le plus haut palmarès sportif de haut niveau dans les Ardennes.</p>
                     </div>
                 </div>
-                <p class="text-center mb-20 mt-9">Présent lors de nombreuses manifestations, le réseau H10 participe à son échelle au rayonnement et à la démocratisation des pratiques sportives pour tous.</p>
+                <p class="text-center mb-32 mt-9">Présent lors de nombreuses manifestations, le réseau H10 participe à son échelle au rayonnement et à la démocratisation des pratiques sportives pour tous.</p>
                 {/* TERRITORIAL */}
-                <div class="flex items-center flex-col lg:flex-row mb-20">
+                <div class="flex items-center flex-col lg:flex-row mb-32">
                     <div class ="lg:w-2/3">
                         <h3 class="text-3xl text-darkblue lg:text-5xl mb-6 font-semibold">Agir <span class="text-black">sur son territoire</span></h3>
                         <p>Intégré au maillage social et économique, H10 est actif et engagé sur son territoire d’intervention (Ardennes, Aisne, Marne). Les cabinets du réseau et ses quelques 100 collaborateurs participent régulièrement à des actions de solidarité auprès d’associations locales, comme les collectes de vêtements Solicœur organisées au bénéfice des plus démunis. Ils s’organisent pour permettre régulièrement aux donneurs de sang de se réunir le temps d’une collecte.
@@ -39,12 +41,12 @@ const Engagement = () =>{
                     </div>
                     <div class="lg:w-1/3 my-6 lg:my-0 px-5">
                         <div class="bg-gray duration-200 items-center rounded-t-full">
-                            <img src={territorial} class="mx-auto w-1/2 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le territoire" />
+                            <img src={territorial} class="mx-auto w-2/3 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le territoire" />
                         </div>
                     </div>
                 </div>
                 {/* ENVIRONNEMENTAL */}
-                <div class="flex items-center flex-col lg:flex-row-reverse mb-20">
+                <div class="flex items-center flex-col lg:flex-row-reverse mb-32">
                     <div class ="lg:w-2/3">
                         <h3 class="text-3xl text-darkblue lg:text-5xl mb-6 font-semibold">Démarche <span class="text-black">environnementale</span></h3>
                         <p>Soucieux de l’avenir de notre planète, le réseau H10 se préoccupe de son impact environnemental. Il a mis en place un ensemble de bonnes pratiques écoresponsables quotidiennes en termes de dématérialisation des documents, gestion des consommables et des équipements, transports, économie d’énergie, tri des déchets. Le réseau a fait le choix, par exemple, de rouler prioritairement en véhicule électrique en s’équipant d’un parc de voitures électriques. Il utilise majoritairement du papier recyclé, a remplacé les gobelets jetables par des tasses à café lavables, encourage le tri sélectif, choisi ses fournisseurs de consommables en fonction de leur démarche écologique (impressions notamment).
@@ -53,12 +55,12 @@ const Engagement = () =>{
                     </div>
                     <div class="lg:w-1/3 my-6 lg:my-0 px-5 ">
                         <div class="bg-gray duration-200 items-center rounded-t-full">
-                            <img src={environnement} class="mx-auto w-1/2 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant l'environnement" />
+                            <img src={environnement} class="mx-auto w-2/3 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant l'environnement" />
                         </div>
                     </div>
                 </div>
                 {/* BIEN ÊTRE */}
-                <div class="flex items-center flex-col lg:flex-row mb-20">
+                <div class="flex items-center flex-col lg:flex-row mb-32">
                     <div class ="lg:w-2/3">
                         <h3 class="text-3xl text-darkblue lg:text-5xl mb-6 font-semibold">Bien-être <span class="text-black">en entreprise</span></h3>
                         <p>Le rythme de travail des cabinets d’experts-comptables est intense. Très tôt, le réseau H10 a inscrit au cœur de sa stratégie la notion de bien-être en entreprise. Les enjeux sont multiples : meilleure disponibilité pour les clients, amélioration de la productivité, facilité de recrutement. Les actions mises en place par les cabinets sont couronnées de succès :</p>
@@ -90,7 +92,7 @@ const Engagement = () =>{
                     </div>
                     <div class="lg:w-1/3 my-6 lg:my-0 px-5">
                         <div class="bg-gray duration-200 items-center rounded-t-full">
-                            <img src={bienêtre} class="mx-auto w-1/2 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le bien-être" />
+                            <img src={bienêtre} class="mx-auto w-2/3 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le bien-être" />
                         </div>
                     </div>
                 </div>

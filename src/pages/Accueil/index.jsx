@@ -4,22 +4,54 @@ import before from "../../asset/Svg/before.svg";
 import img from "../../asset/homepageh10.png";
 import cross from "../../asset/Svg/cross.svg";
 import actu from "../../asset/test-actu.png";
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
+import { Link } from 'react-router-dom';
 
 const Accueil = () => {
-//     const [apiData, setApiData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
+    const [expertises, setExpertises] = useState(null)
+    const [actualites, setActualites] = useState(null)
+    const [expanded, setExpanded] = useState(false)
 
-//   useEffect(() => {
-//     fetch('http://localhost:1337/api/expertises')
-//       .then(response => response.json())
-//       .then(data => {
-//         const dataArray = Array.isArray(data) ? data : [data];
-//         setApiData(dataArray);
-//       })
-    
-//       .catch(error => {
-//         // Gérez les erreurs ici
-//       });
-//   }, []);
+    useEffect(() => {
+        fetch("http://localhost:1337/api/expertises?populate=*",
+        {
+            method: "GET",
+            headers: {
+                'Accept': 'Application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            setExpertises(res.data)
+            setIsLoading(false)
+            console.log(res)
+        })
+    }, [])
+
+    useEffect(() => {
+        fetch("http://localhost:1337/api/actualites?populate=*",
+        {
+            method: "GET",
+            headers: {
+                'Accept': 'Application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            setActualites(res.data)
+            setIsLoading(false)
+            console.log(res)
+        })
+    }, [])
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false)
+    }
+
     return(
         <div class="lg:w-10/12 mx-auto">
             {/* NOS ACTUALITÉS */}
@@ -28,8 +60,9 @@ const Accueil = () => {
                         <p class="text-darkblue font-normal text-2xl lg:text-4xl mb-2 lg:mb-4">Nos dernières actualités</p>
                         <h1 class="text-3xl lg:text-5xl font-semibold">Que se passe-t-il dans le Réseau H10 <span class="text-darkblue">?</span></h1>
                     </div>
+                    {/*
                     <div class="flex mt-16 mb-10">
-                        {/*faire pagination bouton past/before */}
+                        faire pagination bouton past/before 
                         <div class="bg-gray rounded-lg mr-1">
                             <img src={before} alt="icon pour voir la page précédente" class="lg:px-7 lg:py-4 px-4 py-2"/>
                         </div>
@@ -37,34 +70,55 @@ const Accueil = () => {
                             <img src={past} alt="icon pour voir la page suivante" class="lg:px-7 lg:py-4 px-4 py-2" />
                         </div>
                     </div>
+                    */}
                 </div>
                 {/* SLIDER ACTU */}
-                <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg gap-3">
+                <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg gap-16 mt-6">
                     {/* faire boucle actu */}
-                    <div class="bg-white shadow-2xl rounded-3xl ">
-                        <img src={actu} alt="test actu" class="w-full rounded-t-3xl" />
-                        <div class="ml-6 my-4">
-                            <p>XX/XX/XX</p>
-                            <p class="font-semibold text-black text-2xl">Mieux gérer ses impositions</p>
-                            <p class="text-[#7C929B] py-3 leading-tight">L’approche du réseau H10 en matière d’expertise comptable repose sur ..</p>
-                            <p>Voir l’article →</p>
-                        </div>
-                    </div>
+                        {isLoading ? 'Pas encore d\'actualités' : actualites?.slice(-3).map(actualite => 
+                            <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
+                                <img src={actu} alt="test actu" class="w-full rounded-t-3xl" />
+                                <div class="ml-6 my-4 pr-2">
+                                    <p>{actualite.attributes.create}</p>
+                                    <p class="font-semibold text-black text-2xl">{actualite.attributes.title}</p>
+                                    <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: actualite.attributes.description }} />
+                                    <p>Voir l’article →</p>
+                                </div>
+                            </div>
+                        )}
                 </div>
             {/* NOS EXPERTISES */}
             <div class="flex justify-center my-16">
-                <img src={img} alt="Image d'une comptable entrain de travailler" class="hidden w-1/2 p-4 h-auto lg:flex"/>
+                <img src={img} alt="Comptable entrain de travailler" class="hidden w-1/2 p-4 h-auto lg:flex"/>
                 <div class="text-center  lg:text-start lg:w-1/2">
                     <p class="text-darkblue font-extraligth text-2xl lg:text-4xl mb-2 lg:mb-4">Nos expertises</p>
                     <h3 class="text-3xl lg:text-5xl font-semibold">Découvrez nos différentes expertises.</h3>
                         {/* EXPERTISES */}
-                    <div class="w-auto mx-1 mt-8 lg:mt-20">
-                        {/* faire boucle expertise */}
+                    {/* <div class="w-auto mx-1 mt-8 lg:mt-20">
+                         faire boucle expertise 
                         <div class="shadow-2xl flex items-center justify-between p-4 rounded-xl bg-white">
                             <h6 class="text-darkblue text-2xl lg:text-3xl font-bold">Conseil</h6>
-                            {/* faire drop down */}
+                            faire drop down 
                             <button oneClick="" class="w-10 h-10 lg:w-14 lg:h-14 bg-ligthblue rounded-xl flex justify-center items-center"><img src={cross} class="w-4 h-auto" alt="icon de croix pour ouvrir les détails de l'expertise" /></button>
                         </div>
+                    </div>
+                    */}
+                    <div className='w-full flex flex-col py-4 space-y-2'>
+                        {isLoading ? 'Loading...' : expertises?.map(expertise =>
+                        <Accordion expanded={expanded === 'panel'+expertise.id} onChange={handleChange('panel'+expertise.id)}  key={expertise.id}>
+                            <AccordionSummary
+                                expandIcon={<ExpandCircleDownIcon className='text-darkblue' />}
+                                aria-controls="panel1bh-content"
+                                id="panel1bh-header"
+                                >
+                                <p className='text-darkblue font-bold text-3xl'>{expertise.attributes.title}</p>
+                            </AccordionSummary>
+                            <AccordionDetails className='flex flex-col space-y-3'>
+                                <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expertise.attributes.description }} />
+                                <Link className='text-darkblue font-semibold'>En savoir plus →</Link>
+                            </AccordionDetails>
+                        </Accordion>
+                        )}
                     </div>
                 </div>
             </div>
