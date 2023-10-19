@@ -52,27 +52,6 @@ const Actualités = () =>{
                     <div id="item-8" class="bg-darkblue row-start-5 col-start-2 row-end-6 col-end-4 rounded-3xl p-10">8</div>
                     <div id="item-9" class="bg-darkblue row-start-6 col-start-2 row-end-7 col-end-4 rounded-3xl p-10">9</div>
                 </div>
-
-                <div class="grid grid-rows-4 lg:hidden grid-cols-1 gap-4 h-full text-2xl mb-12 text-blue font-normal">
-                    <div id="item-00" class="bg-gray row-start-1 col-start-1 h-full row-end-3 col-end-2 rounded-3xl p-4">
-                        <div class="justify-between flex flex-col">
-                            <p>XX/XX/XX</p>
-                            <div>
-                                <p class="text-3xl font-semibold text-black lg:text-4xl mb-8 mt-96">Titre</p>
-                                <a href="#" class="hover:text-bluegray duration-200">Voir l’article →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="item-00" class="bg-gray row-start-1 col-start-1 h-full row-end-3 col-end-2 rounded-3xl p-4">
-                        <div class="justify-between flex flex-col">
-                            <p>XX/XX/XX</p>
-                            <div>
-                                <p class="text-3xl font-semibold text-black lg:text-4xl mb-8 mt-96">Titre</p>
-                                <a href="#" class="hover:text-bluegray duration-200">Voir l’article →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 {/*faire pagination */}
                 <div class="flex justify-end space-x-1 mb-12">
                     <div class="w-4 h-4 rounded-full bg-darkblue"></div>
