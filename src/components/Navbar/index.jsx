@@ -11,7 +11,7 @@ const Navbar = () => {
                         <img src={logo} alt="Logo blanc 2" className="w-[120px]" />
                     </Link>
                 </div>
-                <div className="flex justify-center items-center space-x-8">
+                <div className="flex justify-center items-center xl:space-x-8 space-x-4 text-center">
                     <Link to="/">Accueil</Link>
                     <Link to="presentation">Présentation</Link>
                     <Link to="partenaires">Cabinets partenaires</Link>

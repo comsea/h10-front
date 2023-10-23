@@ -13,6 +13,7 @@ import Navbar from "../components/Navbar";
 import Banderole from "../components/Banderole ";
 import Valeurs from "./Valeurs";
 import Expertises from "./Expertises";
+import { Actualité } from "./Actualité";
 
 const Layout = () => {
   return(
@@ -47,6 +48,7 @@ const Content = () => {
         <Route path='engagement' element={<Engagement/>}/>
         <Route path='postuler' element={<Postuler/>}/>
         <Route path='actualites' element={<Actualités/>}/>
+        <Route path='actualite/:id' element={<Actualité />}/>
         <Route path='valeurs' element={<Valeurs/>}/>
         <Route path='expertises' element={<Expertises/>}/>
       </Route>
@@ -56,7 +58,7 @@ const Content = () => {
 
 const App = () => {
   return (
-    <div className="App lg:text-lg text-base lg:font-medium font-normal relative overflow-x-hidden">
+    <div className="App 2xl:text-lg text-sm lg:font-medium font-normal relative overflow-x-hidden">
       <Content />
     </div>
   );
