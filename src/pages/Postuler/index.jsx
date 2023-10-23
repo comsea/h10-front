@@ -27,6 +27,7 @@ const Postuler = () => {
     const [cabinets, setCabinets] = useState(null)
     const [page, setPage] = useState(1)
     const [filter, setFilter] = useState('')
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         fetch("http://localhost:1337/api/emplois?populate=*",
@@ -60,12 +61,36 @@ const Postuler = () => {
         })
     }, [])
 
+    useEffect(() => {
+        // Fonction de rappel pour mettre à jour la largeur de la fenêtre lorsque la taille de l'écran change
+        const handleResize = () => {
+          const newWidth = window.innerWidth;
+          setWindowWidth(newWidth);
+        };
+    
+        // Écoutez l'événement de redimensionnement de la fenêtre
+        window.addEventListener('resize', handleResize);
+    
+        // Nettoyez l'écouteur d'événements lors du démontage du composant
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, [])
+
+    let constantValue = 2;
+
+    if (windowWidth > 1490) {
+          constantValue = 8;
+    } else if (windowWidth => 1024) {
+          constantValue = 6;
+    }
+
     const handleChangePage = (event, value) => {
         setPage(value)
     }
 
-    const startIndex = (page - 1) * itemsPerPage
-    const endIndex = startIndex + itemsPerPage
+    const startIndex = (page - 1) * constantValue
+    const endIndex = startIndex + constantValue
 
     return (
         <div>
@@ -73,7 +98,7 @@ const Postuler = () => {
             <Banderole />
             <div class="w-11/12 lg:w-10/12 mx-auto">
                 {/* OFFRE D'EMPLOI */}
-                <div className='w-[15%]'>
+                <div className='2xl:w-[15%] w-[25%]'>
                 <ThemeProvider theme={theme} className="w-full">
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label" variant='outlined'>Filtrer par cabinets</InputLabel>
@@ -94,19 +119,19 @@ const Postuler = () => {
                     </FormControl>
                 </ThemeProvider>
                 </div>
-                <div class="grid grid-cols-1 text-2xl lg:text-3xl lg:grid-cols-4 lg:gap-8 my-12">
+                <div class="grid grid-cols-1 text-2xl lg:text-3xl 2xl:grid-cols-4 lg:grid-cols-3 lg:gap-8 my-12">
                     {/* faire boucle emploie */}
                     {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.filter((item) => item.attributes.cabinet.data.attributes.name.toLowerCase().includes(filter.toLowerCase())).slice(startIndex, endIndex).map(emploi =>
                     <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
                         <img src={test} alt="test" class="w-full rounded-t-3xl" />
                         <div className="mx-6 py-4 flex flex-col justify-between items-start h-full">
                             <div>
-                                <p class="text-darkblue font-normal">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>
-                                <p class="text-3xl lg:text-4xl font-bold capitalize mt-2 mb-4">{emploi.attributes.title}</p>
+                                <p class="text-darkblue font-normal 2xl:text-2xl text-lg">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>
+                                <p class="text-2xl 2xl:text-4xl font-bold capitalize mt-2 mb-4">{emploi.attributes.title}</p>
                             </div>
                             <div>
-                                <p className="line-clamp-3 font-normal mb-5 text-xl" dangerouslySetInnerHTML={{ __html: emploi.attributes.description }} />
-                                <div class="w-full justify-between flex-col lg:flex-row font-normal flex text-lg">
+                                <p className="line-clamp-3 font-normal mb-5 2xl:text-xl text-base" dangerouslySetInnerHTML={{ __html: emploi.attributes.description }} />
+                                <div class="w-full justify-between flex-col lg:flex-row font-normal flex 2xl:text-lg text-xs">
                                     <p class="text-darkblue font-thin">{emploi.attributes.date}</p>
                                     <p>Voir l’offre d’emploi →</p>
                                 </div>
@@ -124,7 +149,7 @@ const Postuler = () => {
                                 </div> 
                                 : 
                             <Pagination 
-                                count={Math.ceil(emplois.length / itemsPerPage)}
+                                count={Math.ceil(emplois.length / constantValue)}
                                 page={page}
                                 onChange={handleChangePage}
                                 color='primary'                             
@@ -135,7 +160,7 @@ const Postuler = () => {
                 </div>
                 {/* POSTULER FROM */}
                 <div class="text-center">
-                    <h3 class="text-3xl text-darkblue lg:text-4xl mb-6 ">Envie de postuler à une offre d’emploi ? 
+                    <h3 class="2xl:text-3xl text-2xl text-darkblue mb-6 ">Envie de postuler à une offre d’emploi ? 
                     <br/>Remplissez dès maintenant notre formulaire de candidature.</h3>
                     <p class="text-bluegray mb-4">Le réseau h10 est impatient d’avoir de nouveaux membres dans ses équipes,
                     <br/>n’hésitez pas à postuler si vous voulez rejoindre l’aventure !</p>

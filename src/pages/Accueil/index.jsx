@@ -57,8 +57,8 @@ const Accueil = () => {
             {/* NOS ACTUALITÉS */}
                 <div class="flex flex-col lg:flex-row text-center lg:text-start justify-between">
                     <div>
-                        <p class="text-darkblue font-normal text-2xl lg:text-4xl mb-2 lg:mb-4">Nos dernières actualités</p>
-                        <h1 class="text-3xl lg:text-5xl font-semibold">Que se passe-t-il dans le Réseau H10 <span class="text-darkblue">?</span></h1>
+                        <p class="text-darkblue font-normal text-2xl xl:text-4xl mb-2 lg:mb-4">Nos dernières actualités</p>
+                        <h1 class="text-3xl xl:text-5xl font-semibold">Que se passe-t-il dans le Réseau H10 <span class="text-darkblue">?</span></h1>
                     </div>
                     {/*
                     <div class="flex mt-16 mb-10">
@@ -73,16 +73,16 @@ const Accueil = () => {
                     */}
                 </div>
                 {/* SLIDER ACTU */}
-                <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg gap-16 mt-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg xl:gap-16 gap-4 mt-6">
                     {/* faire boucle actu */}
                         {isLoading ? 'Pas encore d\'actualités' : actualites?.slice(-3).map(actualite => 
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
                                 <img src={actu} alt="test actu" class="w-full rounded-t-3xl" />
                                 <div class="ml-6 my-4 pr-2">
-                                    <p>{actualite.attributes.create}</p>
+                                    <p>{(new Date(actualite.attributes.create)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.attributes.title}</p>
                                     <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: actualite.attributes.description }} />
-                                    <p>Voir l’article →</p>
+                                    <Link to={`/actualite/${actualite.id}`}>Voir l'article →</Link>
                                 </div>
                             </div>
                         )}
@@ -91,8 +91,8 @@ const Accueil = () => {
             <div class="flex justify-center my-16">
                 <img src={img} alt="Comptable entrain de travailler" class="hidden w-1/2 p-4 h-auto lg:flex"/>
                 <div class="text-center  lg:text-start lg:w-1/2">
-                    <p class="text-darkblue font-extraligth text-2xl lg:text-4xl mb-2 lg:mb-4">Nos expertises</p>
-                    <h3 class="text-3xl lg:text-5xl font-semibold">Découvrez nos différentes expertises.</h3>
+                    <p class="text-darkblue font-extraligth text-2xl xl:text-4xl mb-2 lg:mb-4">Nos expertises</p>
+                    <h3 class="text-3xl xl:text-5xl font-semibold">Découvrez nos différentes expertises.</h3>
                         {/* EXPERTISES */}
                     {/* <div class="w-auto mx-1 mt-8 lg:mt-20">
                          faire boucle expertise 
@@ -111,7 +111,7 @@ const Accueil = () => {
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                                 >
-                                <p className='text-darkblue font-bold text-3xl'>{expertise.attributes.title}</p>
+                                <p className='text-darkblue font-bold xl:text-3xl text-xl'>{expertise.attributes.title}</p>
                             </AccordionSummary>
                             <AccordionDetails className='flex flex-col space-y-3'>
                                 <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expertise.attributes.description }} />

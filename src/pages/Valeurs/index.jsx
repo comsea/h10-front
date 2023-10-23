@@ -13,10 +13,10 @@ const Valeurs = () =>{
         <div>
             <Header title="Un réseau créateur de valeur" text="La synergie des compétences pour une prestation complète et sur-mesure." image={valeurs} />
             <Banderole />
-            <div class="w-11/12 mx-auto font-normal text-center lg:text-start lg:w-10/12 text-2xl">
+            <div class="w-11/12 mx-auto font-normal text-center lg:text-start lg:w-10/12 2xl:text-2xl lg:text-base">
                 <div class="flex items-center flex-col justify-between lg:flex-row mb-32">
                     <div class ="lg:w-2/3 space-y-6">
-                        <h3 class="text-3xl lg:text-5xl font-semibold w-[80%]"><span className="text-darkblue">Notre</span> accompagnement personnalisé</h3>
+                        <h3 class="text-3xl 2xl:text-5xl font-semibold w-[80%]"><span className="text-darkblue">Notre</span> accompagnement personnalisé</h3>
                         <p>Pour chaque client, le réseau H10 propose une approche pluridisciplinaire et un accompagnement personnalisé encadrés par une lettre de mission définissant précisément son intervention et ses honoraires.</p>
                         <p>Ses actions sont engagées dans le respect des valeurs communes d’humanité, de proximité et de confiance qui lient les cabinets du réseau H10.</p>
                         <p>Dans une vision moderne du métier d’expert-comptable, le réseau H10 anticipe les besoins de réactivité et de simplicité des entreprises par des solutions digitalisées et la mise en œuvre de missions élargies aux évolutions de notre époque comme la cyberprévention ou la transition écologique.</p>
@@ -30,7 +30,7 @@ const Valeurs = () =>{
 
                 <div class="flex items-center lg:text-end flex-col justify-between lg:flex-row-reverse mb-32">
                     <div class ="lg:w-2/3 flex justify-end flex-col items-end space-y-6">
-                        <h3 class="text-3xl lg:text-5xl font-semibold w-[80%]"><span className="text-darkblue">La mutualisation</span> des compétences techniques et humaines</h3>
+                        <h3 class="text-3xl 2xl:text-5xl font-semibold w-[80%]"><span className="text-darkblue">La mutualisation</span> des compétences techniques et humaines</h3>
                         <p className="text-start">Par la mutualisation des compétences et des ressources de 6 cabinets d’expertise-comptable, le réseau H10 développe des capacités humaines, logistiques et informatiques équivalentes à celles des grandes structures comptables, tout en conservant l’indépendance de chaque cabinet pour le conseil de ses clients.</p>
                         <p className="text-start">Organisé en pôles d’expertise et utilisant des logiciels de gestion transversaux, le réseau H10 facilite l’échange d’idées et d’informations dans le respect du code déontologique de la profession obligeant indépendance et confidentialité.</p>
                         <p className="text-start">Comptant des Commissaires aux Comptes et un avocat fiscaliste parmi les équipes, l’ensemble des cabinets du réseau H10 bénéficient d’une expertise en audit légal et d’un conseil sur-mesure en droit fiscal et droit des sociétés.</p>
@@ -44,7 +44,7 @@ const Valeurs = () =>{
 
                 <div class="flex items-center flex-col justify-between lg:flex-row mb-32">
                     <div class ="lg:w-2/3 space-y-6">
-                        <h3 class="text-3xl lg:text-5xl font-semibold"><span className="text-darkblue">Le Full service :</span> une offre 360°</h3>
+                        <h3 class="text-3xl 2xl:text-5xl font-semibold"><span className="text-darkblue">Le Full service :</span> une offre 360°</h3>
                         <p>En phase avec l’évolution de son métier d’expertise-comptable, le réseau H10 ne se cantonne plus seulement à des missions exécutives : il devient créateur de valeur ajoutée pour les entreprises. À cet égard, il a élaboré une gamme de services complète englobant l’ensemble des besoins des sociétés, dite « Full Services ».</p>
                         <p>Cette prestation sur-mesure est conçue à la suite d’un état des lieux précis de l’entreprise : stratégie, attentes et perspectives. Elle concerne à la fois des missions comptables, juridiques, fiscales ou sociales, mais aussi des missions de développement : formations, RSE, transition numérique, etc.</p>
                         <p>Cette démarche entend non seulement décharger le dirigeant de l’intégralité de ses contraintes administratives (y compris en matière de facturation et de recouvrement amiable des créances clients depuis la loi PACTE du 22 mai 2019), mais également favoriser la croissance de l’entreprise.</p>
@@ -58,7 +58,7 @@ const Valeurs = () =>{
 
                 <div class="flex items-center lg:text-end flex-col justify-between lg:flex-row-reverse mb-32">
                     <div class ="lg:w-2/3 flex justify-end flex-col items-end space-y-6">
-                        <h3 class="text-3xl lg:text-5xl font-semibold w-[80%]"><span className="text-darkblue">Notre</span> pôle de formation</h3>
+                        <h3 class="text-3xl 2xl:text-5xl font-semibold w-[80%]"><span className="text-darkblue">Notre</span> pôle de formation</h3>
                         <p className="text-start">Baptisé E-Form@ction, le réseau H10 dispose d’un pôle de formation en comptabilité générale qui propose des modules pour aider les entreprises à gagner en autonomie et travailler plus efficacement avec leur expert-comptable.</p>
                         <p className="text-start">Nous ne nous axons pas seulement sur la comptabilité mais aussi sur tous les domaines qui y sont liés tels que l’administratif et la logistique.</p>
                     </div>
@@ -71,7 +71,7 @@ const Valeurs = () =>{
 
                 <div class="flex items-center flex-col justify-between lg:flex-row mb-32">
                     <div class ="lg:w-2/3 space-y-6">
-                        <h3 class="text-3xl lg:text-5xl font-semibold"><span className="text-darkblue">Notre société</span> de commissarit aux comptes</h3>
+                        <h3 class="text-3xl 2xl:text-5xl font-semibold"><span className="text-darkblue">Notre société</span> de commissarit aux comptes</h3>
                         <p>Comfiducé est une société de commissariat aux comptes certifiant les comptes (consolidés ou non) de toutes tailles d’entreprises dans le cadre d’audits légaux.</p>
                         <p>Dépendant de la cour d’appel de Reims, nos Commissaires aux Comptes sont des professionnels indépendants, externes à l’entreprise, nommés par celle-ci pour une durée 6 ans (ou 3 dans le cas de la mission ALPE pour les petits groupes).</p>
                         <div className="w-full flex flex-col space-y-4">

@@ -51,13 +51,13 @@ const Partenaires = () => {
                 <Tabs defaultValue={1}>
                     <TabsList className="bg-gray px-4 py-2 rounded-3xl flex flex-row flex-wrap justify-center items-center">
                         {isLoading ? 'Pas encore d\'actualité' : cabinets.map(cabinet => (
-                            <Tab value={cabinet.attributes.id} className='w-[25%] m-5 h-full' key={cabinet.attributes.id}>
+                            <Tab value={cabinet.attributes.id} className='2xl:w-[25%] w-[23%] m-5 h-full' key={cabinet.attributes.id}>
                                 <a href={`#${cabinet.attributes.name}`}>
                                 <div
                                     className={`${
                                         cabinet.attributes.name === activeElement
-                                        ? "active hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] min-h-[250px]"
-                                        : "hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] min-h-[250px]"
+                                        ? "active hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] lg:min-h-[200px] min-h-[250px]"
+                                        : "hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] lg:min-h-[200px] min-h-[250px]"
                                     }`}
                                     onClick={() => handleElementClick(cabinet.attributes.name)}
                                 >
@@ -70,13 +70,13 @@ const Partenaires = () => {
                     {isLoading ? 'Pas encore d\'actualité' : cabinets.map(cabinet =>
                     
                     <TabPanel value={cabinet.attributes.id} className="bg-gray rounded-2xl text-start" id={cabinet.attributes.name}>
-                        <div class="w-11/12 mx-auto py-10 lg:py-20 my-20">
-                            <h3 class="text-darkblue font-semibold text-3xl lg:text-5xl mb-4 lg:mb-8">{cabinet.attributes.name}</h3>
-                            <p class="text-xl font-normal mb-12">{cabinet.attributes.description}</p>
+                        <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
+                            <h3 class="text-darkblue font-semibold text-4xl 2xl:text-5xl mb-4 2xl:mb-8">{cabinet.attributes.name}</h3>
+                            <p class="2xl:text-xl text-lg font-normal 2xl:mb-12 mb-8">{cabinet.attributes.description}</p>
                             {cabinet.attributes.adresses.data.map(adresse =>
                             <>
-                                <h4 class="text-darkblue font-semibold text-3xl lg:text-5xl mb-4 lg:mb-8">{adresse.attributes.location}</h4>
-                                <div class="underline underline-offset-8 text-2xl font-normal text-darkblue mb-12">
+                                <h4 class="text-darkblue font-semibold text-4xl 2xl:text-5xl mb-4 lg:mb-8">{adresse.attributes.location}</h4>
+                                <div class="underline underline-offset-8 2xl:text-2xl text-lg font-normal text-darkblue mb-12">
                                     <div class="flex items-center">
                                         <img src={map} alt="icone pour indiquer le lieu" class="mr-4 w-6" />
                                         <a href="#">{adresse.attributes.address}</a>

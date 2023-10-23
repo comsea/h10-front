@@ -5,14 +5,14 @@ const Footer = () => {
     return(
         <div className="w-full h-full relative py-10 px-8 text-white flex justify-center items-centerx">
             <img src={bg} alt="Background Footer" className="absolute top-0 left-0 object-cover -z-10 w-full h-full" />
-            <div className="flex flex-col justify-center items-center w-11/12 space-y-10">
-                <div className="w-5/6 grid grid-cols-4 gap-x-8">
+            <div className="flex flex-col justify-center items-center w-11/12 xl:space-y-10 space-y-4">
+                <div className="xl:w-5/6 w-full grid grid-cols-4 gap-x-8">
                     <div className="w-full flex justify-center items-center">
                         <img src={logo} alt="Logo Blanc" className="w-[200px]" />
                     </div>
-                    <div className="w-full flex flex-col items-start justify-start space-y-4">
+                    <div className="w-full flex flex-col items-start justify-start xl:space-y-4 space-y-2">
                         <p className="font-medium">Expertises</p>
-                        <div className="w-full grid grid-cols-2 text-[#C3D5DC] text-sm gap-4">
+                        <div className="w-full grid grid-cols-2 text-[#C3D5DC] text-sm xl:gap-4 gap-2">
                             <p>Création d'entreprise</p>
                             <p>Audit</p>
                             <p>Gestion de patrimoine</p>
@@ -23,13 +23,13 @@ const Footer = () => {
                             <p>Comptabilités</p>
                         </div>
                     </div>
-                    <div className="w-full flex flex-col items-start justify-start space-y-4">
+                    <div className="w-full flex flex-col items-start justify-start xl:space-y-4 space-y-2">
                         <p className="font-medium">Qui sommes-nous ?</p>
                         <p className="font-medium">Metions légales</p>
                         <p className="font-medium">Politiques de confidentialité</p>
                         <p className="text-[#C3D5DC] text-sm">Modifier les cookies</p>
                     </div>
-                    <div className="w-full flex flex-col items-start justify-start space-y-4">
+                    <div className="w-full flex flex-col items-start justify-start xl:space-y-4 space-y-2">
                         <p className="font-medium">Réseaux sociaux</p>
                     </div>
                 </div>
