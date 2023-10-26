@@ -77,7 +77,7 @@ const Accueil = () => {
                     {/* faire boucle actu */}
                         {isLoading ? 'Pas encore d\'actualités' : actualites?.slice(-3).map(actualite => 
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
-                                <img src={actualite.attributes.image.data} alt="test actu" class="w-full rounded-t-3xl" />
+                                <img src={actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl" />
                                 <div class="ml-6 my-4 pr-2">
                                     <p>{(new Date(actualite.attributes.create)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.attributes.title}</p>
@@ -118,7 +118,7 @@ const Accueil = () => {
                             </AccordionSummary>
                             <AccordionDetails className='flex font-normal flex-col space-y-3'>
                                 <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expertise.attributes.description }} />
-                                <Link className='text-darkblue'>En savoir plus →</Link>
+                                <Link to='expertises' className='text-darkblue'>En savoir plus →</Link>
                             </AccordionDetails>
                         </Accordion>
                         )}

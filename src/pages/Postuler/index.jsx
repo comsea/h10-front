@@ -124,7 +124,7 @@ const Postuler = () => {
                     {/* faire boucle emploie */}
                     {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.filter((item) => item.attributes.cabinet.data.attributes.name.toLowerCase().includes(filter.toLowerCase())).slice(startIndex, endIndex).map(emploi =>
                     <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
-                        <img src={emploi.attributes.image} alt="photo représentant l'emploi" class="w-full rounded-t-3xl" />
+                        <img src={emploi.attributes.image.atributes.url} alt="photo représentant l'emploi" class="w-full rounded-t-3xl" />
                         <div className="mx-4 py-4 flex flex-col justify-between items-start h-full">
                             <div>
                                 <p class="text-darkblue font-normal 2xl:text-xl text-lg">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>

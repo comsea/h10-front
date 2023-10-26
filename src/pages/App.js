@@ -14,7 +14,8 @@ import Banderole from "../components/Banderole ";
 import Valeurs from "./Valeurs";
 import Expertises from "./Expertises";
 import Politiques from "./Politiques";
-import Emploi from "./Emploi";
+import { Emploi } from "./Emploi";
+import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
 
 const Layout = () => {
@@ -55,6 +56,7 @@ const Content = () => {
         <Route path='expertises' element={<Expertises/>}/>
         <Route path='politiques'element={<Politiques/>}/>
         <Route path='emploi' element={<Emploi/>}/>
+        <Route path='mentions' element={<Mentions/>}/>
       </Route>
     </Routes>
   )

@@ -64,7 +64,7 @@ const Expertises = () => {
                     {isLoading ? 'Pas encore d\'actualité' : expertises.map(expertise =>
                         <TabPanel value={expertise.attributes.id} className="bg-gray rounded-2xl text-start" id={expertise.attributes.title}>
                             <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
-                                <h3 className='text-4xl 2xl:text-5xl text-darkblue font-semibold uppercase'>{expertise.attributes.title}</h3>
+                                <h3 className='text-3xl 2xl:text-4xl text-darkblue font-semibold uppercase'>{expertise.attributes.title}</h3>
                                 <p className="mt-4 font-normal" dangerouslySetInnerHTML={{ __html: expertise.attributes.description }} />
                             </div>
                         </TabPanel>

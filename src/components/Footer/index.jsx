@@ -28,7 +28,7 @@ const Footer = () => {
                     </div>
                     <div className="w-full flex flex-col text-center lg:text-start my-8 lg:my-0 xl:space-y-4 space-y-2">
                         <Link to="presentation" className="font-medium">Qui sommes-nous ?</Link>
-                        <Link to="/" className="font-medium">Metions légales</Link>
+                        <Link to="mentions" className="font-medium">Metions légales</Link>
                         <Link to="politiques" className="font-medium">Politiques de confidentialité</Link>
                         <Link to="/" className="text-[#C3D5DC] text-sm">Modifier les cookies</Link>
                     </div>

@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import Banderole from "../../components/Banderole ";
 import { Link } from "react-router-dom"
 
-const Emploi = () => {
+export const Emploi = () => {
     const {id} = useParams()
     let [postState, setPostState] = useState(null)
     let [isLoading, setIsLoading] = useState(false)
@@ -37,4 +37,3 @@ const Emploi = () => {
         </div>
     )
 }
-export default Emploi
