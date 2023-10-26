@@ -77,7 +77,7 @@ const Accueil = () => {
                     {/* faire boucle actu */}
                         {isLoading ? 'Pas encore d\'actualités' : actualites?.slice(-3).map(actualite => 
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
-                                <img src={actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl" />
+                                <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl" />
                                 <div class="ml-6 my-4 pr-2">
                                     <p>{(new Date(actualite.attributes.create)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.attributes.title}</p>

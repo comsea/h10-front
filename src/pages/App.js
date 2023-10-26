@@ -55,7 +55,7 @@ const Content = () => {
         <Route path='valeurs' element={<Valeurs/>}/>
         <Route path='expertises' element={<Expertises/>}/>
         <Route path='politiques'element={<Politiques/>}/>
-        <Route path='emploi' element={<Emploi/>}/>
+        <Route path='emploi/:id' element={<Emploi/>}/>
         <Route path='mentions' element={<Mentions/>}/>
       </Route>
     </Routes>

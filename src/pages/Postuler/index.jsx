@@ -124,7 +124,7 @@ const Postuler = () => {
                     {/* faire boucle emploie */}
                     {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.filter((item) => item.attributes.cabinet.data.attributes.name.toLowerCase().includes(filter.toLowerCase())).slice(startIndex, endIndex).map(emploi =>
                     <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
-                        <img src={emploi.attributes.image.atributes.url} alt="photo représentant l'emploi" class="w-full rounded-t-3xl" />
+                        <img src={"http://localhost:1337" + emploi.attributes.image.data.attributes.url} alt="photo représentant l'emploi" class="w-full rounded-t-3xl" />
                         <div className="mx-4 py-4 flex flex-col justify-between items-start h-full">
                             <div>
                                 <p class="text-darkblue font-normal 2xl:text-xl text-lg">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>
@@ -204,7 +204,7 @@ const Postuler = () => {
                             </label>
                         </div>
                         <div class="w-full flex justify-center">
-                            <button type="submit" class="bg-darkblue flex items-center text-white font-normal py-4 px-8 rounded-lg hover:bg-blue transition duration-300">
+                            <button type="submit" class="bg-darkblue flex items-center text-white font-normal py-4 px-8 rounded-lg hover:text-darkblue hover:bg-blue transition duration-300">
                             <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />Envoyer ma candidature</button>
                         </div>    
                     </form>

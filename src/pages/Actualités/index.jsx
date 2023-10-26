@@ -90,18 +90,13 @@ const Actualités = () => {
         </div> */}
         {/* GRID ACTUALITE */}
         <div className="grid-rows-3 grid-cols-3 gap-4 h-full text-2xl mb-12 text-blue font-normal hidden lg:grid">
-          {actualites && actualites.map((actualite, index) => (
-            <div key={index} className="rounded-3xl p-4"
-              style={{
-                backgroundImage: `url(${actualite.attributes.image})`, 
-                backgroundSize: 'cover', 
-                backgroundPosition: 'center',
-              }}  >
+          {actualites && actualites.map((actualite) => (
+            <div className="rounded-3xl p-4 bg-darkblue">
               <div className="justify-between flex flex-col">
                 <p>{actualite.attributes.create}</p>
                 <div>
-                  <p className="text-2xl font-semibold text-black lg:text-3xl mb-2 mt-96">{actualite.attributes.title}</p>
-                  <Link to={`/actualite/${actualite.id}`}>Voir l'article →</Link>
+                  <p className="text-2xl font-semibold text-white lg:text-3xl mb-2 mt-96">{actualite.attributes.title}</p>
+                  <Link to={`/actualite/${actualite.id}`} class="hover:text-white duration-300">Voir l'article →</Link>
                 </div>
               </div>
             </div>
