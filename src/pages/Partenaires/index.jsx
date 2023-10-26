@@ -56,8 +56,8 @@ const Partenaires = () => {
                                 <div
                                     className={`${
                                         cabinet.attributes.name === activeElement
-                                        ? "active hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] lg:min-h-[200px] min-h-[250px]"
-                                        : "hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] lg:min-h-[200px] min-h-[250px]"
+                                        ? "active hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] lg:min-h-[200px] min-h-[100px] md:min-h-[200px]"
+                                        : "hover:bg-blue w-full duration-200 flex items-center justify-center rounded-t-full 2xl:min-h-[350px] lg:min-h-[200px] min-h-[100px] md:min-h-[200px]"
                                     }`}
                                     onClick={() => handleElementClick(cabinet.attributes.name)}
                                 >
@@ -75,7 +75,7 @@ const Partenaires = () => {
                             <p class="2xl:text-xl text-lg font-normal 2xl:mb-12 mb-8">{cabinet.attributes.description}</p>
                             {cabinet.attributes.adresses.data.map(adresse =>
                             <>
-                                <h4 class="text-darkblue font-semibold text-4xl 2xl:text-5xl mb-4 lg:mb-8">{adresse.attributes.location}</h4>
+                                <h4 class="text-darkblue font-semibold text-3xl 2xl:text-4xl mb-4 lg:mb-8">{adresse.attributes.location}</h4>
                                 <div class="underline underline-offset-8 2xl:text-2xl text-lg font-normal text-darkblue mb-12">
                                     <div class="flex items-center">
                                         <img src={map} alt="icone pour indiquer le lieu" class="mr-4 w-6" />

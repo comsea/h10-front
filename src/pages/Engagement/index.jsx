@@ -25,7 +25,7 @@ const Engagement = () =>{
                 </div>
                 <div class="my-6 flex flex-col lg:flex-row items-center text-start">
                     <img src={étoile} class=" mb-6 lg:mb-0 lg:w-1/8" alt="Logo du club Ardennes Étoile" />
-                    <div class ="flex items-start ml-10">
+                    <div class ="flex items-start lg:ml-10">
                         <img src={fleche} alt="icon de flèche pour montrer le texte qui suit" class="w-8 mr-6" />
                         <p>Le club de Basket de Charleville-Mézières <span class="font-semibold">L’Étoile</span>  qui, rappelons-le, possède le plus haut palmarès sportif de haut niveau dans les Ardennes.</p>
                     </div>
@@ -64,35 +64,37 @@ const Engagement = () =>{
                     <div class ="lg:w-2/3">
                         <h3 class="text-3xl text-darkblue 2xl:text-5xl mb-6 font-semibold">Bien-être <span class="text-black">en entreprise</span></h3>
                         <p>Le rythme de travail des cabinets d’experts-comptables est intense. Très tôt, le réseau H10 a inscrit au cœur de sa stratégie la notion de bien-être en entreprise. Les enjeux sont multiples : meilleure disponibilité pour les clients, amélioration de la productivité, facilité de recrutement. Les actions mises en place par les cabinets sont couronnées de succès :</p>
-                        <div class="flex mt-10">
-                            <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
-                            <p>Aménagement des horaires</p>
-                        </div>
-                        <div class="flex mt-4">
-                            <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
-                            <p>Répartition des tâches et du temps de travail</p>
-                        </div>
-                        <div class="flex mt-4">
-                            <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
-                            <p>Modernisation des espaces de travail</p>
-                        </div>
-                        <div class="flex mt-4">
-                            <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
-                            <p>Flexibilité spacio-temporelle</p>
-                        </div>
-                        <div class="flex mt-4">
-                            <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
-                            <p>Rémunération motivante</p>
-                        </div> 
-                        <div class="flex mt-4 mb-10 items-start">
-                            <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
-                            <p>Écoute émotionnelle des équipes qui se retrouvent régulièrement pour des journées de team-building et participent ensemble aux événements de la région</p>
+                        <div class="text-start">
+                            <div class="flex mt-10">
+                                <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
+                                <p>Aménagement des horaires</p>
+                            </div>
+                            <div class="flex mt-4">
+                                <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
+                                <p>Répartition des tâches et du temps de travail</p>
+                            </div>
+                            <div class="flex mt-4">
+                                <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
+                                <p>Modernisation des espaces de travail</p>
+                            </div>
+                            <div class="flex mt-4">
+                                <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
+                                <p>Flexibilité spacio-temporelle</p>
+                            </div>
+                            <div class="flex mt-4">
+                                <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
+                                <p>Rémunération motivante</p>
+                            </div> 
+                            <div class="flex mt-4 mb-10 items-start">
+                                <img src={fleche} alt="Icon de flêche pour pointer vers le texte qui suit" class="w-8 mr-6" />
+                                <p>Écoute émotionnelle des équipes qui se retrouvent régulièrement pour des journées de team-building et participent ensemble aux événements de la région</p>
+                            </div>
                         </div>
                         <p>Composé d’experts-comptables jeunes et dynamiques, le réseau H10 casse les codes et balaie l’image poussiéreuse de l’expert-comptable âgé croulant sous les dossiers et condamné à gratter le papier derrière son bureau. Le réseau H10 présente clairement un attrait double : pour les (futurs) clients et les (futurs) collaborateurs !</p>
-                    </div>
-                    <div class="lg:w-1/3 my-6 lg:my-0 px-5">
-                        <div class="bg-gray duration-200 items-center rounded-t-full">
-                            <img src={bienêtre} class="mx-auto w-2/3 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le bien-être" />
+                        <div class="lg:w-1/3 my-6 lg:my-0 px-5">
+                            <div class="bg-gray duration-200 items-center rounded-t-full">
+                                <img src={bienêtre} class="mx-auto w-2/3 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le bien-être" />
+                            </div>
                         </div>
                     </div>
                 </div>

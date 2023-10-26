@@ -4,8 +4,8 @@ import postuler from "../../asset/Header/postuler.png"
 import past from "../../asset/Svg/past.svg";
 import before from "../../asset/Svg/before.svg";
 import test from "../../asset/test-actu.png";
-import avion from "../../asset/avion.png"
-import cv from "../../asset/Svg/cv.svg"
+import avion from "../../asset/avion.png";
+import cv from "../../asset/Svg/cv.svg";
 import Banderole from "../../components/Banderole ";
 import { Pagination, Stack, ThemeProvider, createTheme, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { Link } from "react-router-dom"
@@ -99,7 +99,7 @@ const Postuler = () => {
             <Banderole />
             <div class="w-11/12 lg:w-10/12 mx-auto">
                 {/* OFFRE D'EMPLOI */}
-                <div className='2xl:w-[15%] w-[25%]'>
+                <div className='2xl:w-[15%] lg:w-[25%] w-full'>
                 <ThemeProvider theme={theme} className="w-full">
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label" variant='outlined'>Filtrer par cabinets</InputLabel>
@@ -197,7 +197,7 @@ const Postuler = () => {
                             <input type="file" name="cv" id="cv" class=" border border-gray2 text-bluegray bg-gray2 text-sm lg:text-xl rounded-lg lg:rounded-none lg:rounded-r-lg px-4 py-3" placeholder="{cv}Sélectionner un fichier"/>
                         </div>
                         <p class="text-sm font-normal my-12 text-bluegray">*Curriculum Vitae, si vous n’en possédez pas votre candidature ne sera pas envoyée</p>
-                        <div class="space-y-1 flex justify-center">
+                        <div class="space-y-1 mb-10 lg:mb-0 flex justify-center">
                             <label for="conditions" class="flex items-center">
                                 <input type="checkbox" id="conditions" name="conditions" class="bg-gray2 accent-blue rounded-lg px-3 py-3" />
                                 <span class="ml-2 text-sm">Accepter les conditions d'utilisation <Link to="/politiques" className="hover:text-red-600">*</Link></span>

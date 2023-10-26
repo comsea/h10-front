@@ -53,7 +53,7 @@ const Accueil = () => {
     }
 
     return(
-        <div class="lg:w-10/12 mx-auto">
+        <div class="w-11/12 lg:w-10/12 mx-auto">
             {/* NOS ACTUALITÉS */}
                 <div class="flex flex-col lg:flex-row text-center lg:text-start justify-between">
                     <div>

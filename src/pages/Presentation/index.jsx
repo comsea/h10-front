@@ -97,7 +97,7 @@ const Presentation = () => {
         <div>
             <Header title="Qui sommes-nous ?" text="Découvrez l'équipe à votre service." image={presentation} />
             <Banderole />
-            <div class="w-11/12 2xl:py-16 py-10 mx-auto text-center items-center lg:text-start lg:w-10/12 flex flex-col lg:flex-row">
+            <div class="w-11/12 2xl:py-16 mb-10 mx-auto text-center items-center lg:text-start lg:w-10/12 flex flex-col lg:flex-row">
                 <div class="font-thin lg:w-3/5 lg:mb-12">
                     <p class="text-darkblue font-normal text-2xl 2xl:text-4xl mb-2 2xl:mb-4">Notre histoire</p>
                     <h1 class="text-3xl 2xl:text-5xl font-semibold">Qu'est ce que le <span class="text-darkblue">Réseau H10</span></h1>
