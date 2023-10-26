@@ -13,6 +13,8 @@ import Navbar from "../components/Navbar";
 import Banderole from "../components/Banderole ";
 import Valeurs from "./Valeurs";
 import Expertises from "./Expertises";
+import Politiques from "./Politiques";
+import Emploi from "./Emploi";
 import { Actualité } from "./Actualité";
 
 const Layout = () => {
@@ -51,6 +53,8 @@ const Content = () => {
         <Route path='actualite/:id' element={<Actualité />}/>
         <Route path='valeurs' element={<Valeurs/>}/>
         <Route path='expertises' element={<Expertises/>}/>
+        <Route path='politiques'element={<Politiques/>}/>
+        <Route path='emploi' element={<Emploi/>}/>
       </Route>
     </Routes>
   )

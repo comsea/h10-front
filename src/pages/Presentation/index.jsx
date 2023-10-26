@@ -158,9 +158,10 @@ const Presentation = () => {
                             expanded={expanded}
                             className="font-normal text-xl xl:text-4xl mt-2 leading-relaxed mb-4"
                         >
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia voluptates assumenda, autem dicta maiores tempora. Fuga eaque perspiciatis maxime expedita placeat ex vel magni ratione dolorum natus! Debitis, eum iste.
-                            Vel ex dignissimos, iusto reiciendis ullam quibusdam amet quod dolorem odit officiis rerum. Consectetur, dicta repellendus adipisci quidem alias similique quae, in dignissimos illo est ex nulla ea, officiis fugit!
-                        </ReactShowMoreText>
+                            Pour les professionnels dans leurs obligations comptables, fiscales, juridiques et sociales. 
+                            Il prodigue des conseils personnalisés et propose une offre Full Service, quelle que soit la structure de l’entreprise : 
+                            SARL, SA, SAS, Société Participative et Coopérative, Société Civile, Société Immobilière, Entreprise Individuelle, Professions Libérales, etc.
+                            </ReactShowMoreText>
                     </div>
 
                 </div>
@@ -206,17 +207,19 @@ const Presentation = () => {
                     {/* employé */}
                     <div class="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 text-start text-darkblue text-2xl font-normal 2xl:mt-12 mt-6">
                         {/* faire boucle employé */}
-                        {isLoading ? 'Pas encore d\'employés' : employes.slice(startIndex, endIndex).map(employe =>
-                        <div class="rounded-3xl bg-white">
+                        {isLoading ? 'Pas encore d\'employés' : employes.slice(startIndex, endIndex).map(employe => (
+                        <div class="rounded-3xl bg-white" key={employe.id}>
                             <img src={test} alt="Employé TEST" class="w-full h-auto rounded-t-2xl" />
                             <div class="ml-5 pr-2 my-5">
                                 <p class="uppercase leading-normal font-semibold">{employe.attributes.last_name} {employe.attributes.first_name}</p>
-                                <p className='2xl:text-xl text-base'>{employe.attributes.cabinet.data.attributes.name}</p>
+                                {employe.attributes.cabinet ? (
+                                    <p className='2xl:text-xl text-base'>{employe.attributes.cabinet.data.attributes.name}</p>
+                                ) : null}
                                 <p className='2xl:text-xl text-base'>{employe.attributes.job}</p>
                                 <p className='2xl:text-xl text-base'>{employe.attributes.email}</p>
                             </div>
                         </div>
-                        )}
+                    ))}
                     </div>
                     <div className='flex justify-center items-center mt-8'>
                         <ThemeProvider theme={theme}>
@@ -246,9 +249,9 @@ const Presentation = () => {
                     <p class="text-darkblue font-normal text-2xl 2xl:text-4xl mb-2">Notre visibilité</p>
                     <h3 class="text-3xl 2xl:text-5xl text-darkblue font-semibold 2xl:mb-12 mb-8">On parle de <span class="text-black">nous !</span></h3>
                     <p class="text-xl font-normal 2xl:mb-10 mb-6 leading-relaxed 2xl:text-3xl">Retrouver dès maintenant l’article 
-                        <br></br> de presse du journal 
+                         de presse du journal 
                         <span class="text-red-600"> l’Union </span>
-                        <br></br>à propos de notre 
+                        à propos de notre 
                         <span class="text-darkblue"> réseau H10 </span>!
                     </p>
                     <a class="text-red-600 duration-200 trans hover:text-red-400" href="https://www.lunion.fr/id471709/article/2023-04-03/six-cabinets-dexpertise-comptable-de-laisne-de-la-marne-et-des-ardennes-sous-une" target="_blank">Voir l'article de l'Union →</a>

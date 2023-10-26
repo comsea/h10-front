@@ -5,64 +5,130 @@ import before from "../../asset/Svg/before.svg";
 import test from "../../asset/test-actu.png";
 import down from "../../asset/Svg/down.svg"
 import Banderole from "../../components/Banderole ";
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom"
+import { Pagination, Stack, ThemeProvider, createTheme, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-const Actualités = () =>{
-    return (
-        <div>
-            <Header title="Quoi de neuf chez H10 ?" text="Retrouvez ici les actualités de notre réseau et de précieuses informations sur les lois et réglementations en vigueur." image={actualités} />
-            <Banderole />
-            <div class="w-11/12 mx-auto lg:w-10/12">
-                <div class="flex flex-col lg:flex-row justify-between mb-12">
-                    <div class="text-darkblue flex mx-auto lg:mx-0 text-xl border border-darkblue rounded-lg ">
-                        <p class="font-semibold lg:px-7 lg:py-4 px-4 py-2 rounded-l-lg border-darkblue border-r h-full mr-[0,5px] ">Trier par</p>
-                        <div class="font-normal flex lg:px-7 lg:py-4 px-4 py-2 rounded-r-lg -darkblue h-full ">
-                            <p>Le plus récent</p>
-                            <img src={down} alt="" class="w-4 ml-4"/>
-                        </div>
-                    </div>
-                    <div class="flex justify-end lg:justify-normal mt-6 lg:mt-0">
-                        {/*faire pagination bouton past/before */}
-                        <div class="bg-gray rounded-lg mr-1">
-                            <img src={before} alt="icon pour voir la page précédente" class="lg:px-7 lg:py-4 px-4 py-2"/>
-                        </div>
-                        <div class="bg-white shadow-2xl rounded-lg">
-                            <img src={past} alt="icon pour voir la page suivante" class="lg:px-7 lg:py-4 px-4 py-2" />
-                        </div>
-                    </div>
+const itemsPerPage = 9
+
+const theme = createTheme({
+  palette: {
+      primary:{
+          main: '#184E65',
+          secondary: '#FFFFFF',
+          contrastText: '#FFFFFF'
+      }
+  }
+}) 
+
+const Actualités = () => {
+    const [isLoading, setIsLoading] = useState(true)
+    const [actualites, setActualites] = useState(null)
+    const [page, setPage] = useState(1)
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        fetch("http://localhost:1337/api/actualites?populate=*",
+        {
+            method: "GET",
+            headers: {
+                'Accept': 'Application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            setActualites(res.data)
+            setIsLoading(false)
+            console.log(res.data)
+        })
+    }, [])
+
+    useEffect(() => {
+        // Fonction de rappel pour mettre à jour la largeur de la fenêtre lorsque la taille de l'écran change
+        const handleResize = () => {
+          const newWidth = window.innerWidth;
+          setWindowWidth(newWidth);
+        };
+    
+        // Écoutez l'événement de redimensionnement de la fenêtre
+        window.addEventListener('resize', handleResize);
+    
+        // Nettoyez l'écouteur d'événements lors du démontage du composant
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, [])
+
+    let constantValue = 2;
+
+    if (windowWidth > 1490) {
+          constantValue = 8;
+    } else if (windowWidth => 1024) {
+          constantValue = 6;
+    }
+
+    const handleChangePage = (event, value) => {
+        setPage(value)
+    }
+
+    const startIndex = (page - 1) * constantValue
+    const endIndex = startIndex + constantValue
+
+  return (
+    <div>
+      <Header title="Quoi de neuf chez H10 ?" text="Retrouvez ici les actualités de notre réseau et de précieuses informations sur les lois et réglementations en vigueur." image={actualités} />
+      <Banderole />
+      <div className="w-11/12 mx-auto lg:w-10/12">
+        {/* <div className="flex flex-col lg:flex-row justify-between mb-12">
+            <div class="text-darkblue flex mx-auto lg:mx-0 text-xl border border-darkblue rounded-lg ">
+                <p class="font-semibold lg:px-7 lg:py-4 px-4 py-2 rounded-l-lg border-darkblue border-r h-full mr-[0,5px] ">Trier par</p>
+                <div class="font-normal flex lg:px-7 lg:py-4 px-4 py-2 rounded-r-lg -darkblue h-full ">
+                    <p>Le plus récent</p>
+                    <img src={down} alt="" class="w-4 ml-4"/>
                 </div>
-                {/* GRID ACTUALITE */}
-               
-                <div class="grid-rows-6 grid-cols-3 gap-4 h-full text-2xl mb-12 text-blue font-normal hidden lg:grid">
-                    <div id="item-0" class="bg-gray row-start-1 col-start-1 h-full row-end-3 col-end-2 rounded-3xl p-4">
-                        <div class="justify-between flex flex-col">
-                            <p>XX/XX/XX</p>
-                            <div>
-                                <p class="text-3xl font-semibold text-black lg:text-4xl mb-8 mt-96">Titre</p>
-                                <a href="#" class="hover:text-bluegray duration-200">Voir l’article →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="item-1" class="bg-gray row-start-1 col-start-2 row-end-3 col-end-3 rounded-3xl p-10">1</div>
-                    <div id="item-2" class="bg-darkblue row-start-1 col-start-3 row-end-2 col-end-4 rounded-3xl p-10">2</div>
-                    <div id="item-3" class="bg-darkblue row-start-2 col-start-3 row-end-3 col-end-4 rounded-3xl p-10">3</div>
-                    <div id="item-4" class="bg-darkblue row-start-3 col-start-1 row-end-4 col-end-2 rounded-3xl p-10">4</div>
-                    <div id="item-5" class="bg-darkblue row-start-4 col-start-1 row-end-5 col-end-2 rounded-3xl p-10">5</div>
-                    <div id="item-6" class="bg-gray row-start-3 col-start-2 row-end-5 col-end-4 rounded-3xl p-10">6</div>
-                    <div id="item-7" class="bg-gray row-start-5 col-start-1 row-end-7 col-end-2 rounded-3xl p-10">7</div>
-                    <div id="item-8" class="bg-darkblue row-start-5 col-start-2 row-end-6 col-end-4 rounded-3xl p-10">8</div>
-                    <div id="item-9" class="bg-darkblue row-start-6 col-start-2 row-end-7 col-end-4 rounded-3xl p-10">9</div>
+            </div>  
+        </div> */}
+        {/* GRID ACTUALITE */}
+        <div className="grid-rows-3 grid-cols-3 gap-4 h-full text-2xl mb-12 text-blue font-normal hidden lg:grid">
+          {actualites && actualites.map((actualite, index) => (
+            <div key={index} className="rounded-3xl p-4"
+              style={{
+                backgroundImage: `url(${actualite.attributes.image})`, 
+                backgroundSize: 'cover', 
+                backgroundPosition: 'center',
+              }}  >
+              <div className="justify-between flex flex-col">
+                <p>{actualite.attributes.create}</p>
+                <div>
+                  <p className="text-2xl font-semibold text-black lg:text-3xl mb-2 mt-96">{actualite.attributes.title}</p>
+                  <Link to={`/actualite/${actualite.id}`}>Voir l'article →</Link>
                 </div>
-                {/*faire pagination */}
-                <div class="flex justify-end space-x-1 mb-12">
-                    <div class="w-4 h-4 rounded-full bg-darkblue"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue"></div>
-                </div>
+              </div>
             </div>
-            
+          ))}
         </div>
-    )
-}
+        {/* Pagination */}
+        <div className='flex justify-center items-center my-8'>
+                    <ThemeProvider theme={theme}>
+                        <Stack spacing={2} justifyContent="center" py={1} px={4} className='bg-[#FFFFFF] shadow-2xl rounded-full'>
+                            {isLoading ? 
+                                <div>
+                                    Chargement en cours
+                                </div> 
+                                : 
+                            <Pagination 
+                                count={Math.ceil(actualites.length / constantValue)}
+                                page={page}
+                                onChange={handleChangePage}
+                                color='primary'                             
+                            />
+                            }
+                        </Stack>
+                    </ThemeProvider>
+                </div>
+      </div>
+    </div>
+  );
+};
 
 export default Actualités

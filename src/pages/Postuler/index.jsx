@@ -8,6 +8,7 @@ import avion from "../../asset/avion.png"
 import cv from "../../asset/Svg/cv.svg"
 import Banderole from "../../components/Banderole ";
 import { Pagination, Stack, ThemeProvider, createTheme, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Link } from "react-router-dom"
 
 const itemsPerPage = 8
 
@@ -123,17 +124,17 @@ const Postuler = () => {
                     {/* faire boucle emploie */}
                     {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.filter((item) => item.attributes.cabinet.data.attributes.name.toLowerCase().includes(filter.toLowerCase())).slice(startIndex, endIndex).map(emploi =>
                     <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
-                        <img src={test} alt="test" class="w-full rounded-t-3xl" />
-                        <div className="mx-6 py-4 flex flex-col justify-between items-start h-full">
+                        <img src={emploi.attributes.image} alt="photo représentant l'emploi" class="w-full rounded-t-3xl" />
+                        <div className="mx-4 py-4 flex flex-col justify-between items-start h-full">
                             <div>
-                                <p class="text-darkblue font-normal 2xl:text-2xl text-lg">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>
-                                <p class="text-2xl 2xl:text-4xl font-bold capitalize mt-2 mb-4">{emploi.attributes.title}</p>
+                                <p class="text-darkblue font-normal 2xl:text-xl text-lg">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>
+                                <p class="text-2xl font-bold capitalize">{emploi.attributes.title}</p>
                             </div>
                             <div>
                                 <p className="line-clamp-3 font-normal mb-5 2xl:text-xl text-base" dangerouslySetInnerHTML={{ __html: emploi.attributes.description }} />
                                 <div class="w-full justify-between flex-col lg:flex-row font-normal flex 2xl:text-lg text-xs">
                                     <p class="text-darkblue font-thin">{emploi.attributes.date}</p>
-                                    <p>Voir l’offre d’emploi →</p>
+                                    <Link to={`/emploi/${emploi.id}`}>Voir l'article →</Link>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +161,7 @@ const Postuler = () => {
                 </div>
                 {/* POSTULER FROM */}
                 <div class="text-center">
-                    <h3 class="2xl:text-3xl text-2xl text-darkblue mb-6 ">Envie de postuler à une offre d’emploi ? 
+                    <h3 class="2xl:text-3xl text-2xl text-darkblue mb-6 " id='form'>Envie de postuler à une offre d’emploi ? 
                     <br/>Remplissez dès maintenant notre formulaire de candidature.</h3>
                     <p class="text-bluegray mb-4">Le réseau h10 est impatient d’avoir de nouveaux membres dans ses équipes,
                     <br/>n’hésitez pas à postuler si vous voulez rejoindre l’aventure !</p>
@@ -196,6 +197,12 @@ const Postuler = () => {
                             <input type="file" name="cv" id="cv" class=" border border-gray2 text-bluegray bg-gray2 text-sm lg:text-xl rounded-lg lg:rounded-none lg:rounded-r-lg px-4 py-3" placeholder="{cv}Sélectionner un fichier"/>
                         </div>
                         <p class="text-sm font-normal my-12 text-bluegray">*Curriculum Vitae, si vous n’en possédez pas votre candidature ne sera pas envoyée</p>
+                        <div class="space-y-1 flex justify-center">
+                            <label for="conditions" class="flex items-center">
+                                <input type="checkbox" id="conditions" name="conditions" class="bg-gray2 accent-blue rounded-lg px-3 py-3" />
+                                <span class="ml-2 text-sm">Accepter les conditions d'utilisation <Link to="/politiques" className="hover:text-red-600">*</Link></span>
+                            </label>
+                        </div>
                         <div class="w-full flex justify-center">
                             <button type="submit" class="bg-darkblue flex items-center text-white font-normal py-4 px-8 rounded-lg hover:bg-blue transition duration-300">
                             <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />Envoyer ma candidature</button>
