@@ -89,7 +89,7 @@ const Actualités = () => {
             </div>  
         </div> */}
         {/* GRID ACTUALITE */}
-        <div className="grid-rows-3 grid-cols-3 gap-4 h-full text-2xl mb-12 text-blue font-normal hidden lg:grid">
+        <div className=" grid-cols-3 gap-4 h-full text-2xl mb-12 text-blue font-normal hidden lg:grid">
           {actualites && actualites.map((actualite) => (
             <div className="rounded-3xl p-4 bg-darkblue">
               <div className="justify-between flex flex-col">
