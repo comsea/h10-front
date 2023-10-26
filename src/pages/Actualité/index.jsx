@@ -29,7 +29,7 @@ export const Actualité = () => {
         <div>
             <Header title={isLoading ? postState.data.attributes.title : "Chargement..."} text={isLoading ? "Décrouvrez l'actualité : "+postState.data.attributes.title : "Chargement..."} image={isLoading ? "http://localhost:1337"+postState.data.attributes.image.data.attributes.url : "Chargement"} />
             <Banderole />
-            <div class="w-11/12 mx-auto lg:w-10/12 flex flex-col justify-start items-start">
+            <div class="w-11/12 mb-12 mx-auto lg:w-10/12 flex flex-col justify-start items-start">
                 {isLoading ? <p className="mb-10" dangerouslySetInnerHTML={{ __html: postState.data.attributes.description }} /> : "Loading..."}
                 <h2 className="lg:text-4xl text-3xl font-bold text-darkblue mb-10">Galerie photo</h2>
                 <div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-10">

@@ -16,7 +16,7 @@ const Valeurs = () =>{
             <div class="w-11/12 mx-auto font-normal text-center lg:text-start lg:w-10/12 2xl:text-2xl lg:text-base">
                 <div class="flex items-center flex-col justify-between lg:flex-row mb-32">
                     <div class ="lg:w-2/3 space-y-6">
-                        <h3 class="text-3xl 2xl:text-5xl font-semibold w-[80%]"><span className="text-darkblue">Notre</span> accompagnement personnalisé</h3>
+                        <h3 class="text-3xl 2xl:text-5xl mx-auto lg:mx-0 font-semibold w-[80%]"><span className="text-darkblue">Notre</span> accompagnement personnalisé</h3>
                         <p>Pour chaque client, le réseau H10 propose une approche pluridisciplinaire et un accompagnement personnalisé encadrés par une lettre de mission définissant précisément son intervention et ses honoraires.</p>
                         <p>Ses actions sont engagées dans le respect des valeurs communes d’humanité, de proximité et de confiance qui lient les cabinets du réseau H10.</p>
                         <p>Dans une vision moderne du métier d’expert-comptable, le réseau H10 anticipe les besoins de réactivité et de simplicité des entreprises par des solutions digitalisées et la mise en œuvre de missions élargies aux évolutions de notre époque comme la cyberprévention ou la transition écologique.</p>
@@ -30,10 +30,10 @@ const Valeurs = () =>{
 
                 <div class="flex items-center lg:text-end flex-col justify-between lg:flex-row-reverse mb-32">
                     <div class ="lg:w-2/3 flex justify-end flex-col items-end space-y-6">
-                        <h3 class="text-3xl 2xl:text-5xl font-semibold w-[80%]"><span className="text-darkblue">La mutualisation</span> des compétences techniques et humaines</h3>
-                        <p className="text-start">Par la mutualisation des compétences et des ressources de 6 cabinets d’expertise-comptable, le réseau H10 développe des capacités humaines, logistiques et informatiques équivalentes à celles des grandes structures comptables, tout en conservant l’indépendance de chaque cabinet pour le conseil de ses clients.</p>
-                        <p className="text-start">Organisé en pôles d’expertise et utilisant des logiciels de gestion transversaux, le réseau H10 facilite l’échange d’idées et d’informations dans le respect du code déontologique de la profession obligeant indépendance et confidentialité.</p>
-                        <p className="text-start">Comptant des Commissaires aux Comptes et un avocat fiscaliste parmi les équipes, l’ensemble des cabinets du réseau H10 bénéficient d’une expertise en audit légal et d’un conseil sur-mesure en droit fiscal et droit des sociétés.</p>
+                        <h3 class="text-3xl 2xl:text-5xl mx-auto lg:mx-0 font-semibold w-[80%]"><span className="text-darkblue">La mutualisation</span> des compétences techniques et humaines</h3>
+                        <p className="lg:text-start">Par la mutualisation des compétences et des ressources de 6 cabinets d’expertise-comptable, le réseau H10 développe des capacités humaines, logistiques et informatiques équivalentes à celles des grandes structures comptables, tout en conservant l’indépendance de chaque cabinet pour le conseil de ses clients.</p>
+                        <p className="lg:text-start">Organisé en pôles d’expertise et utilisant des logiciels de gestion transversaux, le réseau H10 facilite l’échange d’idées et d’informations dans le respect du code déontologique de la profession obligeant indépendance et confidentialité.</p>
+                        <p className="lg:text-start">Comptant des Commissaires aux Comptes et un avocat fiscaliste parmi les équipes, l’ensemble des cabinets du réseau H10 bénéficient d’une expertise en audit légal et d’un conseil sur-mesure en droit fiscal et droit des sociétés.</p>
                     </div>
                     <div class="lg:w-[30%] my-6 lg:my-0 flex justify-center items-center">
                         <div class="bg-gray duration-200 items-center rounded-t-full">
@@ -58,9 +58,9 @@ const Valeurs = () =>{
 
                 <div class="flex items-center lg:text-end flex-col justify-between lg:flex-row-reverse mb-32">
                     <div class ="lg:w-2/3 flex justify-end flex-col items-end space-y-6">
-                        <h3 class="text-3xl 2xl:text-5xl font-semibold w-[80%]"><span className="text-darkblue">Notre</span> pôle de formation</h3>
-                        <p className="text-start">Baptisé E-Form@ction, le réseau H10 dispose d’un pôle de formation en comptabilité générale qui propose des modules pour aider les entreprises à gagner en autonomie et travailler plus efficacement avec leur expert-comptable.</p>
-                        <p className="text-start">Nous ne nous axons pas seulement sur la comptabilité mais aussi sur tous les domaines qui y sont liés tels que l’administratif et la logistique.</p>
+                        <h3 class="text-3xl 2xl:text-5xl font-semibold mx-auto lg:mx-0 w-[80%]"><span className="text-darkblue">Notre</span> pôle de formation</h3>
+                        <p className="lg:text-start">Baptisé E-Form@ction, le réseau H10 dispose d’un pôle de formation en comptabilité générale qui propose des modules pour aider les entreprises à gagner en autonomie et travailler plus efficacement avec leur expert-comptable.</p>
+                        <p className="lg:text-start">Nous ne nous axons pas seulement sur la comptabilité mais aussi sur tous les domaines qui y sont liés tels que l’administratif et la logistique.</p>
                     </div>
                     <div class="lg:w-[30%] my-6 lg:my-0 flex justify-center items-center">
                         <div class="bg-gray duration-200 items-center rounded-t-full">

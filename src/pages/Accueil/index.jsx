@@ -53,7 +53,7 @@ const Accueil = () => {
     }
 
     return(
-        <div class="lg:w-10/12 mx-auto">
+        <div class="w-11/12 lg:w-10/12 mx-auto">
             {/* NOS ACTUALITÉS */}
                 <div class="flex flex-col lg:flex-row text-center lg:text-start justify-between">
                     <div>
@@ -77,7 +77,7 @@ const Accueil = () => {
                     {/* faire boucle actu */}
                         {isLoading ? 'Pas encore d\'actualités' : actualites?.slice(-3).map(actualite => 
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
-                                <img src={actu} alt="test actu" class="w-full rounded-t-3xl" />
+                                <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl" />
                                 <div class="ml-6 my-4 pr-2">
                                     <p>{(new Date(actualite.attributes.create)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.attributes.title}</p>
@@ -89,10 +89,12 @@ const Accueil = () => {
                 </div>
             {/* NOS EXPERTISES */}
             <div class="flex justify-center my-16">
-                <img src={img} alt="Comptable entrain de travailler" class="hidden w-1/2 p-4 h-auto lg:flex"/>
-                <div class="text-center  lg:text-start lg:w-1/2">
+                <div class="lg:flex hidden w-1/2">
+                    <img src={img} alt="Comptable entrain de travailler" class="absolute w-1/3 p-4 h-auto "/>
+                </div>
+                <div class="text-center lg:text-start px-4 lg:w-1/2">
                     <p class="text-darkblue font-extraligth text-2xl xl:text-4xl mb-2 lg:mb-4">Nos expertises</p>
-                    <h3 class="text-3xl xl:text-5xl font-semibold">Découvrez nos différentes expertises.</h3>
+                    <h3 class="text-3xl xl:text-5xl mb-10 font-semibold">Découvrez nos différentes expertises.</h3>
                         {/* EXPERTISES */}
                     {/* <div class="w-auto mx-1 mt-8 lg:mt-20">
                          faire boucle expertise 
@@ -103,19 +105,20 @@ const Accueil = () => {
                         </div>
                     </div>
                     */}
-                    <div className='w-full flex flex-col py-4 space-y-2'>
+                    <div className='w-full flex flex-col rounded-2xl py-4 space-y-2'>
                         {isLoading ? 'Loading...' : expertises?.map(expertise =>
-                        <Accordion expanded={expanded === 'panel'+expertise.id} onChange={handleChange('panel'+expertise.id)}  key={expertise.id}>
+                        <Accordion expanded={expanded === 'panel'+expertise.id} onChange={handleChange('panel'+expertise.id)} className='rounded-xl' key={expertise.id}>
                             <AccordionSummary
                                 expandIcon={<ExpandCircleDownIcon className='text-darkblue' />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
+                                className=''
                                 >
-                                <p className='text-darkblue font-bold xl:text-3xl text-xl'>{expertise.attributes.title}</p>
+                                <p className='text-darkblue font-bold xl:text-3xl p-1 xl:p-3 text-xl'>{expertise.attributes.title}</p>
                             </AccordionSummary>
-                            <AccordionDetails className='flex flex-col space-y-3'>
+                            <AccordionDetails className='flex font-normal flex-col space-y-3'>
                                 <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expertise.attributes.description }} />
-                                <Link className='text-darkblue font-semibold'>En savoir plus →</Link>
+                                <Link to='expertises' className='text-darkblue'>En savoir plus →</Link>
                             </AccordionDetails>
                         </Accordion>
                         )}

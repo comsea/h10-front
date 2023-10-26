@@ -1,9 +1,9 @@
 import Header from "../../components/Header"
 import contact from "../../asset/Header/contact.png"
 import location from "../../asset/Svg/location.svg"
-import tel from "../../asset/Svg/tel.svg"
 import avion from "../../asset/avion.png"
 import Banderole from "../../components/Banderole "
+import { Link } from "react-router-dom"
 
 
 const Contact = () => {
@@ -18,20 +18,15 @@ const Contact = () => {
                 </div>
                 <div class="xl:w-3/5 p-4 lg:p-16">
                     <h3 class="text-darkblue font-semibold text-3xl lg:text-4xl mb-6">Rencontrer nos clients est une étape essentielle dans la construction de nos relations de travail.</h3>
-                    <div class="flex items-start flex-col md:flex-row font-normal mb-6">
-                        <div class="flex items-start md:w-1/2">
+                        <div class="flex items-start mb-6 ">
                             <img src={location} alt="icon représentation la localisation du réseau H10" class="mr-4"/>
                             <div class ="flex flex-col">
-                                <p>6 Boulevard des écossais, <br/>
+                                <p>6 Boulevard des écossais,
                                 08200 Sedan</p>
                                 <a href="https://maps.app.goo.gl/ajFgLnLw44KFG21U7" target="_blank" class="text-darkblue">Voir l’itinéraire →</a>
                             </div>
                         </div>
-                        <div class="flex items-center md:w-1/2">
-                            <img src={tel} alt="icon représentation le numéro de téléphone du réseau H10" class="mr-4"/>
-                            <p>06 06 06 06 06</p>
-                        </div>
-                    </div>
+                        
                         
                     {/* faire traitement from */}
                     <form action="" method="POST" class="lg:space-y-4 font-normal text-xl">
@@ -49,8 +44,14 @@ const Contact = () => {
                             <label for="message" ></label>
                             <textarea id="message" name="message" rows="4" placeholder="Votre message...*" class="w-full  bg-gray2 rounded-lg px-8 py-4"></textarea>
                         </div>
+                        <div class="space-y-1">
+                            <label for="conditions" class="flex items-center">
+                                <input type="checkbox" id="conditions" name="conditions" class="bg-gray2 accent-blue rounded-lg px-3 py-3" />
+                                <span class="ml-2 text-sm">Accepter les conditions d'utilisation <Link to="/politiques" className="hover:text-red-600">*</Link></span>
+                            </label>
+                        </div>
                         <div class="w-full flex justify-center lg:justify-end">
-                            <button type="submit" class="bg-darkblue flex items-center text-white font-normal py-4 px-8 rounded-lg hover:bg-blue transition duration-300">
+                            <button type="submit" class="bg-darkblue hover:text-darkblue flex items-center text-white font-normal py-4 px-8 rounded-lg hover:bg-blue transition duration-300">
                             <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />Envoyer</button>
                         </div>    
                     </form>
