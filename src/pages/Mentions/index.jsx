@@ -20,7 +20,7 @@ const Mentions = () => {
 
                 <h2 class="text-xl font-bold my-2">Responsable de publication</h2>
                 <p>
-                    Lola Poiret - <a href="mailto:l.poiret@globalaxe08.fr" class="text-blue-600">aderesse mail</a>
+                    Sébastien DRAPIER - <a href="mailto:contact@reseauh10.fr" class="text-blue-600">contact@reseauh10.fr</a>
                 </p>
 
                 <h2 class="text-xl font-bold my-2">Hébergeur</h2>
@@ -36,7 +36,7 @@ const Mentions = () => {
 
                 <h2 class="text-xl font-bold my-2">Nous contacter</h2>
                 <p>
-                    Par email : <a href="mailto:l.poiret@globalaxe08.fr" class="text-blue-600">adresse mail h10</a>
+                    Par email : <a href="mailto:contact@reseauh10.fr" class="text-blue-600">contact@reseauh10.fr</a>
                 </p>
             </div>
         </div>

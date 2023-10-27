@@ -77,7 +77,7 @@ const Accueil = () => {
                     {/* faire boucle actu */}
                         {isLoading ? 'Pas encore d\'actualités' : actualites?.slice(-3).map(actualite => 
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
-                                <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl" />
+                                <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
                                 <div class="ml-6 my-4 pr-2">
                                     <p>{(new Date(actualite.attributes.create)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.attributes.title}</p>
@@ -87,10 +87,15 @@ const Accueil = () => {
                             </div>
                         )}
                 </div>
+                <div className='w-full flex justify-center items-center my-10'>
+                    <div className='bg-darkblue text-white py-2 px-8 text-2xl rounded-3xl'>
+                        <Link to={'actualites'}>Voir plus d'actualités →</Link>
+                    </div>
+                </div>
             {/* NOS EXPERTISES */}
             <div class="flex justify-center my-16">
                 <div class="lg:flex hidden w-1/2">
-                    <img src={img} alt="Comptable entrain de travailler" class="absolute w-1/3 p-4 h-auto "/>
+                    <img src={img} alt="Comptable entrain de travailler" class="w-full p-4 "/>
                 </div>
                 <div class="text-center lg:text-start px-4 lg:w-1/2">
                     <p class="text-darkblue font-extraligth text-2xl xl:text-4xl mb-2 lg:mb-4">Nos expertises</p>

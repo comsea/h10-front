@@ -1,11 +1,40 @@
 import { Link } from "react-router-dom"
 import logo from "../../asset/logob2.png"
 import avion from "../../asset/avion.png"
+import avionn from "../../asset/avionn.png"
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import MenuIcon from '@mui/icons-material/Menu';
+import * as React from 'react';
+import Button from '@mui/material/Button';
 
 const Navbar = () => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const theme = createTheme({
+        palette: {
+          primary: {
+            main: '#FF0000',
+          },
+          secondary: {
+            main: '#FFFFFF',
+          },
+        },
+      });
     return(
         <div className="w-full py-10 flex justify-center items-center text-white absolute top-0 right-0 z-50">
-            <div className="w-[95%] flex justify-between items-center">
+            <div className="w-[95%] lg:flex hidden justify-between items-center">
                 <div className="w-[200px] flex justify-start">
                     <Link to="/">
                         <img src={logo} alt="Logo blanc 2" className="w-[120px]" />
@@ -26,6 +55,49 @@ const Navbar = () => {
                         <img src={avion} alt="Avion en papier" className="w-[20px] h-[20px]" />
                         <p>Contact</p>
                     </Link>
+                </div>
+            </div>
+            <div className="w-11/12 lg:hidden flex flex-row justify-between items-center">
+                <Link to="/" className="w-[200px]">
+                    <img src={logo} alt="logo" className="w-[100px]" />
+                </Link>
+                <div>
+                    <ThemeProvider theme={theme}>
+                        <Button
+                            id="basic-button"
+                            aria-controls={open ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}
+                        >
+                            <MenuIcon color="secondary" />
+                        </Button>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                            }}
+                            color="primary"
+                        >
+                            <MenuItem onClick={handleClose}><Link to="/" className="w-full">Accueil</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to="/presentation" className="w-full">Présentation</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to="/partenaires" className="w-full">Cabinets partenaires</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to="/valeurs" className="w-full">Valeur ajoutée</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to="/expertises" className="w-full">Expertises</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to="/actualites" className="w-full">Actualités</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to="engagement" className="w-full">Engagement RSE</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to="postuler" className="w-full">Postuler</Link></MenuItem>
+                            <MenuItem onClick={handleClose}>
+                                <Link to="contact" className="flex items-center space-x-2">
+                                    <img src={avionn} alt="Avion en papier noir" className="w-[20px] h-[20px]" />
+                                    <p>Contact</p>
+                                </Link>
+                            </MenuItem>
+                        </Menu>
+                    </ThemeProvider>
                 </div>
             </div>
         </div>

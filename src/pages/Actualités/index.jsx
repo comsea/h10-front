@@ -59,10 +59,10 @@ const Actualités = () => {
         };
       }, [])
 
-    let constantValue = 2;
+    let constantValue = 3;
 
     if (windowWidth > 1490) {
-          constantValue = 8;
+          constantValue = 9;
     } else if (windowWidth => 1024) {
           constantValue = 6;
     }
@@ -89,13 +89,14 @@ const Actualités = () => {
             </div>  
         </div> */}
         {/* GRID ACTUALITE */}
-        <div className=" grid-cols-3 gap-4 h-full text-2xl mb-12 text-blue font-normal hidden lg:grid">
+        <div className=" grid-cols-3 gap-4 h-full text-2xl mb-12 text-white font-normal hidden lg:grid">
           {actualites && actualites.map((actualite) => (
-            <div className="rounded-3xl p-4 bg-darkblue">
-              <div className="justify-between flex flex-col">
-                <p>{actualite.attributes.create}</p>
-                <div>
-                  <p className="text-2xl font-semibold text-white lg:text-3xl mb-2 mt-96">{actualite.attributes.title}</p>
+            <div className="rounded-3xl h-[400px] relative">
+              <div className="justify-between flex flex-col h-full">
+                <p className="p-4">{actualite.attributes.create}</p>
+                <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-3xl absolute h-full object-cover -z-50 bg-darkblue brightness-75" />
+                <div className="p-4">
+                  <p className="text-2xl font-semibold text-white lg:text-3xl mb-2">{actualite.attributes.title}</p>
                   <Link to={`/actualite/${actualite.id}`} class="hover:text-white duration-300">Voir l'article →</Link>
                 </div>
               </div>
