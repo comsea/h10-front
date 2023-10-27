@@ -75,7 +75,7 @@ const Accueil = () => {
                 {/* SLIDER ACTU */}
                 <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg xl:gap-16 gap-4 mt-6">
                     {/* faire boucle actu */}
-                        {isLoading ? 'Pas encore d\'actualités' : actualites?.slice(-3).map(actualite => 
+                        {isLoading ? 'Pas d\'actualités disponnibles pour le moment' : actualites?.slice(-3).map(actualite => 
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
                                 <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
                                 <div class="ml-6 my-4 pr-2">
@@ -111,7 +111,7 @@ const Accueil = () => {
                     </div>
                     */}
                     <div className='w-full flex flex-col rounded-2xl py-4 space-y-2'>
-                        {isLoading ? 'Loading...' : expertises?.map(expertise =>
+                        {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : expertises?.map(expertise =>
                         <Accordion expanded={expanded === 'panel'+expertise.id} onChange={handleChange('panel'+expertise.id)} className='rounded-xl' key={expertise.id}>
                             <AccordionSummary
                                 expandIcon={<ExpandCircleDownIcon className='text-darkblue' />}

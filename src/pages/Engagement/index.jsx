@@ -91,10 +91,10 @@ const Engagement = () =>{
                             </div>
                         </div>
                         <p>Composé d’experts-comptables jeunes et dynamiques, le réseau H10 casse les codes et balaie l’image poussiéreuse de l’expert-comptable âgé croulant sous les dossiers et condamné à gratter le papier derrière son bureau. Le réseau H10 présente clairement un attrait double : pour les (futurs) clients et les (futurs) collaborateurs !</p>
-                        <div class="lg:w-1/3 my-6 lg:my-0 px-5">
-                            <div class="bg-gray duration-200 items-center rounded-t-full">
-                                <img src={bienêtre} class="mx-auto w-2/3 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le bien-être" />
-                            </div>
+                    </div>
+                    <div class="lg:w-1/3 my-6 lg:my-0 px-5">
+                        <div class="bg-gray duration-200 items-center rounded-t-full">
+                            <img src={bienêtre} class="mx-auto w-2/3 lg:pt-6 2xl:pt-16" alt="Illustration réprensentant le bien-être" />
                         </div>
                     </div>
                 </div>
