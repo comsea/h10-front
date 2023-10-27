@@ -95,10 +95,10 @@ const Presentation = () => {
 
     return(
         <div>
-            <Header title="Qui sommes-nous ?" text="Découvrez l'équipe à votre service." image={presentation} />
+            <Header title="Qui sommes-nous ?" text="Venez et découvrez le réseau H10 ainsi que son équipe à votre service." image={presentation} />
             <Banderole />
             <div class="w-11/12 2xl:py-16 mb-10 mx-auto text-center items-center lg:text-start lg:w-10/12 flex flex-col lg:flex-row">
-                <div class="font-thin lg:w-3/5 lg:mb-12">
+                <div class="font-normal lg:w-3/5 lg:mb-12">
                     <p class="text-darkblue font-normal text-2xl 2xl:text-4xl mb-2 2xl:mb-4">Notre histoire</p>
                     <h1 class="text-3xl 2xl:text-5xl font-semibold">Qu'est ce que le <span class="text-darkblue">Réseau H10</span></h1>
                     <p class="mt-8 2xl:mt-12">
@@ -143,7 +143,7 @@ const Presentation = () => {
                     <div class="flex flex-col lg:w-1/2 items-center">
                         <img src={particulier} alt="icon représentant un particulier" class="w-1/3"/>
                         <p class="uppercase tracking-widest text-2xl 2xl:text-4xl text-darkblue font-semibold my-2">Particulier</p>
-                        <p class="font-normal text-xl 2xl:text-4xl mt-2 leading-relaxed">
+                        <p class="font-normal mt-2 leading-relaxed">
                             Pour les particuliers dans leurs<br></br> obligations  fiscales et dans la  <br></br>gestion de leur patrimoine
                         </p>
                     </div>
@@ -156,7 +156,7 @@ const Presentation = () => {
                             less={<ExpandLess />}
                             onClick={handleClick}
                             expanded={expanded}
-                            className="font-normal text-xl xl:text-4xl mt-2 leading-relaxed mb-4"
+                            className="font-normal mt-2 leading-relaxed mb-4"
                         >
                             Pour les professionnels dans leurs obligations comptables, fiscales, juridiques et sociales. 
                             Il prodigue des conseils personnalisés et propose une offre Full Service, quelle que soit la structure de l’entreprise : 
@@ -195,7 +195,7 @@ const Presentation = () => {
                 <div class="w-11/12 lg:w-10/12 text-white py-16 mx-auto">
                     <p class=" font-normal text-2xl 2xl:text-4xl mb-2">Notre équipe</p>
                     <h3 class="text-3xl 2xl:text-5xl font-semibold mb-8"><span class="text-blue">Découvrez l'entièreté</span> du réseau H10</h3>
-                    <p class="w-2/3 2xl:w-3/5 mx-auto 2xl:text-2xl text-lg">Composé d’une centaine de collaborateurs, le réseau H10 compte 
+                    <p class="w-2/3 2xl:w-3/5 mx-auto">Composé d’une centaine de collaborateurs, le réseau H10 compte 
                         <i> 11</i> experts-comptables dont 
                         <i> 5 </i> 
                         <span class="font-bold text-blue">Commissaires aux Comptes.</span> 
