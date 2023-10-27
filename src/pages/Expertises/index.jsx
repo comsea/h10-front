@@ -44,7 +44,7 @@ const Expertises = () => {
             <div class="w-11/12 lg:w-10/12 text-center mx-auto">
                 <Tabs defaultValue={activeElement}>
                     <TabsList>
-                        {isLoading ? 'Pas encore d\'actualité' : expertises.map(expertise =>
+                        {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : expertises.map(expertise =>
                             <Tab value={expertise.attributes.id} key={expertise.attributes.id}>
                                 <a href={`#${expertise.attributes.title}`}>
                                 <div 
@@ -61,7 +61,7 @@ const Expertises = () => {
                             </Tab>
                         )}
                     </TabsList>
-                    {isLoading ? 'Pas encore d\'actualité' : expertises.map(expertise =>
+                    {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : expertises.map(expertise =>
                         <TabPanel value={expertise.attributes.id} className="bg-gray rounded-2xl text-start" id={expertise.attributes.title}>
                             <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
                                 <h3 className='text-3xl 2xl:text-4xl text-darkblue font-semibold uppercase'>{expertise.attributes.title}</h3>

@@ -90,7 +90,7 @@ const Actualités = () => {
         </div> */}
         {/* GRID ACTUALITE */}
         <div className=" grid-cols-3 gap-4 h-full text-2xl mb-12 text-white font-normal hidden lg:grid">
-          {actualites && actualites.map((actualite) => (
+          {isLoading ? "Pas d\'actualités disponnibles pour le moment" : actualites.map((actualite) => (
             <div className="rounded-3xl h-[400px] relative">
               <div className="justify-between flex flex-col h-full">
                 <p className="p-4">{actualite.attributes.create}</p>
@@ -108,9 +108,7 @@ const Actualités = () => {
                     <ThemeProvider theme={theme}>
                         <Stack spacing={2} justifyContent="center" py={1} px={4} className='bg-[#FFFFFF] shadow-2xl rounded-full'>
                             {isLoading ? 
-                                <div>
-                                    Chargement en cours
-                                </div> 
+                                "Pas d\'actualités disponnibles pour le moment"
                                 : 
                             <Pagination 
                                 count={Math.ceil(actualites.length / constantValue)}

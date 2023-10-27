@@ -50,7 +50,7 @@ const Partenaires = () => {
             <div class="w-11/12 lg:w-10/12 text-center mx-auto">
                 <Tabs defaultValue={1}>
                     <TabsList className="bg-gray px-4 py-2 rounded-3xl flex flex-row flex-wrap justify-center items-center">
-                        {isLoading ? 'Pas encore d\'actualité' : cabinets.map(cabinet => (
+                        {isLoading ? 'Pas de cabinets disponnibles pour le moment' : cabinets.map(cabinet => (
                             <Tab value={cabinet.attributes.id} className='2xl:w-[25%] w-[23%] m-5 h-full' key={cabinet.attributes.id}>
                                 <a href={`#${cabinet.attributes.name}`}>
                                 <div
@@ -67,7 +67,7 @@ const Partenaires = () => {
                             </Tab>
                         ))}
                     </TabsList>
-                    {isLoading ? 'Pas encore d\'actualité' : cabinets.map(cabinet =>
+                    {isLoading ? 'Pas de cabinets disponnibles pour le moment' : cabinets.map(cabinet =>
                     
                     <TabPanel value={cabinet.attributes.id} className="bg-gray rounded-2xl text-start" id={cabinet.attributes.name}>
                         <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
