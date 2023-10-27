@@ -33,7 +33,7 @@ const Navbar = () => {
         },
       });
     return(
-        <div className="w-full py-10 flex justify-center items-center text-white absolute top-0 right-0 z-50">
+        <div className="w-full py-10 flex justify-center items-center text-white absolute top-0 right-0 z-50 2xl:text-lg text-sm">
             <div className="w-[95%] lg:flex hidden justify-between items-center">
                 <div className="w-[200px] flex justify-start">
                     <Link to="/">
