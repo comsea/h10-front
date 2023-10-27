@@ -10,7 +10,7 @@ const Header = (headerProps) => {
                     <p className="2xl:text-2xl text-lg text-[#C3D5DC]">{headerProps.text}</p>
                 </div>  
                 <div className="w-[50%] relative hidden lg:flex justify-center items-start">
-                    <img src={headerProps.image} alt="Header" className="absolute 2xl:w-[70%] w-[90%] rounded-t-full 2xl:max-h-[430px] lg:max-h-[200px] object-cover object-center -bottom-[200px]" />
+                    <img src={headerProps.image} alt="Header" className="absolute 2xl:w-[70%] w-[90%] rounded-t-full max-h-[430px] object-cover object-center 2xl:-bottom-[200px] lg:-bottom-[70px]" />
                 </div> 
             </div>
         </div>
