@@ -12,41 +12,32 @@ import { Link } from 'react-router-dom';
 
 const Accueil = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [expertises, setExpertises] = useState(null)
-    const [actualites, setActualites] = useState(null)
+    const [actualites, setActualites] = useState([])
     const [expanded, setExpanded] = useState(false)
+    const [experts, setExperts] = useState([])
+
 
     useEffect(() => {
-        fetch("http://localhost:1337/api/expertises?populate=*",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'Application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            setExpertises(res.data)
-            setIsLoading(false)
-            console.log(res)
-        })
+        fetch('https://127.0.0.1:8001/api/expertises')
+        .then((response) => {
+            response = response.json()
+            response.then((result) => {
+                setExperts(result['hydra:member'])
+                setIsLoading(false)
+            })})
     }, [])
 
     useEffect(() => {
-        fetch("http://localhost:1337/api/actualites?populate=*",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'Application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            setActualites(res.data)
-            setIsLoading(false)
-            console.log(res)
-        })
+        fetch('https://127.0.0.1:8001/api/actualites')
+        .then((response) => {
+            response = response.json()
+            response.then((result) => {
+                setActualites(result['hydra:member'])
+                setIsLoading(false)
+            })})
     }, [])
+
+    console.log(experts)
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false)
@@ -75,17 +66,17 @@ const Accueil = () => {
                 {/* SLIDER ACTU */}
                 <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg xl:gap-16 gap-4 mt-6">
                     {/* faire boucle actu */}
-                        {isLoading ? 'Pas d\'actualités disponnibles pour le moment' : actualites?.slice(-3).map(actualite => 
+                        {isLoading ? 'Pas d\'actualités disponnibles pour le moment' : actualites.slice(-3).map(actualite => (
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
-                                <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
+                                {/* <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" /> */}
                                 <div class="ml-6 my-4 pr-2">
-                                    <p>{(new Date(actualite.attributes.create)).toLocaleDateString()}</p>
-                                    <p class="font-semibold text-black text-2xl">{actualite.attributes.title}</p>
-                                    <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: actualite.attributes.description }} />
+                                    <p>{(new Date(actualite.createdAt)).toLocaleDateString()}</p>
+                                    <p class="font-semibold text-black text-2xl">{actualite.title}</p>
+                                    <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: actualite.description }} />
                                     <Link to={`/actualite/${actualite.id}`}>Voir l'article →</Link>
                                 </div>
                             </div>
-                        )}
+                        ))}
                 </div>
                 <div className='w-full flex justify-center items-center my-10'>
                     <div className='bg-darkblue text-white py-2 px-8 text-2xl rounded-3xl'>
@@ -111,22 +102,22 @@ const Accueil = () => {
                     </div>
                     */}
                     <div className='w-full flex flex-col rounded-2xl py-4 space-y-2'>
-                        {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : expertises?.map(expertise =>
-                        <Accordion expanded={expanded === 'panel'+expertise.id} onChange={handleChange('panel'+expertise.id)} className='rounded-xl' key={expertise.id}>
-                            <AccordionSummary
-                                expandIcon={<ExpandCircleDownIcon className='text-darkblue' />}
-                                aria-controls="panel1bh-content"
-                                id="panel1bh-header"
-                                className=''
-                                >
-                                <p className='text-darkblue font-bold xl:text-3xl p-1 xl:p-3 text-xl'>{expertise.attributes.title}</p>
-                            </AccordionSummary>
-                            <AccordionDetails className='flex font-normal flex-col space-y-3'>
-                                <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expertise.attributes.description }} />
-                                <Link to='expertises' className='text-darkblue'>En savoir plus →</Link>
-                            </AccordionDetails>
-                        </Accordion>
-                        )}
+                        {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : experts?.map(expert => (
+                            <Accordion expanded={expanded === 'panel'+expert.id} onChange={handleChange('panel'+expert.id)} className='rounded-xl' key={expert.id}>
+                                <AccordionSummary
+                                    expandIcon={<ExpandCircleDownIcon className='text-darkblue' />}
+                                    aria-controls="panel1bh-content"
+                                    id="panel1bh-header"
+                                    className=''
+                                    >
+                                    <p className='text-darkblue font-bold xl:text-3xl p-1 xl:p-3 text-xl'>{expert.title}</p>
+                                </AccordionSummary>
+                                <AccordionDetails className='flex font-normal flex-col space-y-3'>
+                                    <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expert.description }} />
+                                    <Link to='expertises' className='text-darkblue'>En savoir plus →</Link>
+                                </AccordionDetails>
+                            </Accordion>
+                        )) }
                     </div>
                 </div>
             </div>

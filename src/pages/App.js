@@ -17,6 +17,8 @@ import Politiques from "./Politiques";
 import { Emploi } from "./Emploi";
 import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
+import { Admin } from "./AdminPages/Admin";
+import { AdminNav } from "../components/AdminNav";
 
 const Layout = () => {
   return(
@@ -40,6 +42,15 @@ const LayoutIndex = () => {
   )
 }
 
+const AdminLayout = () => {
+  return(
+    <Fragment>
+      <AdminNav />
+      <Outlet />
+    </Fragment>
+  )
+}
+
 const Content = () => {
   return(
     <Routes>
@@ -58,13 +69,16 @@ const Content = () => {
         <Route path='emploi/:id' element={<Emploi/>}/>
         <Route path='mentions' element={<Mentions/>}/>
       </Route>
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route path="" element={<Admin />} />
+      </Route>
     </Routes>
   )
 }
 
 const App = () => {
   return (
-    <div className="App 2xl:text-2xl text-xl lg:font-medium font-normal relative overflow-x-hidden">
+    <div className="App 2xl:text-2xl text-xl lg:font-medium font-normal relative overflow-x-hidden h-full">
       <Content />
     </div>
   );
