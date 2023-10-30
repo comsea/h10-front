@@ -45,7 +45,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex text-center justify-center items-center text-[#C3D5DC] text-sm w-5/6">
-                    <p>H10 réseau – Réseau d’expert-comptable dans l’Ainse, les Ardennes et la Marne – Siège sociale situé au 6 Boulevard des écossais, 08200 Sedan</p>
+                    <p>H10 réseau – Réseau d’expert-comptable dans l’Aisne, les Ardennes et la Marne – Siège sociale situé au 6 Boulevard des écossais, 08200 Sedan</p>
                 </div>
                 <div className="flex text-center justify-center items-center text-sm w-5/6">
                     <p>Tout droits réserves © 2023 Copyright: COMSEA</p>

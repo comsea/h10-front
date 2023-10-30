@@ -124,9 +124,9 @@ const Presentation = () => {
                         <p class="text-blue font-normal text-2xl 2xl:text-4xl mb-2">Notre secteur d'activités</p>
                         <h3 class="text-3xl 2xl:text-5xl font-semibold mb-12">Où sommes-nous ?</h3>
                         <div class="2xl:text-3xl text-2xl uppercase tracking-widest">
-                            <p class=""><span class="text-blue">7</span> Agence dans les Ardennes</p>
-                            <p class="my-6"><span class="text-blue">3</span> Agence dans la Marne</p>
-                            <p class=""><span class="text-blue">1</span> Agence dans l'Aisne</p>
+                            <p class=""><span class="text-blue">7</span> Agences dans les Ardennes</p>
+                            <p class="my-6"><span class="text-blue">3</span> Agences dans la Marne</p>
+                            <p class=""><span class="text-blue">1</span> Agences dans l'Aisne</p>
                         </div>
                     </div>
                     <div class="lg:w-2/5 mx-auto ">
@@ -248,7 +248,7 @@ const Presentation = () => {
                 <div class="lg:w-2/5">
                     <p class="text-darkblue font-normal text-2xl 2xl:text-4xl mb-2">Notre visibilité</p>
                     <h3 class="text-3xl 2xl:text-5xl text-darkblue font-semibold 2xl:mb-12 mb-8">On parle de <span class="text-black">nous !</span></h3>
-                    <p class="text-xl font-normal 2xl:mb-10 mb-6 leading-relaxed 2xl:text-3xl">Retrouver dès maintenant l’article 
+                    <p class="text-xl font-normal 2xl:mb-10 mb-6 leading-relaxed 2xl:text-3xl">Retrouvez dès maintenant l’article 
                          de presse du journal 
                         <span class="text-red-600"> l’Union </span>
                         à propos de notre 
