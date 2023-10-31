@@ -58,6 +58,11 @@ export const AdminNav = () => {
                 </ListItem>
                 <ListItem disablePadding>
                     <ListItemButton>
+                        <Link to="adminEmployes">Employés</Link>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
                         <Link to="adminExpertises">Expertises</Link>
                     </ListItemButton>
                 </ListItem>

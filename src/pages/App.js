@@ -24,6 +24,9 @@ import Test from "./AdminPages/Test";
 import { SeeAdminExpertises } from "./AdminPages/AdminExpertises/SeeAdminExpertises";
 import { EditAdminExpertises } from "./AdminPages/AdminExpertises/EditAdminExpertises";
 import { AdminActualités } from "./AdminPages/AdminActualités";
+import { SeeAdminActualités } from "./AdminPages/AdminActualités/SeeAdminActualités";
+import { AdminEmployés } from "./AdminPages/AdminEmployés";
+import { SeeAdminEmployés } from "./AdminPages/AdminEmployés/SeeAdminEmployés";
 
 const Layout = () => {
   return(
@@ -80,6 +83,9 @@ const Content = () => {
         <Route path="seeAdminExpertises/:id" element={<SeeAdminExpertises />} />
         <Route path="editAdminExpertises/:id" element={<EditAdminExpertises />} />
         <Route path="adminActualites" element={<AdminActualités />} />
+        <Route path="seeAdminActualites/:id" element={<SeeAdminActualités />} />
+        <Route path="adminEmployes" element={<AdminEmployés />} />
+        <Route path="seeAdminEmployes/:id" element={<SeeAdminEmployés />} />
         <Route path="test" element={<Test />} />
       </Route>
     </Routes>

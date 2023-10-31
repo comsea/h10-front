@@ -225,7 +225,7 @@ export const AdminExpertises = () => {
                                 }
                             </Stack>
                         </ThemeProvider>
-                    </div>
+                </div>
             </div>
         </div>
     )
