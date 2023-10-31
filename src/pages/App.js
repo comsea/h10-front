@@ -19,6 +19,11 @@ import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
 import { Admin } from "./AdminPages/Admin";
 import { AdminNav } from "../components/AdminNav";
+import { AdminExpertises } from "./AdminPages/AdminExpertises";
+import Test from "./AdminPages/Test";
+import { SeeAdminExpertises } from "./AdminPages/AdminExpertises/SeeAdminExpertises";
+import { EditAdminExpertises } from "./AdminPages/AdminExpertises/EditAdminExpertises";
+import { AdminActualités } from "./AdminPages/AdminActualités";
 
 const Layout = () => {
   return(
@@ -71,6 +76,11 @@ const Content = () => {
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
         <Route path="" element={<Admin />} />
+        <Route path="adminExpertises" element={<AdminExpertises />} />
+        <Route path="seeAdminExpertises/:id" element={<SeeAdminExpertises />} />
+        <Route path="editAdminExpertises/:id" element={<EditAdminExpertises />} />
+        <Route path="adminActualites" element={<AdminActualités />} />
+        <Route path="test" element={<Test />} />
       </Route>
     </Routes>
   )

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -46,6 +46,19 @@ export const AdminNav = () => {
                         <Link to="/" className='w-full flex justify-center items-end'>
                             <img src={logo} alt="Logo" className='w-[70%]' />
                         </Link>
+                    </ListItemButton>
+                </ListItem>
+            </List>
+            <Divider />
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to="adminActualites">Actualités</Link>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to="adminExpertises">Expertises</Link>
                     </ListItemButton>
                 </ListItem>
             </List>
