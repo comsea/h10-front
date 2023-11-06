@@ -20,13 +20,19 @@ import { Actualité } from "./Actualité";
 import { Admin } from "./AdminPages/Admin";
 import { AdminNav } from "../components/AdminNav";
 import { AdminExpertises } from "./AdminPages/AdminExpertises";
-import Test from "./AdminPages/Test";
 import { SeeAdminExpertises } from "./AdminPages/AdminExpertises/SeeAdminExpertises";
 import { EditAdminExpertises } from "./AdminPages/AdminExpertises/EditAdminExpertises";
 import { AdminActualités } from "./AdminPages/AdminActualités";
 import { SeeAdminActualités } from "./AdminPages/AdminActualités/SeeAdminActualités";
 import { AdminEmployés } from "./AdminPages/AdminEmployés";
 import { SeeAdminEmployés } from "./AdminPages/AdminEmployés/SeeAdminEmployés";
+import { AdminCabinets } from "./AdminPages/AdminCabinets";
+import { SeeAdminCabinets } from "./AdminPages/AdminCabinets/SeeAdminCabinets";
+import { AdminAdresses } from "./AdminPages/AdminAdresses";
+import { SeeAdminAdresses } from "./AdminPages/AdminAdresses/SeeAdminAdresses";
+import { AdminEmplois } from "./AdminPages/AdminEmplois";
+import { SeeAdminEmplois } from "./AdminPages/AdminEmplois/SeeAdminEmplois";
+import { Testing } from "./AdminPages/Testing";
 
 const Layout = () => {
   return(
@@ -50,15 +56,6 @@ const LayoutIndex = () => {
   )
 }
 
-const AdminLayout = () => {
-  return(
-    <Fragment>
-      <AdminNav />
-      <Outlet />
-    </Fragment>
-  )
-}
-
 const Content = () => {
   return(
     <Routes>
@@ -76,17 +73,6 @@ const Content = () => {
         <Route path='politiques'element={<Politiques/>}/>
         <Route path='emploi/:id' element={<Emploi/>}/>
         <Route path='mentions' element={<Mentions/>}/>
-      </Route>
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route path="" element={<Admin />} />
-        <Route path="adminExpertises" element={<AdminExpertises />} />
-        <Route path="seeAdminExpertises/:id" element={<SeeAdminExpertises />} />
-        <Route path="editAdminExpertises/:id" element={<EditAdminExpertises />} />
-        <Route path="adminActualites" element={<AdminActualités />} />
-        <Route path="seeAdminActualites/:id" element={<SeeAdminActualités />} />
-        <Route path="adminEmployes" element={<AdminEmployés />} />
-        <Route path="seeAdminEmployes/:id" element={<SeeAdminEmployés />} />
-        <Route path="test" element={<Test />} />
       </Route>
     </Routes>
   )
