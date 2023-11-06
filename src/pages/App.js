@@ -17,22 +17,6 @@ import Politiques from "./Politiques";
 import { Emploi } from "./Emploi";
 import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
-import { Admin } from "./AdminPages/Admin";
-import { AdminNav } from "../components/AdminNav";
-import { AdminExpertises } from "./AdminPages/AdminExpertises";
-import { SeeAdminExpertises } from "./AdminPages/AdminExpertises/SeeAdminExpertises";
-import { EditAdminExpertises } from "./AdminPages/AdminExpertises/EditAdminExpertises";
-import { AdminActualités } from "./AdminPages/AdminActualités";
-import { SeeAdminActualités } from "./AdminPages/AdminActualités/SeeAdminActualités";
-import { AdminEmployés } from "./AdminPages/AdminEmployés";
-import { SeeAdminEmployés } from "./AdminPages/AdminEmployés/SeeAdminEmployés";
-import { AdminCabinets } from "./AdminPages/AdminCabinets";
-import { SeeAdminCabinets } from "./AdminPages/AdminCabinets/SeeAdminCabinets";
-import { AdminAdresses } from "./AdminPages/AdminAdresses";
-import { SeeAdminAdresses } from "./AdminPages/AdminAdresses/SeeAdminAdresses";
-import { AdminEmplois } from "./AdminPages/AdminEmplois";
-import { SeeAdminEmplois } from "./AdminPages/AdminEmplois/SeeAdminEmplois";
-import { Testing } from "./AdminPages/Testing";
 
 const Layout = () => {
   return(
