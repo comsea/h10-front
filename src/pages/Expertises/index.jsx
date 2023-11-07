@@ -6,27 +6,27 @@ import Banderole from "../../components/Banderole "
 import { Tab, TabPanel, Tabs, TabsList } from "@mui/base"
 import fleche from "../../asset/Svg/fleche.svg"
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Expertises = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [expertises, setExpetises] = useState(null)
     const [activeElement, setActiveElement] = useState(1)
+    const [experts, setExperts] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:1337/api/expertises?populate=*",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'Application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            setExpetises(res.data)
-            setIsLoading(false)
-            console.log(res.data)
-        })
-    }, [])
+        axios.get('https://127.0.0.1:8000/api/expertises')
+          .then((response) => {
+            setExperts(response.data['hydra:member']);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            // Gérez les erreurs ici, si nécessaire
+          });
+      }, []);
+
+    console.log(experts)
 
     const handleElementClick = (elementId) => {
         if (elementId === activeElement) {
@@ -44,28 +44,28 @@ const Expertises = () => {
             <div class="w-11/12 lg:w-10/12 text-center mx-auto">
                 <Tabs defaultValue={activeElement}>
                     <TabsList>
-                        {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : expertises.map(expertise =>
-                            <Tab value={expertise.attributes.id} key={expertise.attributes.id}>
-                                <a href={`#${expertise.attributes.title}`}>
+                        {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : experts.map(expert =>
+                            <Tab value={expert.id} key={expert.id}>
+                                <a href={`#${expert.title}`}>
                                 <div 
                                     className={`${
-                                        expertise.attributes.title === activeElement
-                                        ? "souligne text-darkblue font-semibold capitalize duration-200 mx-3 hover:text-black hover:underline"
-                                        : "text-darkblue font-semibold capitalize duration-200 mx-3 hover:text-black hover:underline"
+                                        expert.title === activeElement
+                                        ? "souligne text-darkblue font-semibold duration-200 mx-3 hover:text-black hover:underline"
+                                        : "text-darkblue font-semibold duration-200 mx-3 hover:text-black hover:underline"
                                     }`}
-                                    onClick={() => handleElementClick(expertise.attributes.title)}
+                                    onClick={() => handleElementClick(expert.title)}
                                 >
-                                    {expertise.attributes.title}
+                                    {expert.title}
                                 </div>
                                 </a>
                             </Tab>
                         )}
                     </TabsList>
-                    {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : expertises.map(expertise =>
-                        <TabPanel value={expertise.attributes.id} className="bg-gray rounded-2xl text-start" id={expertise.attributes.title}>
+                    {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : experts.map(expert =>
+                        <TabPanel value={expert.id} className="bg-gray rounded-2xl text-start" id={expert.title}>
                             <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
-                                <h3 className='text-3xl 2xl:text-4xl text-darkblue font-semibold uppercase'>{expertise.attributes.title}</h3>
-                                <p className="mt-4 font-normal" dangerouslySetInnerHTML={{ __html: expertise.attributes.description }} />
+                                <h3 className='text-3xl 2xl:text-4xl text-darkblue font-semibold uppercase'>{expert.title}</h3>
+                                <div className="mt-4 font-normal" dangerouslySetInnerHTML={{ __html: expert.description }}></div>
                             </div>
                         </TabPanel>
                     )}

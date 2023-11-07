@@ -64,7 +64,7 @@ const Content = () => {
 
 const App = () => {
   return (
-    <div className="App 2xl:text-2xl text-xl lg:font-medium font-normal relative overflow-x-hidden">
+    <div className="App 2xl:text-2xl text-xl lg:font-medium font-normal relative overflow-x-hidden h-full">
       <Content />
     </div>
   );
