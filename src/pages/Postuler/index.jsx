@@ -24,42 +24,30 @@ const theme = createTheme({
 
 const Postuler = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [emplois, setEmplois] = useState(null)
-    const [cabinets, setCabinets] = useState(null)
+    const [emplois, setEmplois] = useState([])
+    const [cabinets, setCabinets] = useState([])
     const [page, setPage] = useState(1)
     const [filter, setFilter] = useState('')
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        fetch("http://localhost:1337/api/emplois?populate=*",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'Application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            setEmplois(res.data)
-            setIsLoading(false)
-            console.log(res.data)
-        })
+        fetch(`https://127.0.0.1:8000/api/emplois`)
+        .then((response) => {
+            response = response.json()
+            response.then((result) => {
+                setEmplois(result['hydra:member'])
+                setIsLoading(false)
+            })})
     }, [])
 
     useEffect(() => {
-        fetch("http://localhost:1337/api/cabinets?populate=*",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'Application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            setCabinets(res.data)
-            setIsLoading(false)
-            console.log(res.data)
-        })
+        fetch(`https://127.0.0.1:8000/api/cabinets`)
+        .then((response) => {
+            response = response.json()
+            response.then((result) => {
+                setCabinets(result['hydra:member'])
+                setIsLoading(false)
+            })})
     }, [])
 
     useEffect(() => {
@@ -90,6 +78,8 @@ const Postuler = () => {
         setPage(value)
     }
 
+    console.log(emplois)
+
     const startIndex = (page - 1) * constantValue
     const endIndex = startIndex + constantValue
 
@@ -99,41 +89,26 @@ const Postuler = () => {
             <Banderole />
             <div class="w-11/12 lg:w-10/12 mx-auto">
                 {/* OFFRE D'EMPLOI */}
-                <div className='2xl:w-[15%] lg:w-[25%] w-full'>
-                <ThemeProvider theme={theme} className="w-full">
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label" variant='outlined'>Filtrer par cabinets</InputLabel>
-                        <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={filter}
-                        label="Filtrer par cabinets"
-                        onChange={(e) => setFilter(e.target.value)}
-                        >
-                            <MenuItem value="">Tous les cabinets</MenuItem>
-                            <MenuItem value="cwa">CWA</MenuItem>
-                            <MenuItem value="hmc">HMC</MenuItem>
-                            <MenuItem value="actualys">Actualys</MenuItem>
-                            <MenuItem value="fizalys">Fizalys</MenuItem>
-                            <MenuItem value="ficom">Ficom</MenuItem>
-                        </Select>
-                    </FormControl>
-                </ThemeProvider>
-                </div>
                 <div class="grid grid-cols-1 text-2xl lg:text-3xl 2xl:grid-cols-4 lg:grid-cols-3 lg:gap-8 my-12">
                     {/* faire boucle emploie */}
-                    {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.filter((item) => item.attributes.cabinet.data.attributes.name.toLowerCase().includes(filter.toLowerCase())).slice(startIndex, endIndex).map(emploi =>
+                    {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.slice(startIndex, endIndex).map(emploi =>
                     <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
-                        {/* <img src={"http://localhost:1337" + emploi.attributes.image.data.attributes.url} alt="photo représentant l'emploi" class="w-full rounded-t-3xl" />*/}
+                        <img src={"https://127.0.0.1:8000/build/images/" + emploi.image} alt="représentant l'emploi" class="w-full rounded-t-3xl" />
                         <div className="mx-4 py-4 flex flex-col justify-between items-start h-full">
                             <div>
-                                <p class="text-darkblue font-normal 2xl:text-xl text-lg">Cabinet {emploi.attributes.cabinet.data.attributes.name}</p>
-                                <p class="text-2xl font-bold capitalize">{emploi.attributes.title}</p>
+                                {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (
+                                    emploi.cabinet === "/api/cabinets/"+cabinet.id ?
+                                    <>
+                                        <p class="text-darkblue font-normal 2xl:text-xl text-lg">Cabinet {cabinet.name}</p>
+                                    </>
+                                    : ""
+                                ))}
+                                <p class="text-2xl font-bold capitalize">{emploi.title}</p>
                             </div>
                             <div>
-                                <p className="line-clamp-3 font-normal mb-5 2xl:text-xl text-base" dangerouslySetInnerHTML={{ __html: emploi.attributes.description }} />
+                                <p className="line-clamp-3 font-normal mb-5 2xl:text-xl text-base" dangerouslySetInnerHTML={{ __html: emploi.description }} />
                                 <div class="w-full justify-between flex-col lg:flex-row font-normal flex 2xl:text-lg text-xs">
-                                    <p class="text-darkblue font-thin">{emploi.attributes.date}</p>
+                                    <p class="text-darkblue font-thin">{emploi.date}</p>
                                     <Link to={`/emploi/${emploi.id}`}>Voir l'article →</Link>
                                 </div>
                             </div>
@@ -188,7 +163,7 @@ const Postuler = () => {
                                 <option value="" disabled selected>Sélectionnez le post à pourvoir</option>
                                 <option value="Candidature spontanée">Candidature spontanée</option>
                                 {isLoading ? "Pas encore d\'offres d\'emplois" : emplois.map(emploi =>
-                                    <option value={emploi.attributes.title}>{emploi.attributes.title} ({emploi.attributes.cabinet.data.attributes.name})</option>
+                                    <option value={emploi.title}>{emploi.title} {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (emploi.cabinet === "/api/cabinets/"+cabinet.id ? cabinet.name : "" ))}</option>
                                 )}
                             </select>
                         </div>

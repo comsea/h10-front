@@ -9,12 +9,37 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Accueil = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [actualites, setActualites] = useState([])
     const [expanded, setExpanded] = useState(false)
     const [experts, setExperts] = useState([])
+
+    useEffect(() => {
+        axios.get('https://127.0.0.1:8000/api/expertises')
+          .then((response) => {
+            setExperts(response.data['hydra:member']);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            // Gérez les erreurs ici, si nécessaire
+          });
+      }, []);
+
+      useEffect(() => {
+        axios.get('https://127.0.0.1:8000/api/actualites')
+          .then((response) => {
+            setActualites(response.data['hydra:member']);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            // Gérez les erreurs ici, si nécessaire
+          });
+      }, []);
 
     console.log(experts)
 
@@ -34,10 +59,9 @@ const Accueil = () => {
                 {/* SLIDER ACTU */}
                 <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg xl:gap-16 gap-4 mt-6">
                     {/* faire boucle actu */}
-                    {/*
                         {isLoading ? 'Pas d\'actualités disponibles pour le moment' : actualites.slice(-3).map(actualite => (
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
-                                <img src={"http://localhost:1337" + actualite.attributes.image.data.attributes.url} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
+                                <img src={"https://127.0.0.1:8000/build/images/" + actualite.image} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
                                 <div class="ml-6 my-4 pr-2">
                                     <p>{(new Date(actualite.createdAt)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.title}</p>
@@ -46,7 +70,6 @@ const Accueil = () => {
                                 </div>
                             </div>
                         ))}
-                    */}
                 </div>
                 <div className='w-full flex justify-center items-center my-10'>
                     <div className='bg-darkblue text-white py-2 px-8 text-2xl rounded-3xl'>
@@ -63,7 +86,7 @@ const Accueil = () => {
                     <h3 class="text-3xl xl:text-5xl mb-10 font-semibold">Découvrez nos différentes expertises.</h3>
                         {/* EXPERTISES */}
                     <div className='w-full flex flex-col rounded-2xl py-4 space-y-2'>
-                        {/*
+                        
                         {isLoading ? 'Pas d\'expertises disponibles pour le moment' : experts?.map(expert => (
                             <Accordion expanded={expanded === 'panel'+expert.id} onChange={handleChange('panel'+expert.id)} className='rounded-xl' key={expert.id}>
                                 <AccordionSummary
@@ -80,7 +103,7 @@ const Accueil = () => {
                                 </AccordionDetails>
                             </Accordion>
                         )) }
-                        */}
+                    
                     </div>
                 </div>
             </div>

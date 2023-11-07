@@ -38,7 +38,8 @@ const theme = createTheme({
 const Presentation = () => {
     const [expanded, setExpanded] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-    const [employes, setEmployes] = useState(null)
+    const [employes, setEmployes] = useState([])
+    const [cabinets, setCabinets] = useState([])
     const [page, setPage] = useState(1)
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -71,20 +72,26 @@ const Presentation = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:1337/api/employes?populate=*",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'Application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            setEmployes(res.data)
-            setIsLoading(false)
-            console.log(res.data)
-        })
+        fetch(`https://127.0.0.1:8000/api/employes`)
+        .then((response) => {
+            response = response.json()
+            response.then((result) => {
+                setEmployes(result['hydra:member'])
+                setIsLoading(false)
+            })})
     }, [])
+
+    useEffect(() => {
+        fetch(`https://127.0.0.1:8000/api/cabinets`)
+        .then((response) => {
+            response = response.json()
+            response.then((result) => {
+                setCabinets(result['hydra:member'])
+                setIsLoading(false)
+            })})
+    }, [])
+    
+    console.log(employes)
 
     const handleChangePage = (event, value) => {
         setPage(value)
@@ -208,15 +215,24 @@ const Presentation = () => {
                     <div class="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 text-start text-darkblue text-2xl font-normal 2xl:mt-12 mt-6">
                         {/* faire boucle employé */}
                         {isLoading ? 'Pas encore d\'employés' : employes.slice(startIndex, endIndex).map(employe => (
-                        <div class="rounded-3xl bg-white" key={employe.id}>
-                            <img src={test} alt="Employé TEST" class="w-full h-auto rounded-t-2xl" />
+                        <div class="rounded-3xl bg-white flex flex-col justify-between" key={employe.id}>
+                            <img src={"https://127.0.0.1:8000/build/images/"+employe.profil} alt="Employé TEST" class="w-full h-auto rounded-t-2xl" />
                             <div class="ml-5 pr-2 my-5">
-                                <p class="uppercase leading-normal font-semibold">{employe.attributes.last_name} {employe.attributes.first_name}</p>
+                                <p class="uppercase leading-normal font-semibold">{employe.lastname} {employe.firstname}</p>
+                                {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (
+                                    employe.cabinet === "/api/cabinets/"+cabinet.id ?
+                                    <>
+                                        <p className='2xl:text-xl text-base'>{cabinet.name}</p>
+                                    </>
+                                    : ""
+                                ))}
+                                {/* 
                                 {employe.attributes.cabinet ? (
                                     <p className='2xl:text-xl text-base'>{employe.attributes.cabinet.data.attributes.name}</p>
                                 ) : null}
-                                <p className='2xl:text-xl text-base'>{employe.attributes.job}</p>
-                                <p className='2xl:text-xl text-base'>{employe.attributes.email}</p>
+                                */}
+                                <p className='2xl:text-xl text-base'>{employe.job}</p>
+                                <p className='2xl:text-xl text-base'>{employe.email}</p>
                             </div>
                         </div>
                     ))}
