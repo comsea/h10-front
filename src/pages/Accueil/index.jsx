@@ -79,7 +79,9 @@ const Accueil = () => {
             {/* NOS EXPERTISES */}
             <div class="flex justify-center my-16">
                 <div class="lg:flex hidden w-1/2 relative h-auto">
+                    <div className='w-full'>
                     <img src={img} alt="Comptable entrain de travailler" class="w-full p-4 h-auto"/>
+                    </div>
                 </div>
                 <div class="text-center lg:text-start px-4 lg:w-1/2">
                     <p class="text-darkblue font-extraligth text-2xl xl:text-4xl mb-2 lg:mb-4">Nos expertises</p>
