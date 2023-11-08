@@ -70,7 +70,7 @@ const Accueil = () => {
                                 </div>
                             </div>
                         ))}
-                </div>
+                 </div>
                 <div className='w-full flex justify-center items-center my-10'>
                     <div className='bg-darkblue text-white py-2 px-8 text-2xl rounded-3xl'>
                         <Link to={'actualites'}>Voir plus d'actualités →</Link>
