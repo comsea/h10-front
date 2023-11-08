@@ -7,6 +7,7 @@ import bienêtre from "../../asset/Engagement/bien-etre.png";
 import environnement from "../../asset/Engagement/environnemental.png";
 import territorial from "../../asset/Engagement/territorial.png";
 import Banderole from "../../components/Banderole ";
+import { Link } from "react-router-dom";
 
 const Engagement = () =>{
     return (
@@ -17,15 +18,15 @@ const Engagement = () =>{
                 <h1 class="text-3xl text-darkblue 2xl:text-5xl mb-6 font-semibold">Sponsoring <span class="text-black">et partenariats</span></h1>
                 <p>Défendant les valeurs véhiculées par le sport - esprit d’équipe, entraide, équité, inclusion, dépassement de soi, respect, le réseau H10 soutient plusieurs petits clubs sportifs locaux et des associations sportives régionales. Parmi les plus connus :</p>
                 <div class="my-6 flex flex-col-reverse lg:flex-row items-center text-start">
-                    <div class ="flex items-start mr-10">
+                    <div class ="flex items-start mr-10 lg:w-4/5">
                         <img src={fleche} alt="icon de flèche pour montrer le texte qui suit" class="w-8 mr-6" />
                         <p><span class="font-semibold">Trajectoires Olympiques</span> : le réseau H10 est engagé auprès de l’association Trajectoires Olympiques qui promeut et finance des jeunes sportifs ardennais, toutes pratiques confondues, afin qu’ils atteignent le plus haut niveau international.</p>
                     </div>
-                    <img src={trajectoire} class=" mb-6 lg:mb-0 lg:w-1/5" alt="Logo du club Trajectoire Olympique" />
+                    <Link to="https://trajectoires-olympiques.fr/" target="_blank" className="lg:w-1/5"><img src={trajectoire} class=" mb-6 lg:mb-0 w-full" alt="Logo du club Trajectoire Olympique" /></Link>
                 </div>
                 <div class="my-6 flex flex-col lg:flex-row items-center text-start">
-                    <img src={étoile} class=" mb-6 lg:mb-0 lg:w-1/8" alt="Logo du club Ardennes Étoile" />
-                    <div class ="flex items-start lg:ml-10">
+                    <Link to="https://www.etoile-charleville.fr/" target="_blank" className="lg:w-1/8"><img src={étoile} class=" mb-6 lg:mb-0 lg:w-full" alt="Logo du club Ardennes Étoile" /></Link>
+                    <div class ="flex items-start lg:ml-10 lg:w-7/8">
                         <img src={fleche} alt="icon de flèche pour montrer le texte qui suit" class="w-8 mr-6" />
                         <p>Le club de Basket de Charleville-Mézières <span class="font-semibold">L’Étoile</span>  qui, rappelons-le, possède le plus haut palmarès sportif de haut niveau dans les Ardennes.</p>
                     </div>
@@ -90,7 +91,6 @@ const Engagement = () =>{
                                 <p>Écoute émotionnelle des équipes qui se retrouvent régulièrement pour des journées de team-building et participent ensemble aux événements de la région</p>
                             </div>
                         </div>
-                        <p>Composé d’experts-comptables jeunes et dynamiques, le réseau H10 casse les codes et balaie l’image poussiéreuse de l’expert-comptable âgé croulant sous les dossiers et condamné à gratter le papier derrière son bureau. Le réseau H10 présente clairement un attrait double : pour les (futurs) clients et les (futurs) collaborateurs !</p>
                     </div>
                     <div class="lg:w-1/3 my-6 lg:my-0 px-5">
                         <div class="bg-gray duration-200 items-center rounded-t-full">

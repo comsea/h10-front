@@ -36,7 +36,7 @@ const Politiques = () => {
                     <li>Pour satisfaire aux obligations légales</li>
                 </ul>
 
-                <h2 class="text-xl font-bold mt-4">4. Comment Nous Obtient Votre Consentement</h2>
+                <h2 class="text-xl font-bold mt-4">4. Comment Nous Obtenons Votre Consentement</h2>
                 <p>
                     Nous cherchons à obtenir votre consentement de manière explicite chaque fois que cela est possible. Vous pouvez nous donner votre consentement en cochant une case, en cliquant sur un bouton, ou en nous fournissant des informations personnelles. Nous vous expliquerons toujours pourquoi nous avons besoin de ces informations.
                 </p>
@@ -70,10 +70,9 @@ const Politiques = () => {
                 <p>
                     Pour toute question, commentaire ou réclamation concernant notre politique de confidentialité, veuillez contacter notre responsable de la conformité :
                 </p>
-                <p>Nom : Teddy Homenet</p>
-                <p>Adresse : 8 rue de l'Artisanat, Charleville-Mezières, 08000</p>
-                <p>Téléphone : 03.72.61.80.00</p>
-                <p>Courriel : contact@comsea.fr</p>
+                <p>Nom : Sébastien Drapier</p>
+                <p>Adresse : 6 Boulevard des Écossais, 08200 Sedan</p>
+                <p>Courriel : contact@reseauh10.fr</p>
             </div>
         </div>
     )

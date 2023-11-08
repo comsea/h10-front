@@ -45,7 +45,7 @@ const Navbar = () => {
                     <Link to="presentation">Présentation</Link>
                     <Link to="partenaires">Cabinets partenaires</Link>
                     <Link to="valeurs">Valeur ajoutée</Link>
-                    <Link to="expertises">Expertises</Link>
+                    <Link to="expertises/0">Expertises</Link>
                     <Link to="actualites">Actualités</Link>
                     <Link to="engagement">Engagement RSE</Link>
                     <Link to="postuler">Postuler</Link>
