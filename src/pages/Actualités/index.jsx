@@ -29,7 +29,7 @@ const Actualités = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-      axios.get('https://127.0.0.1:8000/api/actualites')
+      axios.get('https://api.reseauh10.fr/api/actualites')
         .then((response) => {
           setActualites(response.data['hydra:member']);
           setIsLoading(false);
@@ -91,7 +91,7 @@ const Actualités = () => {
             <div className="rounded-3xl h-[400px] relative">
               <div className="justify-between flex flex-col h-full">
                 <p className="p-4">{(new Date(actualite.createdAt)).toLocaleDateString()}</p>
-                <img src={"https://127.0.0.1:8000/build/images/" + actualite.image} alt="test actu" class="w-full rounded-3xl absolute h-full object-cover -z-50 bg-darkblue brightness-50" />
+                <img src={"https://api.reseauh10.fr/build/images/" + actualite.image} alt="test actu" class="w-full rounded-3xl absolute h-full object-cover -z-50 bg-darkblue brightness-50" />
                 <div className="p-4">
                   <p className="text-2xl font-semibold text-white lg:text-3xl mb-2">{actualite.title}</p>
                   <Link to={`/actualite/${actualite.id}`} class="hover:text-white duration-300">Voir l'article →</Link>

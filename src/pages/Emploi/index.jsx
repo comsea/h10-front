@@ -11,7 +11,7 @@ export const Emploi = () => {
     let [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/emplois/${id}`)
+        fetch(`https://api.reseauh10.fr/api/emplois/${id}`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -21,7 +21,7 @@ export const Emploi = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/cabinets`)
+        fetch(`https://api.reseauh10.fr/api/cabinets`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -35,7 +35,7 @@ export const Emploi = () => {
 
     return(
         <div>
-            <Header title={isLoading ? "Chargement..." : postState.title } text={isLoading ? "Chargement..." : "Décrouvrez l'offre d'emploi de "+postState.title} image={isLoading ? "Chargement" : "https://127.0.0.1:8000/build/images/"+postState.image} />
+            <Header title={isLoading ? "Chargement..." : postState.title } text={isLoading ? "Chargement..." : "Décrouvrez l'offre d'emploi de "+postState.title} image={isLoading ? "Chargement" : "https://api.reseauh10.fr/build/images/"+postState.image} />
             <Banderole />
             <div class="w-11/12 mb-12 mx-auto lg:w-10/12 flex flex-col justify-start items-start">
                 {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (

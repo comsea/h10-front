@@ -31,7 +31,7 @@ const Postuler = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/emplois`)
+        fetch(`https://api.reseauh10.fr/api/emplois`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -41,7 +41,7 @@ const Postuler = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/cabinets`)
+        fetch(`https://api.reseauh10.fr/api/cabinets`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -93,7 +93,7 @@ const Postuler = () => {
                     {/* faire boucle emploie */}
                     {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.slice(startIndex, endIndex).map(emploi =>
                     <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
-                        <img src={"https://127.0.0.1:8000/build/images/" + emploi.image} alt="représentant l'emploi" class="w-full rounded-t-3xl" />
+                        <img src={"https://api.reseauh10.fr/build/images/" + emploi.image} alt="représentant l'emploi" class="w-full rounded-t-3xl" />
                         <div className="mx-4 py-4 flex flex-col justify-between items-start h-full">
                             <div>
                                 {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (

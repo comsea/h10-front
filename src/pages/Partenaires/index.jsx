@@ -23,7 +23,7 @@ const Partenaires = () => {
     const [activeElement, setActiveElement] = useState(null)
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/cabinets`)
+        fetch(`https://api.reseauh10.fr/api/cabinets`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -33,7 +33,7 @@ const Partenaires = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/adresses`)
+        fetch(`https://api.reseauh10.fr/api/adresses`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -70,7 +70,7 @@ const Partenaires = () => {
                                     }`}
                                     onClick={() => handleElementClick(cabinet.name)}
                                 >
-                                    <img src={"https://127.0.0.1:8000/build/images/"+cabinet.logo} />
+                                    <img src={"https://api.reseauh10.fr/build/images/"+cabinet.logo} />
                                 </div>
                                 </a>
                             </Tab>
