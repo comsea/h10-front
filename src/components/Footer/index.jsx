@@ -33,14 +33,6 @@ const Footer = () => {
                     <div className="w-full flex flex-col text-center lg:text-start mt-8 lg:mt-0 xl:space-y-4 space-y-2">
                         <Link to="expertises" className="font-medium">Expertises</Link>
                         <div className="w-full grid grid-cols-1 lg:grid-cols-2 text-[#C3D5DC] justify-items-center lg:justify-items-start text-sm gap-2">
-                            <Link to="expertises">Création d'entreprise</Link>
-                            <Link to="expertises">Audit</Link>
-                            <Link to="expertises">Gestion de patrimoine</Link>
-                            <Link to="expertises">Conseils</Link>
-                            <Link to="expertises">Droits des sociétes</Link>
-                            <Link to="expertises">Fiscalité</Link>
-                            <Link to="expertises">Gestion sociale & paye</Link>
-                            <Link to="expertises">Comptabilités</Link>
                             {isLoading ? 'Pas d\'expertises disponibles pour le moment' : experts.map(expert => (
                                 <Link to={`/expertises/${expert.title}`} >{expert.title}</Link>
                             ))}
