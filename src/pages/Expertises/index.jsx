@@ -15,7 +15,7 @@ const Expertises = () => {
     const [experts, setExperts] = useState([])
 
     useEffect(() => {
-        axios.get('https://127.0.0.1:8000/api/expertises')
+        axios.get('https://api.reseauh10.fr/api/expertises')
           .then((response) => {
             setExperts(response.data['hydra:member']);
             setIsLoading(false);
@@ -35,6 +35,8 @@ const Expertises = () => {
             setActiveElement(elementId)
         }
     }
+
+    console.log(experts)
 
     
     return (
