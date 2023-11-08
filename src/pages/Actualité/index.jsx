@@ -12,7 +12,7 @@ export const Actualité = () => {
 
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/actualites/${id}`)
+        fetch(`https://api.reseauh10.fr/api/actualites/${id}`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -22,7 +22,7 @@ export const Actualité = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/images`)
+        fetch(`https://api.reseauh10.fr/api/images`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -36,14 +36,14 @@ export const Actualité = () => {
 
     return(
         <div>
-            <Header title={postState.title} text={"Découvrez l'article ci-dessous : "+postState.title} image={"https://127.0.0.1:8000/build/images/"+postState.image} />
+            <Header title={postState.title} text={"Découvrez l'article ci-dessous : "+postState.title} image={"https://api.reseauh10.fr/build/images/"+postState.image} />
             <Banderole />
             <div className="w-11/12 mb-12 mx-auto lg:w-10/12 flex flex-col justify-start items-start">
                 <p className="mb-10" dangerouslySetInnerHTML={{ __html: postState.description }} />
                 <h2 className="lg:text-4xl text-3xl font-bold text-darkblue mb-10">Galerie photo</h2>
                 <div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-10">
                     {isLoading ? "Chargement en cours" : galeries.map(galerie => (
-                        <img src={postState.gallery === "/api/images/"+galerie.id ? "Image en cours de chargement" : "https://127.0.0.1:8000/build/images/"+galerie.path } alt="" />
+                        <img src={postState.gallery === "/api/images/"+galerie.id ? "Image en cours de chargement" : "https://api.reseauh10.fr/build/images/"+galerie.path } alt="" />
                     ))}
                 </div>
             </div>

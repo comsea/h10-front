@@ -18,7 +18,7 @@ const Accueil = () => {
     const [experts, setExperts] = useState([])
 
     useEffect(() => {
-        axios.get('https://127.0.0.1:8000/api/expertises')
+        axios.get('https://api.reseauh10.fr/api/expertises')
           .then((response) => {
             setExperts(response.data['hydra:member']);
             setIsLoading(false);
@@ -30,7 +30,7 @@ const Accueil = () => {
       }, []);
 
       useEffect(() => {
-        axios.get('https://127.0.0.1:8000/api/actualites')
+        axios.get('https://api.reseauh10.fr/api/actualites')
           .then((response) => {
             setActualites(response.data['hydra:member']);
             setIsLoading(false);
@@ -61,7 +61,7 @@ const Accueil = () => {
                     {/* faire boucle actu */}
                         {isLoading ? 'Chargement en cours' : actualites.slice(-3).map(actualite => (
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
-                                <img src={"https://127.0.0.1:8000/build/images/" + actualite.image} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
+                                <img src={"https://api.reseauh10.fr/build/images/" + actualite.image} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
                                 <div class="ml-6 my-4 pr-2">
                                     <p>{(new Date(actualite.createdAt)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.title}</p>

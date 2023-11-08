@@ -72,7 +72,7 @@ const Presentation = () => {
     }
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/employes`)
+        fetch(`https://api.reseauh10.fr/api/employes`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -82,7 +82,7 @@ const Presentation = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://127.0.0.1:8000/api/cabinets`)
+        fetch(`https://api.reseauh10.fr/api/cabinets`)
         .then((response) => {
             response = response.json()
             response.then((result) => {
@@ -216,7 +216,7 @@ const Presentation = () => {
                         {/* faire boucle employé */}
                         {isLoading ? 'Pas encore d\'employés' : employes.slice(startIndex, endIndex).map(employe => (
                         <div class="rounded-3xl bg-white flex flex-col justify-between" key={employe.id}>
-                            <img src={"https://127.0.0.1:8000/build/images/"+employe.profil} alt="Employé TEST" class="w-full h-auto rounded-t-2xl" />
+                            <img src={"https://api.reseauh10.fr/build/images/"+employe.profil} alt="Employé TEST" class="w-full h-auto rounded-t-2xl" />
                             <div class="ml-5 pr-2 my-5">
                                 <p class="uppercase leading-normal font-semibold">{employe.lastname} {employe.firstname}</p>
                                 {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (
