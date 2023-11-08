@@ -107,7 +107,7 @@ const Presentation = () => {
             <div class="w-11/12 2xl:py-16 mb-10 mx-auto text-center items-center lg:text-start lg:w-10/12 flex flex-col lg:flex-row">
                 <div class="font-normal lg:w-3/5 lg:mb-12">
                     <p class="text-darkblue font-normal text-2xl 2xl:text-4xl mb-2 2xl:mb-4">Notre histoire</p>
-                    <h1 class="text-3xl 2xl:text-5xl font-semibold">Qu'est ce que le <span class="text-darkblue">Réseau H10</span></h1>
+                    <h1 class="text-3xl 2xl:text-5xl font-semibold">Qu'est ce que le <span class="text-darkblue">Réseau H10</span> ?</h1>
                     <p class="mt-8 2xl:mt-12">
                         Mutualisant les compétences complémentaires de plus de 100 collaborateurs, le réseau H10 bénéficie d’une <strong>expertise </strong> forte et unique en matière <strong>comptable, sociale, fiscale et juridique </strong> dans la région.
                         Ses domaines d’intervention concernent aussi bien les TPE (artisans, commerçants, professions libérales, agriculteurs, viticulteurs, industriels) que les PMI-PME ou les grands groupes, dans un objectif de développement régional, national voire international.

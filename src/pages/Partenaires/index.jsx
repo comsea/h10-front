@@ -129,7 +129,7 @@ const Partenaires = () => {
                 </Tabs>
 
                 {/* REDIRECTION PAGE CONTACT */}
-                <p class="text-lg text-darkblue mb-20">Envie de rejoindre notre réseau de partenaires ? <a class="underline" href="/contact">Contactez nous dès maintenant</a></p>
+                <p class="text-lg text-darkblue mb-20">Envie de rejoindre notre réseau de partenaires ? <Link to="/contact" class="underline" href="/contact">Contactez nous dès maintenant</Link></p>
 
             </div>
             

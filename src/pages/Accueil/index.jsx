@@ -101,7 +101,7 @@ const Accueil = () => {
                                 </AccordionSummary>
                                 <AccordionDetails className='flex font-normal flex-col space-y-3'>
                                     <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expert.description }} />
-                                    <Link to='expertises' className='text-darkblue'>En savoir plus →</Link>
+                                    <Link to={`/expertises/${expert.title}`} className='text-darkblue'>En savoir plus →</Link>
                                 </AccordionDetails>
                             </Accordion>
                         )) }

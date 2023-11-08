@@ -1,21 +1,38 @@
+import React, { useState, useEffect } from 'react';
 import bg from "../../asset/bg-footer.png"
 import logo from "../../asset/logob.png"
 import facebook from "../../asset/Svg/facebook.svg"
 import linkedin from "../../asset/Svg/linkedin.svg"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Footer = () => {
+    const [isLoading, setIsLoading] = useState(true)
+    const [experts, setExperts] = useState([])
+
+    useEffect(() => {
+        axios.get('https://api.reseauh10.fr/api/expertises')
+          .then((response) => {
+            setExperts(response.data['hydra:member']);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            // Gérez les erreurs ici, si nécessaire
+          });
+      }, []);
+
     return(
         <div className="w-full h-full relative py-10 px-8 text-white flex justify-center items-center">
             <img src={bg} alt="Background Footer" className="absolute top-0 left-0 object-cover -z-10 w-full h-full" />
             <div className="flex flex-col justify-center items-center w-11/12 xl:space-y-10 space-y-4">
-                <div className="xl:w-5/6 w-full grid grid-cols-1 lg:grid-cols-4 gap-x-8">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-4 gap-x-6">
                     <div className="w-full flex justify-center items-center">
                         <img src={logo} alt="Logo Blanc" className="w-[200px]" />
                     </div>
                     <div className="w-full flex flex-col text-center lg:text-start mt-8 lg:mt-0 xl:space-y-4 space-y-2">
                         <Link to="expertises" className="font-medium">Expertises</Link>
-                        <div className="w-full grid grid-cols-1 lg:grid-cols-2 text-[#C3D5DC] justify-items-center lg:justify-items-start text-sm xl:gap-4 gap-2">
+                        <div className="w-full grid grid-cols-1 lg:grid-cols-2 text-[#C3D5DC] justify-items-center lg:justify-items-start text-sm gap-2">
                             <Link to="expertises">Création d'entreprise</Link>
                             <Link to="expertises">Audit</Link>
                             <Link to="expertises">Gestion de patrimoine</Link>
@@ -24,6 +41,9 @@ const Footer = () => {
                             <Link to="expertises">Fiscalité</Link>
                             <Link to="expertises">Gestion sociale & paye</Link>
                             <Link to="expertises">Comptabilités</Link>
+                            {isLoading ? 'Pas d\'expertises disponibles pour le moment' : experts.map(expert => (
+                                <Link to={`/expertises/${expert.title}`} >{expert.title}</Link>
+                            ))}
                         </div>
                     </div>
                     <div className="w-full flex flex-col text-center lg:text-start my-8 lg:my-0 xl:space-y-4 space-y-2">

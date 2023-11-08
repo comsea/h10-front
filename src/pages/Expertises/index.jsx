@@ -10,9 +10,19 @@ import axios from 'axios';
 
 
 const Expertises = () => {
+    const {id} = useParams()
+    const [staticId, setStaticId] = useState(id);
+
+    useEffect(() => {
+        setStaticId(id); // This ensures that staticId remains the same as id
+      }, [id]);
+
     const [isLoading, setIsLoading] = useState(true)
-    const [activeElement, setActiveElement] = useState(1)
+    const [activeElement, setActiveElement] = useState(id)
+    const [activeElement2, setActiveElement2] = useState(1)
     const [experts, setExperts] = useState([])
+
+    const numéro = id
 
     useEffect(() => {
         axios.get('https://api.reseauh10.fr/api/expertises')
@@ -36,8 +46,17 @@ const Expertises = () => {
         }
     }
 
-    console.log(experts)
+    const handleElementClick2 = (elementId) => {
+        if (elementId === activeElement2) {
+            setActiveElement2(null)
+        } else {
+            setActiveElement2(elementId)
+        }
+    }
 
+    console.log(activeElement)
+    console.log(activeElement2)
+    console.log(staticId)
     
     return (
         <div>
@@ -47,13 +66,13 @@ const Expertises = () => {
                 <Tabs defaultValue={activeElement}>
                     <TabsList>
                         {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : experts.map(expert =>
-                            <Tab value={expert.id} key={expert.id}>
+                            <Tab value={expert.title} key={expert.title}>
                                 <a href={`#${expert.title}`}>
                                 <div 
                                     className={`${
                                         expert.title === activeElement
-                                        ? "souligne text-darkblue font-semibold duration-200 mx-3 hover:text-black hover:underline"
-                                        : "text-darkblue font-semibold duration-200 mx-3 hover:text-black hover:underline"
+                                        ? "souligne text-darkblue bg-blue py-1 px-6 rounded-full font-semibold duration-200 mx-6 my-2 hover:text-black hover:underline"
+                                        : "text-darkblue bg-blue py-1 px-6 rounded-full font-semibold duration-200 mx-6 my-2 hover:text-black hover:underline"
                                     }`}
                                     onClick={() => handleElementClick(expert.title)}
                                 >
@@ -64,7 +83,7 @@ const Expertises = () => {
                         )}
                     </TabsList>
                     {isLoading ? 'Pas d\'expertises disponnibles pour le moment' : experts.map(expert =>
-                        <TabPanel value={expert.id} className="bg-gray rounded-2xl text-start" id={expert.title}>
+                        <TabPanel value={expert.title} className="bg-gray rounded-2xl text-start" id={expert.title}>
                             <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
                                 <h3 className='text-3xl 2xl:text-4xl text-darkblue font-semibold uppercase'>{expert.title}</h3>
                                 <div className="mt-4 font-normal" dangerouslySetInnerHTML={{ __html: expert.description }}></div>
