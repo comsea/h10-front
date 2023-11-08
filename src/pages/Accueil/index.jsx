@@ -78,8 +78,8 @@ const Accueil = () => {
                 </div>
             {/* NOS EXPERTISES */}
             <div class="flex justify-center my-16">
-                <div class="lg:flex hidden w-1/2">
-                    <img src={img} alt="Comptable entrain de travailler" class="w-full p-4 "/>
+                <div class="lg:flex hidden w-1/2 relative h-auto">
+                    <img src={img} alt="Comptable entrain de travailler" class="w-full p-4 h-auto"/>
                 </div>
                 <div class="text-center lg:text-start px-4 lg:w-1/2">
                     <p class="text-darkblue font-extraligth text-2xl xl:text-4xl mb-2 lg:mb-4">Nos expertises</p>
@@ -95,7 +95,7 @@ const Accueil = () => {
                                     id="panel1bh-header"
                                     className=''
                                     >
-                                    <p className='text-darkblue font-bold xl:text-3xl p-1 xl:p-3 text-xl'>{expert.title}</p>
+                                    <p className='text-darkblue font-bold 2xl:text-3xl lg:2xl p-1 xl:p-3 text-xl'>{expert.title}</p>
                                 </AccordionSummary>
                                 <AccordionDetails className='flex font-normal flex-col space-y-3'>
                                     <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expert.description }} />
