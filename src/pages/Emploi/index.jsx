@@ -45,7 +45,7 @@ export const Emploi = () => {
                         </>
                     : ""
                 ))}
-                <p className="mb-10" dangerouslySetInnerHTML={{ __html: postState.description }} />
+                <p className="mb-10 text-justify" dangerouslySetInnerHTML={{ __html: postState.description }} />
                 <div class="text-center mx-auto">
                     <Link to="../postuler#form" class="bg-darkblue text-white px-6 py-3 rounded-xl duration-300 hover:bg-blue hover:text-darkblue">Postuler</Link>
                 </div>

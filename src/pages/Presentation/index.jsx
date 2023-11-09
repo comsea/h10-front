@@ -108,14 +108,14 @@ const Presentation = () => {
                 <div class="font-normal lg:w-3/5 lg:mb-12">
                     <p class="text-darkblue font-normal text-2xl 2xl:text-4xl mb-2 2xl:mb-4">Notre histoire</p>
                     <h1 class="text-3xl 2xl:text-5xl font-semibold">Qu'est ce que le <span class="text-darkblue">Réseau H10</span> ?</h1>
-                    <p class="mt-8 2xl:mt-12">
+                    <p class="mt-8 2xl:mt-12 text-justify">
                         Mutualisant les compétences complémentaires de plus de 100 collaborateurs, le réseau H10 bénéficie d’une <strong>expertise </strong> forte et unique en matière <strong>comptable, sociale, fiscale et juridique </strong> dans la région.
                         Ses domaines d’intervention concernent aussi bien les TPE (artisans, commerçants, professions libérales, agriculteurs, viticulteurs, industriels) que les PMI-PME ou les grands groupes, dans un objectif de développement régional, national voire international.
                     </p>
-                    <p class="my-6">
+                    <p class="my-6 text-justify">
                         Outre les démarches réglementaires des entreprises, le réseau H10 accompagne ses clients dans leur réflexion relative au contexte social et économique actuel, aux actualités inhérentes à la société, à <strong>l’optimisation des résultats</strong>, aux perspectives de déploiement. Il pioche dans les meilleures solutions proposées par chaque cabinet afin de proposer un conseil sur-mesure.
                     </p>
-                    <p>
+                    <p className=' text-justify'>
                         Conjuguant le dynamisme du réseau à l’agilité de cabinets indépendants, H10 est à l’avant-garde des évolutions du métier d’expert-comptable dans son fonctionnement et intègre naturellement les nouveaux process de digitalisation et de cybersécurité.
                     </p>
                 </div>
@@ -150,8 +150,8 @@ const Presentation = () => {
                     <div class="flex flex-col lg:w-1/2 items-center">
                         <img src={particulier} alt="icon représentant un particulier" class="w-1/3"/>
                         <p class="uppercase tracking-widest text-2xl 2xl:text-4xl text-darkblue font-semibold my-2">Particulier</p>
-                        <p class="font-normal mt-2 leading-relaxed">
-                            Pour les particuliers dans leurs<br></br> obligations  fiscales et dans la  <br></br>gestion de leur patrimoine
+                        <p class="font-normal mt-2 leading-relaxed text-justify">
+                            Pour les particuliers dans leurs obligations  fiscales et dans la gestion de leur patrimoine
                         </p>
                     </div>
                     <div class="flex flex-col lg:w-1/2 items-center mt-4 lg:mt-0">
@@ -163,7 +163,7 @@ const Presentation = () => {
                             less={<ExpandLess />}
                             onClick={handleClick}
                             expanded={expanded}
-                            className="font-normal mt-2 leading-relaxed mb-4"
+                            className="font-normal mt-2 leading-relaxed mb-4 text-justify"
                         >
                             Pour les professionnels dans leurs obligations comptables, fiscales, juridiques et sociales. 
                             Il prodigue des conseils personnalisés et propose une offre Full Service, quelle que soit la structure de l’entreprise : 
@@ -264,7 +264,7 @@ const Presentation = () => {
                 <div class="lg:w-2/5">
                     <p class="text-darkblue font-normal text-2xl 2xl:text-4xl mb-2">Notre visibilité</p>
                     <h3 class="text-3xl 2xl:text-5xl text-darkblue font-semibold 2xl:mb-12 mb-8">On parle de <span class="text-black">nous !</span></h3>
-                    <p class="text-xl font-normal 2xl:mb-10 mb-6 leading-relaxed 2xl:text-3xl">Retrouvez dès maintenant l’article 
+                    <p class="text-xl font-normal 2xl:mb-10 mb-6 leading-relaxed 2xl:text-3xl text-justify">Retrouvez dès maintenant l’article 
                          de presse du journal 
                         <span class="text-red-600"> l’Union </span>
                         à propos de notre 

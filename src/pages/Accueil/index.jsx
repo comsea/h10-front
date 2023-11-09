@@ -65,7 +65,7 @@ const Accueil = () => {
                                 <div class="ml-6 my-4 pr-2">
                                     <p>{(new Date(actualite.createdAt)).toLocaleDateString()}</p>
                                     <p class="font-semibold text-black text-2xl">{actualite.title}</p>
-                                    <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: actualite.description }} />
+                                    <p className="line-clamp-3 text-[#7C929B] text-justify" dangerouslySetInnerHTML={{ __html: actualite.description }} />
                                     <Link to={`/actualite/${actualite.id}`}>Voir l'article →</Link>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@ const Accueil = () => {
                                     <p className='text-darkblue font-bold 2xl:text-3xl lg:2xl p-1 xl:p-3 text-xl'>{expert.title}</p>
                                 </AccordionSummary>
                                 <AccordionDetails className='flex font-normal flex-col space-y-3'>
-                                    <p className="line-clamp-3 text-[#7C929B]" dangerouslySetInnerHTML={{ __html: expert.description }} />
+                                    <p className="line-clamp-3 text-[#7C929B] text-justify" dangerouslySetInnerHTML={{ __html: expert.description }} />
                                     <Link to={`/expertises/${expert.title}`} className='text-darkblue'>En savoir plus →</Link>
                                 </AccordionDetails>
                             </Accordion>
@@ -108,14 +108,6 @@ const Accueil = () => {
                     
                     </div>
                 </div>
-            </div>
-            <div>
-            {/* {apiData && apiData.map(item => (
-                <div key={item.id}>
-                <h2>{item.attributes.title}</h2>
-                <p>{item.attributes.description}</p>
-                </div>
-            ))} */}
             </div>
         </div>
     )   
