@@ -91,7 +91,7 @@ const Postuler = () => {
                 {/* OFFRE D'EMPLOI */}
                 <div class="grid grid-cols-1 text-2xl lg:text-3xl 2xl:grid-cols-4 lg:grid-cols-3 lg:gap-8 my-12">
                     {/* faire boucle emploie */}
-                    {isLoading ? 'Pas encore d\'offres d\'emplois' : emplois.slice(startIndex, endIndex).map(emploi =>
+                    {isLoading ? 'Chargement en cours' : emplois.slice(startIndex, endIndex).map(emploi =>
                     <div className="rounded-3xl shadow-2xl flex flex-col justify-start">
                         <img src={"https://api.reseauh10.fr/build/images/" + emploi.image} alt="représentant l'emploi" class="w-full rounded-t-3xl" />
                         <div className="mx-4 py-4 flex flex-col justify-between items-start h-full">
