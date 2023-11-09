@@ -17,11 +17,13 @@ import Politiques from "./Politiques";
 import { Emploi } from "./Emploi";
 import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
+import BackToTop from "../components/BackToTop";
 
 const Layout = () => {
   return(
     <Fragment>
       <Navbar />
+      <BackToTop />
       <Outlet />
       <Footer />
     </Fragment>
@@ -33,6 +35,7 @@ const LayoutIndex = () => {
     <Fragment>
       <Navbar />
       <HeaderAccueil />
+      <BackToTop />
       <Banderole />
       <Accueil />
       <Footer />

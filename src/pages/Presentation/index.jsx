@@ -150,20 +150,20 @@ const Presentation = () => {
                     <div class="flex flex-col lg:w-1/2 items-center">
                         <img src={particulier} alt="icon représentant un particulier" class="w-1/3"/>
                         <p class="uppercase tracking-widest text-2xl 2xl:text-4xl text-darkblue font-semibold my-2">Particulier</p>
-                        <p class="font-normal mt-2 leading-relaxed text-justify">
+                        <p class="font-normal mt-2 leading-relaxed text-justify w-2/3">
                             Pour les particuliers dans leurs obligations  fiscales et dans la gestion de leur patrimoine
                         </p>
                     </div>
                     <div class="flex flex-col lg:w-1/2 items-center mt-4 lg:mt-0">
                         <img src={professionnel} alt="icon représentant un particulier" class="w-1/3"/>
-                        <p class="uppercase tracking-widest text-2xl lg:text-4xl text-darkblue font-semibold my-2">Professionnel</p>
+                        <p class="uppercase tracking-widest text-2xl 2xl:text-4xl text-darkblue font-semibold my-2">Professionnel</p>
                         <ReactShowMoreText
-                            lines={2}
+                            lines={3}
                             more={<ExpandMore />}
                             less={<ExpandLess />}
                             onClick={handleClick}
                             expanded={expanded}
-                            className="font-normal mt-2 leading-relaxed mb-4 text-justify"
+                            className="font-normal mt-2 leading-relaxed mb-4 text-justify w-2/3"
                         >
                             Pour les professionnels dans leurs obligations comptables, fiscales, juridiques et sociales. 
                             Il prodigue des conseils personnalisés et propose une offre Full Service, quelle que soit la structure de l’entreprise : 

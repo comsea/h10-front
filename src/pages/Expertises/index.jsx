@@ -21,6 +21,7 @@ const Expertises = () => {
     const [activeElement, setActiveElement] = useState(id)
     const [activeElement2, setActiveElement2] = useState(1)
     const [experts, setExperts] = useState([])
+    
 
     const numéro = id
 
