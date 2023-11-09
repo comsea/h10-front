@@ -78,7 +78,7 @@ const Actualités = () => {
       <div className="w-11/12 mx-auto lg:w-10/12">
         {/* GRID ACTUALITE */}
         <div className=" grid-cols-3 gap-4 h-full text-2xl mb-12 text-white font-normal hidden lg:grid">
-          {isLoading ? "Pas d\'actualités disponnibles pour le moment" : actualites.slice(startIndex, endIndex).map((actualite) => (
+          {isLoading ? "Chargement en cours" : actualites.slice(startIndex, endIndex).map((actualite) => (
             <div className="rounded-3xl h-[400px] relative">
               <div className="justify-between flex flex-col h-full">
                 <p className="p-4">{(new Date(actualite.createdAt)).toLocaleDateString()}</p>
@@ -96,7 +96,7 @@ const Actualités = () => {
                     <ThemeProvider theme={theme}>
                         <Stack spacing={2} justifyContent="center" py={1} px={4} className='bg-[#FFFFFF] shadow-2xl rounded-full'>
                             {isLoading ? 
-                                "Pas d\'actualités disponnibles pour le moment"
+                                ""
                                 : 
                             <Pagination 
                                 count={Math.ceil(actualites.length / constantValue)}

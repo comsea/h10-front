@@ -94,7 +94,7 @@ const Partenaires = () => {
                                         </div>
                                         <div class="flex items-center my-6">
                                             <img src={phone} alt="icone pour indiquer le numéro de téléphone" class="mr-4 w-6" />
-                                            <Link to={adresse.phone} target="_blank">{adresse.phone}</Link>
+                                            <Link to={'tel:'+adresse.phone} target="_blank">{adresse.phone}</Link>
                                         </div>
                                         <div class="flex items-center">
                                             <img src={web} alt="icone pour indiquer le lien du site web" class="mr-4 w-6" />
@@ -102,7 +102,7 @@ const Partenaires = () => {
                                         </div>
                                     </div>
                                 </>
-                                  : "Pas d'adresse"
+                                  : ""
                             ))}
                             {/* 
 

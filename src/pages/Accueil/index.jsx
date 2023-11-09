@@ -89,7 +89,7 @@ const Accueil = () => {
                         {/* EXPERTISES */}
                     <div className='w-full flex flex-col rounded-2xl py-4 space-y-2'>
                         
-                        {isLoading ? 'Pas d\'expertises disponibles pour le moment' : experts?.map(expert => (
+                        {isLoading ? 'Chargement en cours' : experts?.map(expert => (
                             <Accordion expanded={expanded === 'panel'+expert.id} onChange={handleChange('panel'+expert.id)} className='rounded-xl' key={expert.id}>
                                 <AccordionSummary
                                     expandIcon={<ExpandCircleDownIcon className='text-darkblue' />}

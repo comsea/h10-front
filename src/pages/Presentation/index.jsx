@@ -214,7 +214,7 @@ const Presentation = () => {
                     {/* employé */}
                     <div class="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 text-start text-darkblue text-2xl font-normal 2xl:mt-12 mt-6">
                         {/* faire boucle employé */}
-                        {isLoading ? 'Pas encore d\'employés' : employes.slice(startIndex, endIndex).map(employe => (
+                        {isLoading ? 'Chargement en cours' : employes.slice(startIndex, endIndex).map(employe => (
                         <div class="rounded-3xl bg-white flex flex-col justify-between" key={employe.id}>
                             <img src={"https://api.reseauh10.fr/build/images/"+employe.profil} alt="Employé TEST" class="w-full h-auto rounded-t-2xl" />
                             <div class="ml-5 pr-2 my-5">
