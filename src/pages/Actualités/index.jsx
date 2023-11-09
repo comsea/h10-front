@@ -76,15 +76,6 @@ const Actualités = () => {
       <Header title="Quoi de neuf chez H10 ?" text="Retrouvez ici les actualités de notre réseau et de précieuses informations sur les lois et réglementations en vigueur." image={actualités} />
       <Banderole />
       <div className="w-11/12 mx-auto lg:w-10/12">
-        {/* <div className="flex flex-col lg:flex-row justify-between mb-12">
-            <div class="text-darkblue flex mx-auto lg:mx-0 text-xl border border-darkblue rounded-lg ">
-                <p class="font-semibold lg:px-7 lg:py-4 px-4 py-2 rounded-l-lg border-darkblue border-r h-full mr-[0,5px] ">Trier par</p>
-                <div class="font-normal flex lg:px-7 lg:py-4 px-4 py-2 rounded-r-lg -darkblue h-full ">
-                    <p>Le plus récent</p>
-                    <img src={down} alt="" class="w-4 ml-4"/>
-                </div>
-            </div>  
-        </div> */}
         {/* GRID ACTUALITE */}
         <div className=" grid-cols-3 gap-4 h-full text-2xl mb-12 text-white font-normal hidden lg:grid">
           {isLoading ? "Pas d\'actualités disponnibles pour le moment" : actualites.slice(startIndex, endIndex).map((actualite) => (

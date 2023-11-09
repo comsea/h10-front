@@ -71,8 +71,8 @@ const Expertises = () => {
                                 <div 
                                     className={`${
                                         expert.title === activeElement
-                                        ? "souligne text-darkblue bg-blue py-1 px-6 rounded-full font-semibold duration-200 mx-6 my-2 hover:text-black hover:underline"
-                                        : "text-darkblue bg-blue py-1 px-6 rounded-full font-semibold duration-200 mx-6 my-2 hover:text-black hover:underline"
+                                        ? "souligne text-darkblue bg-gray py-2 px-6 rounded-2xl font-semibold duration-200 mx-6 my-2 hover:text-white hover:bg-darkblue"
+                                        : "text-darkblue bg-gray py-2 px-6 rounded-2xl font-semibold duration-200 mx-6 my-2 hover:text-white hover:bg-darkblue"
                                     }`}
                                     onClick={() => handleElementClick(expert.title)}
                                 >
@@ -86,7 +86,7 @@ const Expertises = () => {
                         <TabPanel value={expert.title} className="bg-gray rounded-2xl text-start" id={expert.title}>
                             <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
                                 <h3 className='text-3xl 2xl:text-4xl text-darkblue font-semibold uppercase'>{expert.title}</h3>
-                                <div className="mt-4 font-normal" dangerouslySetInnerHTML={{ __html: expert.description }}></div>
+                                <div className="mt-4 font-normal text-justify" dangerouslySetInnerHTML={{ __html: expert.description }}></div>
                             </div>
                         </TabPanel>
                     )}

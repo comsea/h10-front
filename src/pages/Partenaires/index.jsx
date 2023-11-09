@@ -82,7 +82,7 @@ const Partenaires = () => {
                     <TabPanel value={cabinet.id} className="bg-gray rounded-2xl text-start" id={cabinet.name}>
                         <div class="w-11/12 mx-auto py-10 2xl:py-20 lg:py-12 my-20">
                             <h3 class="text-darkblue font-semibold text-4xl 2xl:text-5xl mb-4 2xl:mb-8">{cabinet.name}</h3>
-                            <p class="2xl:text-xl text-lg font-normal 2xl:mb-12 mb-8" dangerouslySetInnerHTML={{ __html: cabinet.description }} />
+                            <p class="2xl:text-xl text-lg font-normal 2xl:mb-12 mb-8 text-justify" dangerouslySetInnerHTML={{ __html: cabinet.description }} />
                             {isLoading ? "Chargement en cours" : adresses.map(adresse => (
                                 adresse.cabinet === "/api/cabinets/"+cabinet.id ?
                                  <>
@@ -90,15 +90,15 @@ const Partenaires = () => {
                                     <div class="underline underline-offset-8 2xl:text-2xl text-lg font-normal text-darkblue mb-12">
                                         <div class="flex items-center">
                                             <img src={map} alt="icone pour indiquer le lieu" class="mr-4 w-6" />
-                                            <a href="#">{adresse.address}</a>
+                                            <Link to={adresse.googlemaps} target="_blank">{adresse.address}</Link>
                                         </div>
                                         <div class="flex items-center my-6">
                                             <img src={phone} alt="icone pour indiquer le numéro de téléphone" class="mr-4 w-6" />
-                                            <a href="#">{adresse.phone}</a>
+                                            <Link to={adresse.phone} target="_blank">{adresse.phone}</Link>
                                         </div>
                                         <div class="flex items-center">
                                             <img src={web} alt="icone pour indiquer le lien du site web" class="mr-4 w-6" />
-                                            <a href="#">{adresse.website}</a>
+                                            <Link to={adresse.website} target="_blank">{adresse.website}</Link>
                                         </div>
                                     </div>
                                 </>

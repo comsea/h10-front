@@ -106,7 +106,7 @@ const Postuler = () => {
                                 <p class="text-2xl font-bold capitalize">{emploi.title}</p>
                             </div>
                             <div>
-                                <p className="line-clamp-3 font-normal mb-5 2xl:text-xl text-base" dangerouslySetInnerHTML={{ __html: emploi.description }} />
+                                <p className="line-clamp-3 font-normal mb-5 2xl:text-xl text-base text-justify" dangerouslySetInnerHTML={{ __html: emploi.description }} />
                                 <div class="w-full justify-between flex-col lg:flex-row font-normal flex 2xl:text-lg text-xs">
                                     <p class="text-darkblue font-thin">{emploi.date}</p>
                                     <Link to={`/emploi/${emploi.id}`}>Voir l'article →</Link>

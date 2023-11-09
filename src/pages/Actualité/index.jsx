@@ -31,15 +31,12 @@ export const Actualité = () => {
             })})
     }, [])
 
-      console.log(postState)
-
-
     return(
         <div>
             <Header title={postState.title} text={"Découvrez l'article ci-dessous : "+postState.title} image={"https://api.reseauh10.fr/build/images/"+postState.image} />
             <Banderole />
             <div className="w-11/12 mb-12 mx-auto lg:w-10/12 flex flex-col justify-start items-start">
-                <p className="mb-10" dangerouslySetInnerHTML={{ __html: postState.description }} />
+                <p className="mb-10 text-justify" dangerouslySetInnerHTML={{ __html: postState.description }} />
                 <h2 className="lg:text-4xl text-3xl font-bold text-darkblue mb-10">Galerie photo</h2>
                 <div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-10">
                     {isLoading ? "Chargement en cours" : galeries.map(galerie => (
