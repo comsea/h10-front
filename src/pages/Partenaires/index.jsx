@@ -102,7 +102,7 @@ const Partenaires = () => {
                                         </div>
                                     </div>
                                 </>
-                                  : ""
+                                  : "Pas d'adresse"
                             ))}
                             {/* 
 
