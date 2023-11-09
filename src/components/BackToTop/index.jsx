@@ -23,7 +23,7 @@ const BackToTop = () => {
       {" "}
       {showTopBtn && (
         <FaAngleUp
-          className="fixed bottom-10 right-4 z-50 bg-darkblue cursor-pointer rounded-full text-white w-[40px] h-[40px] border border-[#931212]"
+          className="fixed bottom-10 right-4 z-50 bg-darkblue cursor-pointer rounded-full text-white w-[40px] h-[40px] border border-white"
           onClick={goToTop}
         />
       )}{" "}
