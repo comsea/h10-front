@@ -105,7 +105,7 @@ const Partenaires = () => {
                                         </div>
                                         <div class="flex items-center">
                                             <img src={web} alt="icone pour indiquer le lien du site web" class="mr-4 w-6" />
-                                            <Link to={adresse.website} target="_blank">{adresse.website}</Link>
+                                            <Link to={"https://"+adresse.website} target="_blank">{adresse.website}</Link>
                                         </div>
                                     </div>
                                 </>
