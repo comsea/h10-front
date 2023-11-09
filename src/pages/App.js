@@ -17,11 +17,13 @@ import Politiques from "./Politiques";
 import { Emploi } from "./Emploi";
 import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
+import BackToTop from "../components/BackToTop";
 
 const Layout = () => {
   return(
     <Fragment>
       <Navbar />
+      <BackToTop />
       <Outlet />
       <Footer />
     </Fragment>
@@ -33,6 +35,7 @@ const LayoutIndex = () => {
     <Fragment>
       <Navbar />
       <HeaderAccueil />
+      <BackToTop />
       <Banderole />
       <Accueil />
       <Footer />
@@ -46,7 +49,7 @@ const Content = () => {
       <Route index element={<LayoutIndex />} />
       <Route path="/" element={<Layout />}>
         <Route path="presentation" element={<Presentation />}></Route>
-        <Route path='partenaires' element={<Partenaires/>}/>
+        <Route path='partenaires/:id' element={<Partenaires/>}/>
         <Route path='contact' element={<Contact/>}/>
         <Route path='engagement' element={<Engagement/>}/>
         <Route path='postuler' element={<Postuler/>}/>
