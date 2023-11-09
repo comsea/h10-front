@@ -49,7 +49,7 @@ const Content = () => {
       <Route index element={<LayoutIndex />} />
       <Route path="/" element={<Layout />}>
         <Route path="presentation" element={<Presentation />}></Route>
-        <Route path='partenaires' element={<Partenaires/>}/>
+        <Route path='partenaires/:id' element={<Partenaires/>}/>
         <Route path='contact' element={<Contact/>}/>
         <Route path='engagement' element={<Engagement/>}/>
         <Route path='postuler' element={<Postuler/>}/>

@@ -13,6 +13,7 @@ const Navbar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [isLoading, setIsLoading] = useState(true)
     const [experts, setExperts] = useState([]);
+    const [cabinets, setCabinets] = useState([]);
 
     const open = Boolean(anchorEl);
 
@@ -45,6 +46,16 @@ const Navbar = () => {
             })})
     }, [])
 
+    useEffect(() => {
+        fetch(`https://api.reseauh10.fr/api/cabinets/1`)
+        .then((response) => {
+            response = response.json()
+            response.then((result) => {
+                setCabinets(result)
+                setIsLoading(false)
+            })})
+    }, [])
+
     console.log(experts)
 
     return(
@@ -58,7 +69,7 @@ const Navbar = () => {
                 <div className="flex justify-center items-center xl:space-x-8 space-x-4 text-center">
                     <Link to="/">Accueil</Link>
                     <Link to="presentation">Présentation</Link>
-                    <Link to="partenaires">Cabinets partenaires</Link>
+                    <Link to={`/partenaires/${cabinets.name}`}>Cabinets partenaires</Link>
                     <Link to="valeurs">Valeur ajoutée</Link>
                     <Link to={`/expertises/${experts.title}`}>Expertises</Link>
                     <Link to="actualites">Actualités</Link>
@@ -99,7 +110,7 @@ const Navbar = () => {
                         >
                             <MenuItem onClick={handleClose}><Link to="/" className="w-full">Accueil</Link></MenuItem>
                             <MenuItem onClick={handleClose}><Link to="/presentation" className="w-full">Présentation</Link></MenuItem>
-                            <MenuItem onClick={handleClose}><Link to="/partenaires" className="w-full">Cabinets partenaires</Link></MenuItem>
+                            <MenuItem onClick={handleClose}><Link to={`/partenaires/${cabinets.name}`} className="w-full">Cabinets partenaires</Link></MenuItem>
                             <MenuItem onClick={handleClose}><Link to="/valeurs" className="w-full">Valeur ajoutée</Link></MenuItem>
                             <MenuItem onClick={handleClose}><Link to={`/expertises/${experts.title}`} className="w-full">Expertises</Link></MenuItem>
                             <MenuItem onClick={handleClose}><Link to="/actualites" className="w-full">Actualités</Link></MenuItem>
