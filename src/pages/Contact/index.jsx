@@ -4,9 +4,42 @@ import location from "../../asset/Svg/location.svg"
 import avion from "../../asset/avion.png"
 import Banderole from "../../components/Banderole "
 import { Link } from "react-router-dom"
+import axios from 'axios';
+import React, { useState } from 'react';
 
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        acceptTerms: false,
+      });
+
+      const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        const fieldValue = type === 'checkbox' ? checked : value;
+    
+        setFormData({
+          ...formData,
+          [name]: fieldValue,
+        });
+      };
+
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          await axios.post('https://api.reseauh10.fr/contact', formData);
+          alert('Message envoyé avec succès!');
+        } catch (error) {
+          console.error('Erreur lors de l\'envoi du message:', error);
+        }
+      };
+    
+      console.log(formData)
 
     return(
         <div>
@@ -29,24 +62,32 @@ const Contact = () => {
                         
                         
                     {/* faire traitement from */}
-                    <form action="" method="POST" class="lg:space-y-4 font-normal text-xl">
+                    <form onSubmit={handleSubmit} class="lg:space-y-4 font-normal text-xl">
                         <div class="space-y-1">
-                            <label for="nom" ></label>
-                            <input type="text" id="nom" name="nom" placeholder="Prénom Nom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
+                            <label for="lastName" ></label>
+                            <input type="text" id="lastName" name="lastName" onChange={handleChange} value={formData.lastName} placeholder="Nom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
+                        </div>
+                        <div class="space-y-1">
+                            <label for="firstName" ></label>
+                            <input type="text" id="firstName" name="firstName" onChange={handleChange} value={formData.firstName} placeholder="Prénom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
                         </div>
                         <div class="space-y-1">
                             <label for="email" ></label>
-                            <input type="email" id="email" name="email" placeholder="prenom@nom.fr *" class="w-full lg:w-1/2 bg-gray2 rounded-lg px-8 py-4"/>
+                            <input type="email" id="email" name="email" onChange={handleChange} value={formData.email} placeholder="prenom@nom.fr *" class="w-full lg:w-1/2 bg-gray2 rounded-lg px-8 py-4"/>
                             <label for="phone" ></label>
-                            <input type="phone" id="phone" name="phone" placeholder="Téléphone *" class="w-full lg:w-[49%] lg:ml-1  bg-gray2 rounded-lg px-8 py-4"/>
+                            <input type="phone" id="phone" name="phone" onChange={handleChange} value={formData.phone} placeholder="Téléphone *" class="w-full lg:w-[49%] lg:ml-1  bg-gray2 rounded-lg px-8 py-4"/>
+                        </div>
+                        <div class="space-y-1">
+                            <label for="subject" ></label>
+                            <input type="text" id="subject" name="subject" onChange={handleChange} value={formData.subject} placeholder="Sujet *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
                         </div>
                         <div class="space-y-1">
                             <label for="message" ></label>
-                            <textarea id="message" name="message" rows="4" placeholder="Votre message...*" class="w-full  bg-gray2 rounded-lg px-8 py-4"></textarea>
+                            <textarea id="message" name="message" onChange={handleChange} value={formData.message} rows="4" placeholder="Votre message...*" class="w-full  bg-gray2 rounded-lg px-8 py-4"></textarea>
                         </div>
                         <div class="space-y-1">
                             <label for="conditions" class="flex items-center">
-                                <input type="checkbox" id="conditions" name="conditions" class="bg-gray2 accent-blue rounded-lg px-3 py-3" />
+                                <input type="checkbox" id="acceptTerms" name="acceptTerms" onChange={handleChange} value={formData.acceptTerms} class="bg-gray2 accent-blue rounded-lg px-3 py-3" />
                                 <span class="ml-2 text-sm">Accepter les conditions d'utilisation <Link to="/politiques" className="hover:text-red-600">*</Link></span>
                             </label>
                         </div>
@@ -55,7 +96,6 @@ const Contact = () => {
                             <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />Envoyer</button>
                         </div>    
                     </form>
-                    
                 </div>
             </div>
         </div>
