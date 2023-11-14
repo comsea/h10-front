@@ -72,7 +72,7 @@ const Valeurs = () =>{
                 <div class="flex items-center flex-col justify-between lg:flex-row mb-32">
                     <div class ="lg:w-2/3 space-y-6">
                         <h3 class="text-3xl 2xl:text-5xl font-semibold"><span className="text-darkblue">Notre société</span> de commissarit aux comptes</h3>
-                        <p className="text-justify">Comfiducé est une société de commissariat aux comptes certifiant les comptes (consolidés ou non) de toutes tailles d’entreprises dans le cadre d’audits légaux.</p>
+                        <p className="text-justify">Comfiducé est une société de « commissariat » aux comptes certifiant les comptes (consolidés ou non) de toutes tailles d’entreprises dans le cadre d’audits légaux.</p>
                         <p className="text-justify">Dépendant de la cour d’appel de Reims, nos Commissaires aux Comptes sont des professionnels indépendants, externes à l’entreprise, nommés par celle-ci pour une durée 6 ans (ou 3 dans le cas de la mission ALPE pour les petits groupes).</p>
                         <div className="w-full flex flex-col space-y-4">
                             <p className="text-justify">Un Commissaire aux Comptes intervient de façon permanente auprès de sociétés qui le mandate pour des missions bien définies :</p>
