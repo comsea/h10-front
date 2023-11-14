@@ -32,7 +32,7 @@ const Contact = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          await axios.post('https://api.reseauh10.fr/contact', formData);
+          await axios.post('https://api.reseauh10.fr/api/contact', formData);
           alert('Message envoyé avec succès!');
         } catch (error) {
           console.error('Erreur lors de l\'envoi du message:', error);
