@@ -5,6 +5,8 @@ import avion from "../../asset/avion.png"
 import Banderole from "../../components/Banderole "
 import { Link } from "react-router-dom"
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react';
 
 
@@ -19,6 +21,8 @@ const Contact = () => {
         acceptTerms: false,
       });
 
+      const [isSubmitting, setIsSubmitting] = useState(false);
+
       const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         const fieldValue = type === 'checkbox' ? checked : value;
@@ -31,11 +35,14 @@ const Contact = () => {
 
       const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true)
         try {
-          await axios.post('https://api.reseauh10.fr/api/contact', formData);
-          alert('Message envoyé avec succès!');
+          await axios.post('https://api.reseauh10.fr/contact', formData);
+          toast.success('Message envoyé avec succès!');
         } catch (error) {
-          console.error('Erreur lors de l\'envoi du message:', error);
+          toast.error('Erreur lors de l\'envoi du message', error);
+        } finally {
+            setIsSubmitting(false)
         }
       };
     
@@ -45,6 +52,7 @@ const Contact = () => {
         <div>
             <Header title="Contactez-nous à tout moment" text="Nos équipes sont à votre écoute et vous garantissent une réponse rapide." image={contact} />
             <Banderole />
+            <ToastContainer />
             <div class="w-11/12 lg:w-10/12 flex flex-col-reverse xl:flex-row shadow-xl mx-auto rounded-2xl mb-10">
                 <div class="xl:w-2/5">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2580.227947879768!2d4.941962776825223!3d49.706510171459605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ea6ef7ad7ff60d%3A0xbbc5308d96c93a97!2s6%20Bd%20des%20%C3%89cossais%2C%2008200%20Sedan!5e0!3m2!1sfr!2sfr!4v1697016824912!5m2!1sfr!2sfr" class="w-full h-full rounded-b-2xl xl:rounded-l-2xl border-none" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -93,7 +101,7 @@ const Contact = () => {
                         </div>
                         <div class="w-full flex justify-center lg:justify-end">
                             <button type="submit" class="bg-darkblue hover:text-darkblue flex items-center text-white font-normal lg:py-4 py-2 px-8 rounded-lg hover:bg-blue transition duration-300">
-                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />Envoyer</button>
+                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" disabled={isSubmitting} />{isSubmitting ? "Envoie en cours..." : "Envoyer"}</button>
                         </div>    
                     </form>
                 </div>
