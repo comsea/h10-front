@@ -76,7 +76,20 @@ const Presentation = () => {
         .then((response) => {
             response = response.json()
             response.then((result) => {
-                setEmployes(result['hydra:member'])
+                const employeesData = result['hydra:member'];
+                const sortedEmployees = [...employeesData];
+                sortedEmployees.sort((a, b) => {
+                    const lastNameA = a.lastname.toLowerCase();
+                    const lastNameB = b.lastname.toLowerCase();
+                    if (lastNameA < lastNameB) {
+                        return -1;
+                    }
+                    if (lastNameA > lastNameB) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                setEmployes(sortedEmployees);
                 setIsLoading(false)
             })})
     }, [])
@@ -218,7 +231,7 @@ const Presentation = () => {
                         <div class="rounded-3xl bg-white flex flex-col justify-between" key={employe.id}>
                             <img src={"https://api.reseauh10.fr/build/images/"+employe.profil} alt="Employé TEST" class="w-full h-auto rounded-t-2xl" />
                             <div class="ml-5 pr-2 my-5">
-                                <p class="uppercase leading-normal font-semibold">{employe.lastname} {employe.firstname}</p>
+                                <p class="uppercase leading-normal font-semibold">{employe.firstname} {employe.lastname}</p>
                                 {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (
                                     employe.cabinet === "/api/cabinets/"+cabinet.id ?
                                     <>
