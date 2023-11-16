@@ -261,11 +261,11 @@ const Postuler = () => {
                         </div>
                         <div class="space-y-1 mb-10 lg:mb-0">
                             <label for="post" class="mr-4">Je souhaite postuler pour :</label>
-                            <select name="post" id="post" placeholder="Sélectionnez le post à pourvoir*" class=" border border-gray2 text-bluegray bg-white rounded-lg px-4 py-4">
+                            <select name="post" id="post" {...register("subject")} placeholder="Sélectionnez le post à pourvoir*" class=" border border-gray2 text-bluegray bg-white rounded-lg px-4 py-4">
                                 <option value="" disabled selected>Sélectionnez le post à pourvoir</option>
                                 <option value="Candidature spontanée">Candidature spontanée</option>
                                 {isLoading ? "Pas encore d\'offres d\'emplois" : emplois.map(emploi =>
-                                    <option value={emploi.title} {...register("subject")}>{emploi.title} {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (emploi.cabinet === "/api/cabinets/"+cabinet.id ? cabinet.name : "" ))}</option>
+                                    <option value={emploi.title}>{emploi.title} {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (emploi.cabinet === "/api/cabinets/"+cabinet.id ? cabinet.name : "" ))}</option>
                                 )}
                             </select>
                             { errors.subject && <p className="text-[#FF1D25]">{errors.subject.message}</p>}
