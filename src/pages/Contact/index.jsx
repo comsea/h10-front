@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import emailjs from "@emailjs/browser"
-import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useCallback, useEffect, useState } from "react";
 
 const Contact = () => {
@@ -85,7 +84,7 @@ const Contact = () => {
         <div>
             <Header title="Contactez-nous à tout moment" text="Nos équipes sont à votre écoute et vous garantissent une réponse rapide." image={contact} />
             <Banderole />
-            <ToastContainer />
+            <ToastContainer className="text-lg" />
             <div class="w-11/12 lg:w-10/12 flex flex-col-reverse xl:flex-row shadow-xl mx-auto rounded-2xl mb-10">
                 <div class="xl:w-2/5">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2580.227947879768!2d4.941962776825223!3d49.706510171459605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ea6ef7ad7ff60d%3A0xbbc5308d96c93a97!2s6%20Bd%20des%20%C3%89cossais%2C%2008200%20Sedan!5e0!3m2!1sfr!2sfr!4v1697016824912!5m2!1sfr!2sfr" class="w-full h-full rounded-b-2xl xl:rounded-l-2xl border-none" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -146,8 +145,8 @@ const Contact = () => {
                             </label>
                         </div>
                         <div class="w-full flex justify-center lg:justify-end">
-                            <button type="submit" class="bg-darkblue hover:text-darkblue flex items-center text-white font-normal lg:py-4 py-2 px-8 rounded-lg hover:bg-blue transition duration-300">
-                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" disabled={isSubmitting} />{isSubmitting ? "Envoie en cours..." : "Envoyer"}</button>
+                            <button type="submit" class="bg-darkblue hover:text-darkblue flex items-center text-white font-normal lg:py-4 py-2 px-8 rounded-lg hover:bg-blue transition duration-300" disabled={isSubmitting}>
+                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />{isSubmitting ? "Envoie en cours..." : "Envoyer"}</button>
                         </div>    
                     </form>
                 </div>
