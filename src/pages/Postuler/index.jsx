@@ -11,10 +11,7 @@ import { Pagination, Stack, ThemeProvider, createTheme, TextField, FormControl, 
 import { Link } from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useForm } from "react-hook-form"
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import emailjs from "@emailjs/browser"
+import axios from 'axios';
 
 const itemsPerPage = 8
 
@@ -89,86 +86,61 @@ const Postuler = () => {
     const startIndex = (page - 1) * constantValue
     const endIndex = startIndex + constantValue
 
-    const schema = yup
-    .object({
-        lastname: yup
-            .string()
-            .max(50)
-            .required("Veuillez mettre votre nom"),
-        firstname: yup
-            .string()
-            .max(50)
-            .required("Veuillez mettre votre prénom"),
-        mail: yup
-            .string()
-            .email("Veuillez mettre une adresse email valide")
-            .max(255)
-            .required("Veuillez mettre votre adresse email"),
-        phone: yup
-            .string()
-            .max(10)
-            .required("Veuillez mettre votre numéro de téléphone"),
-        subject: yup
-            .string()
-            .max(255)
-            .required("Veuillez mettre un sujet"),
-        validate: yup
-            .bool()
-            .required("Veuillez accepter les conditions")
-            .oneOf([true], "Veuillez accepter les conditions"),
-        message: yup
-            .string()
-            .required("Veuillez mettre votre message"),
-        attachment: yup
-            .mixed()
-            .test(
-            "fileSize",
-            "Le fichier est trop volumineux",
-            (value) => {
-                if (!value || value.length === 0) {
-                    return true; // Champ facultatif, donc validation passée si vide
-                }
-                    return value[0].size <= 5242880; // Taille maximale de 5 Mo (en octets)
-                }
-            ),
-    })
-    .required()
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: '',
+        subject: '',
+        acceptTerms: false,
+      });
+      const [file, setFile] = useState(null)
+      const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
+      const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        const fieldValue = type === 'checkbox' ? checked : value;
+    
+        setFormData({
+          ...formData,
+          [name]: fieldValue,
+        });
+      };
 
-    const { register, formState: {errors}, handleSubmit} = useForm({resolver: yupResolver(schema)})
+      const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFile(file);
+      };
 
-      const onSubmit = (data, r) => {
-        const templateID = "template_r3jo20n";
-        const serviceID = "service_vp9gwm7";
-        sendFeedback(serviceID, templateID, {
-            lastname: data.lastname,
-            firstname: data.firstname,
-            mail: data.mail,
-            phone: data.phone,
-            subject: data.subject,
-            message: data.message,
-            attachment: data.attachment,
-            reply_to: r.target.reset(),
-        })
-    }
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true)
+        try {
+            const formDataToSend = new FormData();
+            formDataToSend.append('firstName', formData.firstName);
+            formDataToSend.append('lastName', formData.lastName);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('phone', formData.phone);
+            formDataToSend.append('message', formData.message);
+            formDataToSend.append('subject', formData.subject);
+            formDataToSend.append('acceptTerms', formData.acceptTerms);
+            formDataToSend.append('file', file);
 
-    const sendFeedback = (serviceId, templateId, variables) => {
-        emailjs
-          .send(serviceId, templateId, variables, 'ZBYxTo1PMl5CYob6d')
-          .then((res) => {
-            setIsSubmitting(true)
-            toast.success('Votre email a bien été envoyé')
-            console.log('succes');
-          })
-          .catch((err) => {
-            toast.error('Erreur lors de l\'envoi de votre email')
-            console.error('Il y a une erreur')
-          })
-          .finally(() => {
+          await axios.post('https://127.0.0.1:8001/formCandidat', formDataToSend, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+          toast.success('Message envoyé avec succès!');
+        } catch (error) {
+          toast.error('Erreur lors de l\'envoi du message', error);
+        } finally {
             setIsSubmitting(false)
-          })
-      }
+        }
+      };
+    
+      console.log(formData)
 
 
     return (
@@ -231,65 +203,55 @@ const Postuler = () => {
                     <br/>n’hésitez pas à postuler si vous voulez rejoindre l’aventure !</p>
                     
                     {/* faire traitement from */}
-                    <form onSubmit={handleSubmit(onSubmit)} class="lg:space-y-4 font-normal lg:w-3/5 mb-20 mx-auto text-xl">
+                    <form onSubmit={handleSubmit} class="lg:space-y-4 font-normal lg:w-3/5 mb-20 mx-auto text-xl">
                         <div class="space-y-1">
                             <label for="lastName" ></label>
-                            <input type="text" id="lastName" name="lastName" {...register("lastname")} placeholder="Nom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
-                            { errors.lastname && <p className="text-[#FF1D25]">{errors.lastname.message}</p>}
+                            <input type="text" id="lastName" name="lastName" onChange={handleChange} placeholder="Nom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
                         </div>
                         <div class="space-y-1">
                             <label for="firstName" ></label>
-                            <input type="text" id="firstName" name="firstName" {...register("firstname")} placeholder="Prénom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
-                            { errors.firstname && <p className="text-[#FF1D25]">{errors.firstname.message}</p>}
+                            <input type="text" id="firstName" name="firstName" onChange={handleChange} placeholder="Prénom *" class="w-full  bg-gray2 active:border-blue rounded-lg px-8 py-4"/>
                         </div>
                         <div class="flex flex-row w-full justify-between"> 
                             <div className="flex flex-col space-y-1 w-[49%]"> 
                                 <label for="email" ></label>
-                                <input type="email" id="email" name="email" {...register("mail")} placeholder="prenom@nom.fr *" class="w-full bg-gray2 rounded-lg px-8 py-4"/>
-                                { errors.mail && <p className="text-[#FF1D25]">{errors.mail.message}</p>}
+                                <input type="email" id="email" name="email" onChange={handleChange} placeholder="prenom@nom.fr *" class="w-full bg-gray2 rounded-lg px-8 py-4"/>
                             </div>
                             <div className="flex flex-col space-y-1 w-[49%]"> 
                                 <label for="phone" ></label>
-                                <input type="phone" id="phone" name="phone" {...register("phone")} placeholder="Téléphone *" class="w-full lg:ml-1  bg-gray2 rounded-lg px-8 py-4"/>
-                                { errors.phone && <p className="text-[#FF1D25]">{errors.phone.message}</p>}
+                                <input type="phone" id="phone" name="phone" onChange={handleChange} placeholder="Téléphone *" class="w-full lg:ml-1  bg-gray2 rounded-lg px-8 py-4"/>
                             </div>
                         </div>
                         <div class="space-y-1">
                             <label for="message" ></label>
-                            <textarea id="message" name="message" rows="4" {...register("message")} placeholder="Votre message...*" class="w-full  bg-gray2 rounded-lg px-8 py-4"></textarea>
-                            { errors.message && <p className="text-[#FF1D25]">{errors.message.message}</p>}
+                            <textarea id="message" name="message" onChange={handleChange} rows="4" placeholder="Votre message...*" class="w-full  bg-gray2 rounded-lg px-8 py-4"></textarea>
                         </div>
                         <div class="space-y-1 mb-10 lg:mb-0">
-                            <label for="post" class="mr-4">Je souhaite postuler pour :</label>
-                            <select name="post" id="post" {...register("subject")} placeholder="Sélectionnez le post à pourvoir*" class=" border border-gray2 text-bluegray bg-white rounded-lg px-4 py-4">
+                            <label for="subject" class="mr-4">Je souhaite postuler pour :</label>
+                            <select name="subject" id="subject" onChange={handleChange} placeholder="Sélectionnez le post à pourvoir*" class=" border border-gray2 text-bluegray bg-white rounded-lg px-4 py-4">
                                 <option value="" disabled selected>Sélectionnez le post à pourvoir</option>
                                 <option value="Candidature spontanée">Candidature spontanée</option>
                                 {isLoading ? "Pas encore d\'offres d\'emplois" : emplois.map(emploi =>
                                     <option value={emploi.title}>{emploi.title} {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (emploi.cabinet === "/api/cabinets/"+cabinet.id ? cabinet.name : "" ))}</option>
                                 )}
                             </select>
-                            { errors.subject && <p className="text-[#FF1D25]">{errors.subject.message}</p>}
                         </div>
                         <div className="space-y-1 flex flex-row justify-center items-center">
-                            <label for="cv" class="w-[55%] border border-gray2  text-bluegray bg-white rounded-lg lg:rounded-none lg:rounded-l-lg px-4 py-4">Veuillez insérer votre CV (PDF uniquement)*</label>
+                            <label for="file" class="w-[55%] border border-gray2  text-bluegray bg-white rounded-lg lg:rounded-none lg:rounded-l-lg px-4 py-4">Veuillez insérer votre CV (PDF uniquement)*</label>
                             <input
                                 type="file"
-                                id="cv"
-                                name="cv"
-                                {...register("attachment")}
+                                id="file"
+                                name="file"
+                                onChange={handleFileChange}
                                 accept=".pdf"
                                 className="bg-gray2 rounded-r-lg px-8 py-4 h-full w-[45%]"
                             />
-                            {errors.attachment && (
-                                <p className="text-[#FF1D25]">{errors.attachment.message}</p>
-                            )}
                         </div>
                         <p class="text-sm font-normal my-12 text-bluegray">*Curriculum Vitae, si vous n’en possédez pas votre candidature ne sera pas envoyée</p>
                         <div class="space-y-1 mb-10 lg:mb-0 flex justify-center">
                             <label for="conditions" class="flex items-center">
-                                <input type="checkbox" id="conditions" name="conditions" {...register("validate")} class="bg-gray2 accent-blue rounded-lg px-3 py-3" />
+                                <input type="checkbox" id="conditions" name="conditions" onChange={handleChange} class="bg-gray2 accent-blue rounded-lg px-3 py-3" />
                                 <span class="ml-2 text-sm">Accepter les conditions d'utilisation <Link to="/politiques" className="hover:text-red-600">*</Link></span>
-                                { errors.validate && <p className="text-[#FF1D25]">{errors.validate.message}</p>}
                             </label>
                         </div>
                         <div class="w-full flex justify-center">

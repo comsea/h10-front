@@ -20,7 +20,7 @@ const Contact = () => {
         message: '',
         acceptTerms: false,
       });
-
+      const [file, setFile] = useState(null)
       const [isSubmitting, setIsSubmitting] = useState(false);
 
       const handleChange = (e) => {
@@ -33,11 +33,16 @@ const Contact = () => {
         });
       };
 
+      const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setFile(file);
+      };
+
       const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true)
         try {
-          await axios.post('https://api.reseauh10.fr/form', formData);
+          await axios.post('https://127.0.0.1:8001/form', formData);
           toast.success('Message envoyé avec succès!');
         } catch (error) {
           toast.error('Erreur lors de l\'envoi du message', error);
