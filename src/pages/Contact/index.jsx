@@ -50,26 +50,6 @@ const Contact = () => {
 
       const { register, formState: {errors}, handleSubmit} = useForm({resolver: yupResolver(schema)})
 
-      const YourReCaptchaComponent = () => {
-        const { executeRecaptcha } = useGoogleReCaptcha();
-      
-        // Create an event handler so you can call the verification on button click event or form submit
-        const handleReCaptchaVerify = useCallback(async () => {
-          if (!executeRecaptcha) {
-            console.log('Execute recaptcha not yet available');
-            return;
-          }
-      
-          const token = await executeRecaptcha('yourAction');
-          // Do whatever you want with the token
-        }, [executeRecaptcha]);
-      
-        // You can use useEffect to trigger the verification as soon as the component being loaded
-        useEffect(() => {
-          handleReCaptchaVerify();
-        }, [handleReCaptchaVerify]);
-      };
-
       const onSubmit = (data, r) => {
         const templateID = "template_r3jo20n";
         const serviceID = "service_vp9gwm7";
@@ -88,9 +68,17 @@ const Contact = () => {
         emailjs
           .send(serviceId, templateId, variables, 'ZBYxTo1PMl5CYob6d')
           .then((res) => {
+            setIsSubmitting(true)
+            toast.success('Votre email a bien été envoyé')
             console.log('succes');
           })
-          .catch((err) => console.error('Il y a une erreur'));
+          .catch((err) => {
+            toast.error('Erreur lors de l\'envoi de votre email')
+            console.error('Il y a une erreur')
+          })
+          .finally(() => {
+            setIsSubmitting(false)
+          })
       }
 
     return(
