@@ -127,7 +127,7 @@ const Postuler = () => {
             formDataToSend.append('acceptTerms', formData.acceptTerms);
             formDataToSend.append('file', file);
 
-          await axios.post('https://127.0.0.1:8001/formCandidat', formDataToSend, {
+          await axios.post('https://api.reseauh10.fr/formCandidat', formDataToSend, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },

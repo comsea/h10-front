@@ -42,7 +42,7 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true)
         try {
-          await axios.post('https://127.0.0.1:8001/form', formData);
+          await axios.post('https://api.reseauh10.fr/form', formData);
           toast.success('Message envoyé avec succès!');
         } catch (error) {
           toast.error('Erreur lors de l\'envoi du message', error);
