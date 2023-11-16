@@ -138,20 +138,19 @@ const Postuler = () => {
 
     const { register, formState: {errors}, handleSubmit} = useForm({resolver: yupResolver(schema)})
 
-      const onSubmit = (data, event) => {
-        const { attachment, ...restData } = data;
-
-        const formData = new FormData();
-        formData.append("attachment", attachment[0]); // Prends le premier fichier s'il y en a plusieurs
-
-        // Ajoute le reste des données
-        Object.keys(restData).forEach((key) => {
-            formData.append(key, restData[key]);
-        });
-
+      const onSubmit = (data, r) => {
         const templateID = "template_r3jo20n";
         const serviceID = "service_vp9gwm7";
-        sendFeedback(serviceID, templateID, formData);
+        sendFeedback(serviceID, templateID, {
+            lastname: data.lastname,
+            firstname: data.firstname,
+            mail: data.mail,
+            phone: data.phone,
+            subject: data.subject,
+            message: data.message,
+            attachment: data.attachment,
+            reply_to: r.target.reset(),
+        })
     }
 
     const sendFeedback = (serviceId, templateId, variables) => {
