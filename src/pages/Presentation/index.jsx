@@ -146,7 +146,7 @@ const Presentation = () => {
                         <div class="2xl:text-3xl text-2xl uppercase tracking-widest">
                             <p class=""><span class="text-blue">7</span> Agences dans les Ardennes</p>
                             <p class="my-6"><span class="text-blue">3</span> Agences dans la Marne</p>
-                            <p class=""><span class="text-blue">1</span> Agences dans l'Aisne</p>
+                            <p class=""><span class="text-blue">1</span> Agence dans l'Aisne</p>
                         </div>
                     </div>
                     <div class="lg:w-2/5 mx-auto ">
