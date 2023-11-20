@@ -77,7 +77,7 @@ const Actualités = () => {
       <Banderole />
       <div className="w-11/12 mx-auto lg:w-10/12">
         {/* GRID ACTUALITE */}
-        <div className=" grid-cols-3 gap-4 h-full text-2xl mb-12 text-white font-normal hidden lg:grid">
+        <div className="lg:grid-cols-3 grid-cols-1 gap-4 h-full text-2xl mb-12 text-white font-normal hidden lg:grid">
           {isLoading ? "Chargement en cours" : actualites.slice(startIndex, endIndex).map((actualite) => (
             <div className="rounded-3xl h-[400px] relative">
               <div className="justify-between flex flex-col h-full">
