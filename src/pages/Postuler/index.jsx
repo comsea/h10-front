@@ -244,7 +244,7 @@ const Postuler = () => {
                                 name="file"
                                 onChange={handleFileChange}
                                 accept=".pdf"
-                                className="bg-gray2 rounded-r-lg px-8 py-4 h-full w-[45%]"
+                                className="bg-gray2 rounded-r-lg px-8 py-4 h-full lg:w-[45%] w-full"
                             />
                         </div>
                         <p class="text-sm font-normal my-12 text-bluegray">*Curriculum Vitae, si vous n’en possédez pas votre candidature ne sera pas envoyée</p>
