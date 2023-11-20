@@ -42,7 +42,6 @@ const Footer = () => {
                         <Link to="presentation" className="font-medium">Qui sommes-nous ?</Link>
                         <Link to="mentions" className="font-medium">Mentions légales</Link>
                         <Link to="politiques" className="font-medium">Politiques de confidentialité</Link>
-                        <Link to="/" className="text-[#C3D5DC] text-sm">Modifier les cookies</Link>
                     </div>
                     <div className="w-full flex flex-col text-center lg:text-start xl:space-y-4 space-y-2">
                         <p className="font-medium">Réseaux sociaux</p>

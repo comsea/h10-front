@@ -18,6 +18,7 @@ import { Emploi } from "./Emploi";
 import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
 import BackToTop from "../components/BackToTop";
+import CookieConsentBanner from "../components/CookiesConsent";
 
 const Layout = () => {
   return(
