@@ -95,9 +95,9 @@ const Accueil = () => {
                                     expandIcon={<ExpandCircleDownIcon className='text-darkblue' />}
                                     aria-controls="panel1bh-content"
                                     id="panel1bh-header"
-                                    className=''
+                                    className='text-start'
                                     >
-                                    <p className='text-darkblue font-bold 2xl:text-3xl lg:2xl p-1 xl:p-3 text-xl'>{expert.title}</p>
+                                    <p className='text-darkblue text-start font-bold 2xl:text-3xl lg:2xl p-1 xl:p-3 text-xl'>{expert.title}</p>
                                 </AccordionSummary>
                                 <AccordionDetails className='flex font-normal flex-col space-y-3'>
                                     <p className="line-clamp-3 text-[#7C929B] text-justify" dangerouslySetInnerHTML={{ __html: expert.description }} />
