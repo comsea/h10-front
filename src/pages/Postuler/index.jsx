@@ -229,14 +229,14 @@ const Postuler = () => {
                         <div class="space-y-1 mb-10 lg:mb-0">
                             <label for="subject" class="mr-4">Je souhaite postuler pour :</label>
                             <select name="subject" id="subject" onChange={handleChange} placeholder="Sélectionnez le post à pourvoir*" class=" border border-gray2 text-bluegray bg-white rounded-lg px-4 py-4">
-                                <option value="" disabled selected>Sélectionnez le post à pourvoir</option>
+                                <option value="" disabled selected>Sélectionnez le poste à pourvoir</option>
                                 <option value="Candidature spontanée">Candidature spontanée</option>
                                 {isLoading ? "Pas encore d\'offres d\'emplois" : emplois.map(emploi =>
                                     <option value={emploi.title}>{emploi.title} {isLoading ? "Chargment en cours" : cabinets.map(cabinet => (emploi.cabinet === "/api/cabinets/"+cabinet.id ? cabinet.name : "" ))}</option>
                                 )}
                             </select>
                         </div>
-                        <div className="space-y-1 flex flex-row justify-center items-center">
+                        <div className="space-y-1 flex lg:flex-row flex-col justify-center items-center">
                             <label for="file" class="w-[55%] border border-gray2  text-bluegray bg-white rounded-lg lg:rounded-none lg:rounded-l-lg px-4 py-4">Veuillez insérer votre CV (PDF uniquement)*</label>
                             <input
                                 type="file"
@@ -256,7 +256,7 @@ const Postuler = () => {
                         </div>
                         <div class="w-full flex justify-center">
                             <button type="submit" class="bg-darkblue flex items-center text-white font-normal py-4 px-8 rounded-lg hover:text-darkblue hover:bg-blue transition duration-300" disabled={isSubmitting}>
-                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />{isSubmitting ? "Envoie en cours..." : "Envoyer ma candidature"}</button>
+                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" />{isSubmitting ? "Envoi en cours..." : "Envoyer ma candidature"}</button>
                         </div>    
                     </form>
                 </div>

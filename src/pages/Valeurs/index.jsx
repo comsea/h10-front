@@ -78,7 +78,7 @@ const Valeurs = () =>{
                             <p className="text-justify">Un Commissaire aux Comptes intervient de façon permanente auprès de sociétés qui le mandate pour des missions bien définies :</p>
                             <div className="flex flex-col space-y-2 ml-8">
                                 <div className="flex flex-row justify-start items-start space-x-4">
-                                    <img src={list} alt="Ckeck" className="w-[20px]" />
+                                    <img src={list} alt="Ckeck" className="w-[20px] pt-2" />
                                     <p className="text-justify">Contrôle interne de la société</p>
                                 </div>
                                 <div className="flex flex-row justify-start items-start space-x-4">

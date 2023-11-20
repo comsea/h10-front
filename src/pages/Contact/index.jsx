@@ -106,7 +106,7 @@ const Contact = () => {
                         </div>
                         <div class="w-full flex justify-center lg:justify-end">
                             <button type="submit" class="bg-darkblue hover:text-darkblue flex items-center text-white font-normal lg:py-4 py-2 px-8 rounded-lg hover:bg-blue transition duration-300">
-                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" disabled={isSubmitting} />{isSubmitting ? "Envoie en cours..." : "Envoyer"}</button>
+                            <img src={avion} alt="icon pour envoyer le formulaire" class="mr-3" disabled={isSubmitting} />{isSubmitting ? "Envoi en cours..." : "Envoyer"}</button>
                         </div>    
                     </form>
                 </div>
