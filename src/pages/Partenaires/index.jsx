@@ -61,7 +61,7 @@ const Partenaires = () => {
 
     return(
         <div>
-            <Header title="Un réseau en partenariat" text="H10 regroupe 5 cabinets d'expertise-comptables et plus de 100 collaborateurs." image={partenaires}/>
+            <Header title="Un réseau en partenariat" text="H10 regroupe 5 cabinets d'expertise-comptable et plus de 100 collaborateurs." image={partenaires}/>
             <Banderole />
             <div class="w-11/12 lg:w-10/12 text-center mx-auto">
                 <Tabs defaultValue={activeElement}>
