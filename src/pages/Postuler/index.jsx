@@ -237,7 +237,7 @@ const Postuler = () => {
                             </select>
                         </div>
                         <div className="space-y-1 flex lg:flex-row flex-col justify-center items-center">
-                            <label for="file" class="w-[55%] border border-gray2  text-bluegray bg-white rounded-lg lg:rounded-none lg:rounded-l-lg px-4 py-4">Veuillez insérer votre CV (PDF uniquement)*</label>
+                            <label for="file" class="lg:w-[55%] w-full border border-gray2  text-bluegray bg-white rounded-lg lg:rounded-none lg:rounded-l-lg px-4 py-4">Veuillez insérer votre CV (PDF uniquement)*</label>
                             <input
                                 type="file"
                                 id="file"
