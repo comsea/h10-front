@@ -25,6 +25,10 @@ const HeaderAccueil = () => {
                             <p className="font-bold 2xl:text-5xl text-3xl text-[#C3D5DC]">11</p>
                             <p>Experts-comptables</p>
                         </div>
+                        <div className="flex flex-col items-center space-y-2">
+                            <p className="font-bold 2xl:text-5xl text-3xl text-[#C3D5DC]">+ 100</p>
+                            <p>Collaborateurs</p>
+                        </div>
                     </div>
                 </div>  
                 <div className="w-[60%] relative hidden lg:flex justify-center items-start">
