@@ -10,6 +10,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const Accueil = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -49,11 +50,14 @@ const Accueil = () => {
 
     return(
         <div class="w-11/12 lg:w-10/12 mx-auto">
+            <Helmet>
+                <title>Réseaux H10 | Le réseaux des experts comptables !</title>
+            </Helmet>
             {/* NOS ACTUALITÉS */}
                 <div class="flex flex-col lg:flex-row text-center lg:text-start justify-between">
                     <div>
                         <p class="text-darkblue font-normal text-2xl xl:text-4xl mb-2 lg:mb-4">Nos dernières actualités</p>
-                        <h1 class="text-3xl xl:text-5xl font-semibold">Que se passe-t-il dans le Réseau H10 <span class="text-darkblue">?</span></h1>
+                        <h2 class="text-3xl xl:text-5xl font-semibold">Que se passe-t-il dans le Réseau H10 <span class="text-darkblue">?</span></h2>
                     </div>
                 </div>
                 {/* SLIDER ACTU */}
@@ -85,7 +89,7 @@ const Accueil = () => {
                 </div>
                 <div class="text-center lg:text-start px-4 lg:w-1/2">
                     <p class="text-darkblue font-extraligth text-2xl xl:text-4xl mb-2 lg:mb-4">Nos expertises</p>
-                    <h3 class="text-3xl xl:text-5xl mb-10 font-semibold">Découvrez nos différentes expertises.</h3>
+                    <h2 class="text-3xl xl:text-5xl mb-10 font-semibold">Découvrez nos différentes expertises.</h2>
                         {/* EXPERTISES */}
                     <div className='w-full flex flex-col rounded-2xl py-4 space-y-2'>
                         
@@ -97,7 +101,7 @@ const Accueil = () => {
                                     id="panel1bh-header"
                                     className='text-start'
                                     >
-                                    <p className='text-darkblue text-start font-bold 2xl:text-3xl lg:2xl p-1 xl:p-3 text-xl'>{expert.title}</p>
+                                    <h3 className='text-darkblue text-start font-bold 2xl:text-3xl lg:2xl p-1 xl:p-3 text-xl'>{expert.title}</h3>
                                 </AccordionSummary>
                                 <AccordionDetails className='flex font-normal flex-col space-y-3'>
                                     <p className="line-clamp-3 text-[#7C929B] text-justify" dangerouslySetInnerHTML={{ __html: expert.description }} />

@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import ReactShowMoreText from 'react-show-more-text';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { Pagination, Stack, ThemeProvider, createTheme } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
 const itemsPerPage = 4
 
@@ -115,6 +116,9 @@ const Presentation = () => {
 
     return(
         <div>
+            <Helmet>
+                <title>Présentation du réseau ! | Réseaux H10</title>
+            </Helmet>
             <Header title="Qui sommes-nous ?" text="Venez et découvrez le réseau H10 ainsi que son équipe à votre service." image={presentation} />
             <Banderole />
             <div class="w-11/12 2xl:py-16 mb-10 mx-auto text-center items-center lg:text-start lg:w-10/12 flex flex-col lg:flex-row">

@@ -15,6 +15,7 @@ import map from "../../asset/Svg/maps.svg"
 import { HashLink as Link } from "react-router-hash-link"
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const Partenaires = () => {
     const {id} = useParams()
@@ -61,6 +62,9 @@ const Partenaires = () => {
 
     return(
         <div>
+            <Helmet>
+                <title>Les cabinets partenaires ! | Réseaux H10</title>
+            </Helmet>
             <Header title="Un réseau en partenariat" text="H10 regroupe 5 cabinets d'expertise-comptable et plus de 100 collaborateurs." image={partenaires}/>
             <Banderole />
             <div class="w-11/12 lg:w-10/12 text-center mx-auto">

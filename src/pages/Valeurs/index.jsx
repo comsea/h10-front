@@ -7,10 +7,14 @@ import full from "../../asset/Valeurs/360.png"
 import formation from "../../asset/Valeurs/formation.png"
 import comptes from "../../asset/Valeurs/comptes.png"
 import list from "../../asset/Valeurs/list.png"
+import { Helmet } from 'react-helmet';
 
 const Valeurs = () =>{
     return(
         <div>
+            <Helmet>
+                <title>Un réseau de valeur ! | Réseaux H10</title>
+            </Helmet>
             <Header title="Un réseau créateur de valeur" text="La synergie des compétences pour une prestation complète et sur-mesure." image={valeurs} />
             <Banderole />
             <div class="w-11/12 mx-auto font-normal text-center lg:text-start lg:w-10/12 2xl:text-2xl lg:text-base">

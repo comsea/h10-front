@@ -12,6 +12,7 @@ import { Link } from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const itemsPerPage = 8
 
@@ -145,6 +146,9 @@ const Postuler = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Rejoindre le réseau ! | Réseaux H10</title>
+            </Helmet>
             <Header title="Nos offres d’emploi" text="Envie de rejoindre l'aventure H10 ? Consultez nos offres d'emploi ! Si aucune ne correspond à vos attentes, n'hésitez pas à nous soumettre une candidature spontanée ! Toutes sont étudiées." image={postuler} />
             <Banderole />
             <ToastContainer className="text-lg" />

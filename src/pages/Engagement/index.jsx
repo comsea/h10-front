@@ -8,10 +8,14 @@ import environnement from "../../asset/Engagement/environnemental.png";
 import territorial from "../../asset/Engagement/territorial.png";
 import Banderole from "../../components/Banderole ";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 const Engagement = () =>{
     return (
         <div>
+            <Helmet>
+                <title>Différents engagements RSE ! | Réseaux H10</title>
+            </Helmet>
             <Header title="Différents engagements RSE" text="Le réseau H10 est acteur de son territoire, dans une démarche sociétale." image={engagement}/>
             <Banderole />
             <div class="w-11/12 lg:w-10/12 mx-auto font-normal text-center lg:text-start 2xl:text-2xl text-lg">
