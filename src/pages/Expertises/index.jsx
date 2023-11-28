@@ -7,7 +7,7 @@ import { Tab, TabPanel, Tabs, TabsList } from "@mui/base"
 import fleche from "../../asset/Svg/fleche.svg"
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import { Helmet } from 'react-helmet';
 
 const Expertises = () => {
     const {id} = useParams()
@@ -61,6 +61,9 @@ const Expertises = () => {
     
     return (
         <div>
+            <Helmet>
+                <title>Nos expertises ! | Réseaux H10</title>
+            </Helmet>
             <Header title="Un large panel d'expertises" text="Le réseau H10 vous accompagne ! Découvrez dès maintenant toutes nos missions." image={expert} />
             <Banderole />
             <div class="w-11/12 lg:w-10/12 text-center mx-auto">

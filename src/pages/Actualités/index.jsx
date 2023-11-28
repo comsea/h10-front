@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import axios from 'axios';
 import { Pagination, Stack, ThemeProvider, createTheme, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
 const itemsPerPage = 9
 
@@ -73,6 +74,9 @@ const Actualités = () => {
 
   return (
     <div>
+      <Helmet>
+          <title>Notre Actualité ! | Réseaux H10</title>
+        </Helmet>
       <Header title="Quoi de neuf chez H10 ?" text="Retrouvez ici les actualités de notre réseau et de précieuses informations sur les lois et réglementations en vigueur." image={actualités} />
       <Banderole />
       <div className="w-11/12 mx-auto lg:w-10/12">

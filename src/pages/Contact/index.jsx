@@ -8,7 +8,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react';
-
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -55,6 +55,9 @@ const Contact = () => {
 
     return(
         <div>
+            <Helmet>
+                <title>Contactez-nous ! | Réseaux H10</title>
+            </Helmet>
             <Header title="Contactez-nous à tout moment" text="Nos équipes sont à votre écoute et vous garantissent une réponse rapide." image={contact} />
             <Banderole />
             <ToastContainer />
