@@ -11,6 +11,8 @@ import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
+import video from "../../asset/Video/video.mp4"
+import ReactPlayer from 'react-player'
 
 const Accueil = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -49,19 +51,19 @@ const Accueil = () => {
     }
 
     return(
-        <div class="w-11/12 lg:w-10/12 mx-auto">
+        <div class="w-full mx-auto justify-center items-center flex flex-col">
             <Helmet>
                 <title>Réseaux H10 | Le réseaux des experts comptables !</title>
             </Helmet>
             {/* NOS ACTUALITÉS */}
-                <div class="flex flex-col lg:flex-row text-center lg:text-start justify-between">
+                <div class="flex flex-col lg:flex-row text-center lg:text-start justify-between w-11/12 lg:w-10/12">
                     <div>
                         <p class="text-darkblue font-normal text-2xl xl:text-4xl mb-2 lg:mb-4">Nos dernières actualités</p>
                         <h2 class="text-3xl xl:text-5xl font-semibold">Que se passe-t-il dans le Réseau H10 <span class="text-darkblue">?</span></h2>
                     </div>
                 </div>
                 {/* SLIDER ACTU */}
-                <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg xl:gap-16 gap-4 mt-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg xl:gap-16 gap-4 mt-6 w-11/12 lg:w-10/12">
                     {/* faire boucle actu */}
                         {isLoading ? 'Chargement en cours' : actualites.slice(-3).map(actualite => (
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
@@ -75,13 +77,22 @@ const Accueil = () => {
                             </div>
                         ))}
                  </div>
-                <div className='w-full flex justify-center items-center my-10'>
+                <div className='w-11/12 lg:w-10/12 flex justify-center items-center my-10'>
                     <div className='bg-darkblue text-white py-2 px-8 text-2xl rounded-3xl'>
                         <Link to={'actualites'}>Voir plus d'actualités →</Link>
                     </div>
                 </div>
+            {/* VIDEO */}
+            <div className='w-full flex justify-center items-center lg:py-12 py-6 bg-darkblue'>
+                <ReactPlayer
+                    url={video}
+                    controls
+                    width="70%"
+                    height="100%"
+                />
+            </div>
             {/* NOS EXPERTISES */}
-            <div class="flex justify-center my-16">
+            <div class="flex justify-center my-16 w-11/12 lg:w-10/12">
                 <div class="lg:flex hidden w-1/2 relative h-auto">
                     <div className='w-full'>
                     <img src={img} alt="Comptable entrain de travailler" class="w-full p-4 h-auto"/>
