@@ -66,3 +66,10 @@ div.souligne {
   color: white;
   background-color: #174E65;
 }
+
+.coupe {
+  overflow: hidden;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
