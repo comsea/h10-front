@@ -66,7 +66,7 @@ const Expertises = () => {
             </Helmet>
             <Header title="Un large panel d'expertises" text="Le réseau H10 vous accompagne ! Découvrez dès maintenant toutes nos missions." image={expert} />
             <Banderole />
-            <div class="w-11/12 lg:w-10/12 text-center mx-auto">
+            <div class="w-11/12 lg:w-10/12 text-start mx-auto">
                 <Tabs defaultValue={activeElement}>
                     <TabsList>
                         {isLoading ? 'Chargement en cours' : experts.map(expert =>
