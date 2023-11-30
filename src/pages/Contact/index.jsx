@@ -89,7 +89,7 @@ const Contact = () => {
                         </div>
                         <div class="space-y-1">
                             <label for="email" ></label>
-                            <input type="email" id="email" name="email" onChange={handleChange} value={formData.email} placeholder="prenom@nom.fr *" class="w-full lg:w-1/2 bg-gray2 rounded-lg px-8 py-4"/>
+                            <input type="email" id="email" name="email" onChange={handleChange} value={formData.email} placeholder="email@exemple.fr *" class="w-full lg:w-1/2 bg-gray2 rounded-lg px-8 py-4"/>
                             <label for="phone" ></label>
                             <input type="phone" id="phone" name="phone" onChange={handleChange} value={formData.phone} placeholder="Téléphone *" class="w-full lg:w-[49%] lg:ml-1  bg-gray2 rounded-lg px-8 py-4"/>
                         </div>

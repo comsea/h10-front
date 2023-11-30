@@ -219,7 +219,7 @@ const Postuler = () => {
                         <div class="flex flex-row w-full justify-between"> 
                             <div className="flex flex-col space-y-1 w-[49%]"> 
                                 <label for="email" ></label>
-                                <input type="email" id="email" name="email" onChange={handleChange} placeholder="prenom@nom.fr *" class="w-full bg-gray2 rounded-lg px-8 py-4"/>
+                                <input type="email" id="email" name="email" onChange={handleChange} placeholder="email@exemple.fr *" class="w-full bg-gray2 rounded-lg px-8 py-4"/>
                             </div>
                             <div className="flex flex-col space-y-1 w-[49%]"> 
                                 <label for="phone" ></label>
