@@ -1,6 +1,7 @@
 import Header from "../../components/Header"
 import contact from "../../asset/Header/contact.png"
 import location from "../../asset/Svg/location.svg"
+import femme from "../../asset/Svg/femme.svg"
 import avion from "../../asset/avion.png"
 import Banderole from "../../components/Banderole "
 import { Link } from "react-router-dom"
@@ -73,6 +74,13 @@ const Contact = () => {
                                 <p>6 Boulevard des écossais,
                                 08200 Sedan</p>
                                 <a href="https://maps.app.goo.gl/ajFgLnLw44KFG21U7" target="_blank" class="text-darkblue">Voir l’itinéraire →</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-6 ">
+                            <img src={femme} alt="icon représentation la localisation du réseau H10" class="mr-4"/>
+                            <div class ="flex flex-col">
+                                <p>03.24.29.80.81</p>
+                                <a href="tel:0324298081" class="text-darkblue">Nous appeler →</a>
                             </div>
                         </div>
                         
