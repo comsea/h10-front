@@ -39,7 +39,13 @@ const Postuler = () => {
         .then((response) => {
             response = response.json()
             response.then((result) => {
-                setEmplois(result['hydra:member'])
+                const fetchedEmplois = response.data['hydra:member'];
+                const sortedEmplois = fetchedEmplois.slice().sort((a, b) => {
+                    const dateA = new Date(a.createdAt)
+                    const dateB = new Date(b.createdAt)
+                    return dateB - dateA
+                })
+                setEmplois(sortedEmplois)
                 setIsLoading(false)
             })})
     }, [])
