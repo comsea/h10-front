@@ -32,7 +32,13 @@ const Actualités = () => {
     useEffect(() => {
       axios.get('https://api.reseauh10.fr/api/actualites')
         .then((response) => {
-          setActualites(response.data['hydra:member']);
+          const fetchedArticles = response.data['hydra:member'];
+          const sortedArticles = fetchedArticles.slice().sort((a, b) => {
+            const dateA = new Date(a.createdAt)
+            const dateB = new Date(b.createdAt)
+            return dateB - dateA
+          })
+          setActualites(sortedArticles)
           setIsLoading(false);
         })
         .catch((error) => {
