@@ -35,20 +35,24 @@ const Postuler = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        fetch(`https://api.reseauh10.fr/api/emplois`)
-        .then((response) => {
-            response = response.json()
-            response.then((result) => {
-                const fetchedEmplois = result.data['hydra:member'];
-                const sortedEmplois = fetchedEmplois.slice().sort((a, b) => {
-                    const dateA = new Date(a.createdAt)
-                    const dateB = new Date(b.createdAt)
-                    return dateB - dateA
-                })
-                setEmplois(sortedEmplois)
-                setIsLoading(false)
-            })})
-    }, [])
+        fetch('https://api.reseauh10.fr/api/emplois')
+          .then((response) => response.json())
+          .then((result) => {
+            const fetchedEmplois = result['hydra:member'];
+            const sortedEmplois = fetchedEmplois.slice().sort((a, b) => {
+              const dateA = new Date(a.createdAt);
+              const dateB = new Date(b.createdAt);
+              return dateB - dateA;
+            });
+            setEmplois(sortedEmplois);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            // Handle errors here if necessary
+          });
+      }, []);
+      
 
     useEffect(() => {
         fetch(`https://api.reseauh10.fr/api/cabinets`)
