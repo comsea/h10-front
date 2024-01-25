@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Header from "../../components/Header";
 import Banderole from "../../components/Banderole ";
 import axios from 'axios';
+import { Helmet } from "react-helmet";
 
 export const Actualité = () => {
     const {id} = useParams()
@@ -33,6 +34,13 @@ export const Actualité = () => {
 
     return(
         <div>
+            <Helmet>
+                <meta property="og:title" content={postState.title || 'Article' } />
+                <meta property="og:description" content={postState.description || 'Venez découvrir le nouvel article du Réseau H10' }  />
+                <meta property="og:image" content={"https://api.reseauh10.fr/build/images/"+postState.image} />
+                <meta property="og:url" content={'https://www.reseauh10.fr/actualite/'+postState.id || 'https://www.reseauh10.fr/actualites'} />
+                <meta property="og:type" content="article" />
+            </Helmet>
             <Header title={postState.title} text={"Découvrez l'article ci-dessous : "+postState.title} image={"https://api.reseauh10.fr/build/images/"+postState.image} />
             <Banderole />
             <div className="w-11/12 mb-12 mx-auto lg:w-10/12 flex flex-col justify-start items-start">
