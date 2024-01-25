@@ -71,7 +71,7 @@ const Accueil = () => {
                 {/* SLIDER ACTU */}
                 <div class="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 text-darkblue font-normal text-lg xl:gap-16 gap-4 mt-6 w-11/12 lg:w-10/12">
                     {/* faire boucle actu */}
-                        {isLoading ? 'Chargement en cours' : actualites.slice(3).map(actualite => (
+                        {isLoading ? 'Chargement en cours' : actualites.slice(0, 3).map(actualite => (
                             <div class="bg-white shadow-2xl rounded-3xl" key={actualite.id}>
                                 <img src={"https://api.reseauh10.fr/build/images/" + actualite.image} alt="test actu" class="w-full rounded-t-3xl h-[250px] object-cover" />
                                 <div class="ml-6 my-4 pr-2">
