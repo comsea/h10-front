@@ -117,7 +117,7 @@ const Presentation = () => {
     return(
         <div>
             <Helmet>
-                <title>Présentation du réseau ! | Réseaux H10</title>
+                <title>Présentation du réseau ! | Réseau H10</title>
             </Helmet>
             <Header title="Qui sommes-nous ?" text="Venez et découvrez le réseau H10 ainsi que son équipe à votre service." image={presentation} />
             <Banderole />
@@ -154,7 +154,7 @@ const Presentation = () => {
                         </div>
                     </div>
                     <div class="lg:w-2/5 mx-auto ">
-                        <img src={carte} alt="carte indiquant les différents cabinets d'experts comptable du réseau h10" />
+                        <img src={carte} alt="carte indiquant les différents cabinets d'experts-comptable du réseau h10" />
                     </div>
                 </div>
             </div>

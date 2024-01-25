@@ -81,7 +81,7 @@ const Actualités = () => {
   return (
     <div>
       <Helmet>
-          <title>Notre Actualité ! | Réseaux H10</title>
+          <title>Notre Actualité ! | Réseau H10</title>
         </Helmet>
       <Header title="Quoi de neuf chez H10 ?" text="Retrouvez ici les actualités de notre réseau et de précieuses informations sur les lois et réglementations en vigueur." image={actualités} />
       <Banderole />

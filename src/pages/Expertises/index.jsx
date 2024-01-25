@@ -62,7 +62,7 @@ const Expertises = () => {
     return (
         <div>
             <Helmet>
-                <title>Nos expertises ! | Réseaux H10</title>
+                <title>Nos expertises ! | Réseau H10</title>
             </Helmet>
             <Header title="Un large panel d'expertises" text="Le réseau H10 vous accompagne ! Découvrez dès maintenant toutes nos missions." image={expert} />
             <Banderole />
