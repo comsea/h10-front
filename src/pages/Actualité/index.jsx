@@ -36,7 +36,7 @@ export const Actualité = () => {
         <div>
             <Helmet>
                 <meta property="og:title" content={postState.title || 'Article' } />
-                <meta property="og:description" content={postState.description || 'Venez découvrir le nouvel article du Réseau H10' }  />
+                <meta property="og:description" content={'Venez découvrir le nouvel article du Réseau H10' }  />
                 <meta property="og:image" content={"https://api.reseauh10.fr/build/images/"+postState.image} />
                 <meta property="og:url" content={'https://www.reseauh10.fr/actualite/'+postState.id || 'https://www.reseauh10.fr/actualites'} />
                 <meta property="og:type" content="article" />
