@@ -13,7 +13,7 @@ const Valeurs = () =>{
     return(
         <div>
             <Helmet>
-                <title>Un réseau de valeur ! | Réseaux H10</title>
+                <title>Un réseau de valeur ! | Réseau H10</title>
             </Helmet>
             <Header title="Un réseau créateur de valeur" text="La synergie des compétences pour une prestation complète et sur-mesure." image={valeurs} />
             <Banderole />

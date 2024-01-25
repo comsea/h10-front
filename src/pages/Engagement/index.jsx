@@ -14,7 +14,7 @@ const Engagement = () =>{
     return (
         <div>
             <Helmet>
-                <title>Différents engagements RSE ! | Réseaux H10</title>
+                <title>Différents engagements RSE ! | Réseau H10</title>
             </Helmet>
             <Header title="Différents engagements RSE" text="Le réseau H10 est acteur de son territoire, dans une démarche sociétale." image={engagement}/>
             <Banderole />

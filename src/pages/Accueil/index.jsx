@@ -59,7 +59,7 @@ const Accueil = () => {
     return(
         <div class="w-full mx-auto justify-center items-center flex flex-col">
             <Helmet>
-                <title>Réseaux H10 | Le réseaux des experts comptables !</title>
+                <title>Réseau H10 | Le réseau des experts-comptables !</title>
             </Helmet>
             {/* NOS ACTUALITÉS */}
                 <div class="flex flex-col lg:flex-row text-center lg:text-start justify-between w-11/12 lg:w-10/12">

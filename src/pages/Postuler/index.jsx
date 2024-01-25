@@ -157,7 +157,7 @@ const Postuler = () => {
     return (
         <div>
             <Helmet>
-                <title>Rejoindre le réseau ! | Réseaux H10</title>
+                <title>Rejoindre le réseau ! | Réseau H10</title>
             </Helmet>
             <Header title="Nos offres d’emploi" text="Envie de rejoindre l'aventure H10 ? Consultez nos offres d'emploi ! Si aucune ne correspond à vos attentes, n'hésitez pas à nous soumettre une candidature spontanée ! Toutes sont étudiées." image={postuler} />
             <Banderole />

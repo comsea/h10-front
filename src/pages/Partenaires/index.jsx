@@ -63,7 +63,7 @@ const Partenaires = () => {
     return(
         <div>
             <Helmet>
-                <title>Les cabinets partenaires ! | Réseaux H10</title>
+                <title>Les cabinets partenaires ! | Réseau H10</title>
             </Helmet>
             <Header title="Un réseau en partenariat" text="H10 regroupe 5 cabinets d'expertise-comptable et plus de 100 collaborateurs." image={partenaires}/>
             <Banderole />

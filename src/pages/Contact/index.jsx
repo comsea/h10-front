@@ -57,7 +57,7 @@ const Contact = () => {
     return(
         <div>
             <Helmet>
-                <title>Contactez-nous ! | Réseaux H10</title>
+                <title>Contactez-nous ! | Réseau H10</title>
             </Helmet>
             <Header title="Contactez-nous à tout moment" text="Nos équipes sont à votre écoute et vous garantissent une réponse rapide." image={contact} />
             <Banderole />
