@@ -35,11 +35,12 @@ export const Actualité = () => {
     return(
         <div>
             <Helmet>
-                <meta property="og:title" content={postState.title || 'Article' } />
+                <meta property="og:title" content={postState.title} />
                 <meta property="og:description" content={'Venez découvrir le nouvel article du Réseau H10' }  />
                 <meta property="og:image" content={"https://api.reseauh10.fr/build/images/"+postState.image} />
                 <meta property="og:url" content={'https://www.reseauh10.fr/actualite/'+postState.id || 'https://www.reseauh10.fr/actualites'} />
                 <meta property="og:type" content="article" />
+                <link rel="canonical" href={"https://www.reseauh10.fr/actualite/"+postState.id} />
             </Helmet>
             <Header title={postState.title} text={"Découvrez l'article ci-dessous : "+postState.title} image={"https://api.reseauh10.fr/build/images/"+postState.image} />
             <Banderole />
