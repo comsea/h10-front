@@ -27,7 +27,7 @@
     <meta property="og:image" content="" data-react-helmet="true" />
     <meta property="og:url" content='https://www.reseauh10.fr/' data-react-helmet="true" />
     <meta property="og:type" content="article" data-react-helmet="true" />
-    <link rel="canonical" href='https://www.reseauh10.fr/' data-react-helmet="true" />
+    <link rel="canonical" href='https://www.reseauh10.fr/actualite' data-react-helmet="true" />
   </head>
   <body class="m-0 h-full">
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -42,6 +42,27 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      // Ajoutez ce script pour mettre à jour les métadonnées en fonction de la page actuelle
+      document.addEventListener('DOMContentLoaded', function () {
+        var currentPath = window.location.pathname;
+  
+        if (currentPath === '/actualite/4') {
+          document.title = 'Titre de la page 1';
+          var descriptionMeta = document.querySelector('meta[name="description"]');
+          if (descriptionMeta) {
+            descriptionMeta.content = 'Description de la page 1';
+          }
+        } else if (currentPath === '/actualite/3') {
+          document.title = 'Titre de la page 2';
+          var descriptionMeta = document.querySelector('meta[name="description"]');
+          if (descriptionMeta) {
+            descriptionMeta.content = 'Description de la page 2';
+          }
+        }
+        // Ajoutez d'autres conditions pour d'autres pages si nécessaire
+      });
+    </script>
 
     <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
     <script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
