@@ -19,6 +19,7 @@ import Mentions from "./Mentions";
 import { Actualité } from "./Actualité";
 import BackToTop from "../components/BackToTop";
 import CookieConsentBanner from "../components/CookiesConsent";
+import { HelmetProvider } from "react-helmet-async";
 
 const Layout = () => {
   return(
@@ -69,7 +70,9 @@ const Content = () => {
 const App = () => {
   return (
     <div className="App 2xl:text-2xl text-xl lg:font-medium font-normal relative overflow-x-hidden h-full">
-      <Content />
+      <HelmetProvider>
+        <Content />
+      </HelmetProvider>
     </div>
   );
 }
