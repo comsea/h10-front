@@ -49,7 +49,11 @@ export const Actualité = () => {
                 <h2 className="lg:text-4xl text-3xl font-bold text-darkblue mb-10">Galerie photo</h2>
                 <div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-10">
                     {isLoading ? "Chargement en cours" : galeries.map(galerie => (
-                        <img src={postState.gallery === "/api/images/"+galerie.id ? "Image en cours de chargement" : "https://api.reseauh10.fr/build/images/"+galerie.path } alt="" />
+                        galerie.actualites == "/api/actualites/"+postState.id ?
+                            <>
+                            <img src={postState.gallery === "/api/images/"+galerie.id ? "Image en cours de chargement" : "https://api.reseauh10.fr/build/images/"+galerie.path } alt="" />
+                            </>
+                            : <></>
                     ))}
                 </div>
             </div>
