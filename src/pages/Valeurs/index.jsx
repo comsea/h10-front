@@ -66,7 +66,7 @@ const Valeurs = () =>{
                         <p className="text-justify">Créé en janvier 2024, H10 Formation est un organisme de formation déployé dans les Ardennes, l’Aisne et la Marne. Certifié Qualiopi, H10 Formation souhaite apporter une réponse, en local, aux enjeux de recrutement et de montée en compétences des collaborateurs, rencontrés par de nombreux chefs d’entreprise régionaux.</p>
                         <p className="text-justify">Grâce à notre réseau, H10 Formation bénéficie d’une compréhension de la stratégie des entreprises qui lui permet de construire une offre de formations en adéquation avec la réalité.</p>
                         <p className="text-justify">Nos formations couvrent les domaines allant du RH, au développement personnel en passant par le digital.</p>
-                        <a href="https://h10formation.fr/" className="text-justify text-darkblue hover:underline">Consulter le site internet</a>
+                        <a href="https://h10formation.fr/" target="_blank" rel="noreferrer" className="text-justify text-darkblue hover:underline">Consulter le site internet</a>
                     </div>
                     <div class="lg:w-[30%] my-6 lg:my-0 flex justify-center items-center">
                         <div class="bg-gray duration-200 items-center rounded-t-full">
