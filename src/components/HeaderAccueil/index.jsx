@@ -31,8 +31,9 @@ const HeaderAccueil = () => {
                         </div>
                     </div>
                 </div>  
-                <div className="w-[60%] relative hidden lg:flex justify-center items-start">
-                    <img src={header} alt="Header" className="absolute xl:w-[80%] w-[95%]" />
+                <div className="w-[55%] relative hidden lg:flex flex-col justify-center items-center">
+                    <img src={header} alt="Header" className="xl:w-[70%] w-[95%]" />
+                    <a href="/pdf/brochure.pdf" download="brochure.pdf" className="mt-8 border-[6px] border-[#C3D5DC] rounded-full py-1 px-6 hover:bg-[#C3D5DC] hover:text-darkblue transition-all ease-in-out duration-200">Télécharger la brochure</a>
                 </div> 
             </div>
         </div>
