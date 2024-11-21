@@ -20,7 +20,7 @@ export const Actualité = () => {
                 setPostState(result)
                 setIsLoading(false)
             })})
-    }, [])
+    }, [id])
 
     useEffect(() => {
         fetch(`https://api.reseauh10.fr/api/images`)
@@ -31,6 +31,11 @@ export const Actualité = () => {
                 setIsLoading(false)
             })})
     }, [])
+
+    // Filtrer les galeries associées à l'article
+    const filteredGaleries = galeries.filter(
+        (galerie) => galerie.actualites === `/api/actualites/${postState.id}`
+    );
 
     return(
         <div>
@@ -46,16 +51,20 @@ export const Actualité = () => {
             <Banderole />
             <div className="w-11/12 mb-12 mx-auto lg:w-10/12 flex flex-col justify-start items-start">
                 <p className="mb-10 text-justify" dangerouslySetInnerHTML={{ __html: postState.description }} />
-                <h2 className="lg:text-4xl text-3xl font-bold text-darkblue mb-10">Galerie photo</h2>
-                <div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-10">
-                    {isLoading ? "Chargement en cours" : galeries.map(galerie => (
-                        galerie.actualites == "/api/actualites/"+postState.id ?
-                            <>
-                            <img src={postState.gallery === "/api/images/"+galerie.id ? "Image en cours de chargement" : "https://api.reseauh10.fr/build/images/"+galerie.path } alt="" />
-                            </>
-                            : <></>
-                    ))}
-                </div>
+                {filteredGaleries.length > 0 && (
+                    <>
+                        <h2 className="lg:text-4xl text-3xl font-bold text-darkblue mb-10">Galerie photo</h2>
+                        <div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-10">
+                            {isLoading ? "Chargement en cours" : galeries.map(galerie => (
+                                galerie.actualites === "/api/actualites/"+postState.id ?
+                                    <>
+                                    <img src={postState.gallery === "/api/images/"+galerie.id ? "Image en cours de chargement" : "https://api.reseauh10.fr/build/images/"+galerie.path } alt="" />
+                                    </>
+                                    : <></>
+                            ))}
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     )
