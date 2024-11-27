@@ -223,10 +223,6 @@ const Presentation = () => {
                         <i> 11</i> experts-comptables dont 
                         <i> 5 </i> 
                         <span class="font-bold text-blue">Commissaires aux Comptes.</span> 
-                        <br></br>Il emploie un  
-                        <span class="font-bold text-blue"> avocat fiscaliste</span> dédié 
-                        <i> aux montages complexes et à l’accompagnement des contrôles fiscaux</i>, 
-                        et des profils de juristes <i>qualifiés</i> en droits des sociétés.
                     </p>
                     {/* employé */}
                     <div class="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6 text-start text-darkblue text-2xl font-normal 2xl:mt-12 mt-6">

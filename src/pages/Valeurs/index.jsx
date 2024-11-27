@@ -37,7 +37,7 @@ const Valeurs = () =>{
                         <h3 class="text-3xl 2xl:text-5xl mx-auto lg:mx-0 font-semibold w-[80%]"><span className="text-darkblue">La mutualisation</span> des compétences techniques et humaines</h3>
                         <p className="text-justify">Par la mutualisation des compétences et des ressources de 5 cabinets d’expertise-comptable, le réseau H10 développe des capacités humaines, logistiques et informatiques équivalentes à celles des grandes structures comptables, tout en conservant l’indépendance de chaque cabinet pour le conseil de ses clients.</p>
                         <p className="text-justify">Organisé en pôles d’expertise et utilisant des logiciels de gestion transversaux, le réseau H10 facilite l’échange d’idées et d’informations dans le respect du code déontologique de la profession obligeant indépendance et confidentialité.</p>
-                        <p className="text-justify">Comptant des Commissaires aux Comptes et un avocat fiscaliste parmi les équipes, l’ensemble des cabinets du réseau H10 bénéficient d’une expertise en audit légal et d’un conseil sur-mesure en droit fiscal et droit des sociétés.</p>
+                        <p className="text-justify">Comptant des Commissaires aux Comptes parmi les équipes, l’ensemble des cabinets du réseau H10 bénéficient d’une expertise en audit légal et d’un conseil sur-mesure en droit fiscal et droit des sociétés.</p>
                     </div>
                     <div class="lg:w-[30%] my-6 lg:my-0 flex justify-center items-center">
                         <div class="bg-gray duration-200 items-center rounded-t-full">
